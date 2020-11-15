@@ -1,0 +1,19 @@
+Args: pva -p hsp -t spi -f 2R_test.pvadir/pvaHDL.lis -o 2R_test.pvadir
+
+Begin of pVA compiling on Sat Nov 14 23:52:26 2020	GTM/In-use: 0.6250/0.5382 MB
+
+Parsing '../building_blocks/../building_blocks/rram.va'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/disciplines.vams'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/constants.vams'
+Parsing include file '../building_blocks/smoothfunctions.va'
+
+End of pVA compiling on Sat Nov 14 23:52:26 2020	GTM/In-use: 1.3750/1.2819 MB
+
+
+End of build pVA DB on Sat Nov 14 23:52:26 2020	GTM/In-use: 2.3750/2.3465 MB
+
+
+2R_test.pvadir/pvaRTL_linux64.so is reused
+
+End of pVA elaboration on Sat Nov 14 23:52:26 2020	GTM/In-use: 2.5000/2.4105 MB
+

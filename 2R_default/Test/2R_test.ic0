@@ -1,0 +1,25 @@
+* "simulator" "HSPICE" 
+* "version" "M-2017.03-SP2 linux64"
+* "format" "HSP"
+* "rundate" "23:52:26 11/14/2020 "
+* "netlist" "2R_test.sp "
+* "runtitle" "* 2r test"
+* time =    0.            
+* temperature =   25.0000        
+*** BEGIN: Saved Operating Point ***                     
+.option 
++ gmindc=   1.0000p       
+.nodeset
++ bl = 614.4403u       
++ vgate1 =   1.5000        
++ vgate2 =   1.5000        
++ vgate3 =   0.            
++ vwr =   1.5000        
++ wl_b =   4.3952n       
++ wl_t =   4.3937n       
++ x2r_cell.blc =  23.6323u       
++ x2r_cell.gap_b =   1.0000        
++ x2r_cell.gap_t =   1.5000        
++ x2r_cell.wl_bc = 170.6889p       
++ x2r_cell.wl_tc = 169.2130p       
+***   END: Saved Operating Point ***                     

@@ -1,0 +1,1773 @@
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+ScopeSigMgr:loadpffile /home/mcoduoza/2R_design/OpenRAM/2R_default/Test/2R_test.tr0 1 openonly
+# PF:1
+wm geometry .sigmgr._PF:1 231x319+1199+597
+pf:read PF:1 v(wl_t)
+# WF:1:2
+Graph addsignal WF:1:2 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal0
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+pf:read PF:1 v(wl_b)
+# WF:1:1
+Graph addsignal WF:1:1 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal1
+pf:read PF:1 v(bl)
+# WF:1:3
+Graph addsignal WF:1:3 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal2
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+pf:read PF:1 {x2r_cell;v(gap_t)}
+# WF:1:6
+Graph addsignal WF:1:6 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal3
+pf:read PF:1 {x2r_cell;v(wl_tc)}
+# WF:1:4
+Graph addsignal WF:1:4 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal4
+pf:read PF:1 {x2r_cell;v(gap_b)}
+# WF:1:5
+Graph addsignal WF:1:5 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal5
+pf:read PF:1 {x2r_cell;v(wl_bc)}
+# WF:1:7
+Graph addsignal WF:1:7 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal6
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:2:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal7
+Graph addsignal WF:2:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal8
+Graph addsignal WF:2:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal9
+Graph addsignal WF:2:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal10
+Graph addsignal WF:2:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal11
+Graph addsignal WF:2:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal12
+Graph addsignal WF:2:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal13
+Graph itemselect all rem
+Graph itemselect Signal0 add
+# Signal0
+Graph itemselect Signal1 add
+# Signal1
+Graph itemselect Signal2 add
+# Signal2
+Graph itemselect Signal3 add
+# Signal3
+Graph itemselect Signal4 add
+# Signal4
+Graph itemselect Signal5 add
+# Signal5
+Graph itemselect Signal6 add
+# Signal6
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph:DSel
+Graph:Select Graph0
+Graph:DSel
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:3:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal14
+Graph addsignal WF:3:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal15
+Graph addsignal WF:3:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal16
+Graph addsignal WF:3:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal17
+Graph addsignal WF:3:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal18
+Graph addsignal WF:3:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal19
+Graph addsignal WF:3:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal20
+Graph itemselect all rem
+Graph itemselect Signal7 add
+# Signal7
+Graph itemselect Signal8 add
+# Signal8
+Graph itemselect Signal9 add
+# Signal9
+Graph itemselect Signal10 add
+# Signal10
+Graph itemselect Signal11 add
+# Signal11
+Graph itemselect Signal12 add
+# Signal12
+Graph itemselect Signal13 add
+# Signal13
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:4:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal21
+Graph addsignal WF:4:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal22
+Graph addsignal WF:4:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal23
+Graph addsignal WF:4:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal24
+Graph addsignal WF:4:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal25
+Graph addsignal WF:4:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal26
+Graph addsignal WF:4:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal27
+Graph itemselect all rem
+Graph itemselect Signal14 add
+# Signal14
+Graph itemselect Signal15 add
+# Signal15
+Graph itemselect Signal16 add
+# Signal16
+Graph itemselect Signal17 add
+# Signal17
+Graph itemselect Signal18 add
+# Signal18
+Graph itemselect Signal19 add
+# Signal19
+Graph itemselect Signal20 add
+# Signal20
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:5:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal28
+Graph addsignal WF:5:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal29
+Graph addsignal WF:5:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal30
+Graph addsignal WF:5:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal31
+Graph addsignal WF:5:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal32
+Graph addsignal WF:5:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal33
+Graph addsignal WF:5:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal34
+Graph itemselect all rem
+Graph itemselect Signal21 add
+# Signal21
+Graph itemselect Signal22 add
+# Signal22
+Graph itemselect Signal23 add
+# Signal23
+Graph itemselect Signal24 add
+# Signal24
+Graph itemselect Signal25 add
+# Signal25
+Graph itemselect Signal26 add
+# Signal26
+Graph itemselect Signal27 add
+# Signal27
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:6:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal35
+Graph addsignal WF:6:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal36
+Graph addsignal WF:6:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal37
+Graph addsignal WF:6:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal38
+Graph addsignal WF:6:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal39
+Graph addsignal WF:6:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal40
+Graph addsignal WF:6:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal41
+Graph itemselect all rem
+Graph itemselect Signal28 add
+# Signal28
+Graph itemselect Signal29 add
+# Signal29
+Graph itemselect Signal30 add
+# Signal30
+Graph itemselect Signal31 add
+# Signal31
+Graph itemselect Signal32 add
+# Signal32
+Graph itemselect Signal33 add
+# Signal33
+Graph itemselect Signal34 add
+# Signal34
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:7:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal42
+Graph addsignal WF:7:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal43
+Graph addsignal WF:7:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal44
+Graph addsignal WF:7:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal45
+Graph addsignal WF:7:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal46
+Graph addsignal WF:7:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal47
+Graph addsignal WF:7:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal48
+Graph itemselect all rem
+Graph itemselect Signal35 add
+# Signal35
+Graph itemselect Signal36 add
+# Signal36
+Graph itemselect Signal37 add
+# Signal37
+Graph itemselect Signal38 add
+# Signal38
+Graph itemselect Signal39 add
+# Signal39
+Graph itemselect Signal40 add
+# Signal40
+Graph itemselect Signal41 add
+# Signal41
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:8:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal49
+Graph addsignal WF:8:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal50
+Graph addsignal WF:8:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal51
+Graph addsignal WF:8:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal52
+Graph addsignal WF:8:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal53
+Graph addsignal WF:8:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal54
+Graph addsignal WF:8:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal55
+Graph itemselect all rem
+Graph itemselect Signal42 add
+# Signal42
+Graph itemselect Signal43 add
+# Signal43
+Graph itemselect Signal44 add
+# Signal44
+Graph itemselect Signal45 add
+# Signal45
+Graph itemselect Signal46 add
+# Signal46
+Graph itemselect Signal47 add
+# Signal47
+Graph itemselect Signal48 add
+# Signal48
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:9:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal56
+Graph addsignal WF:9:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal57
+Graph addsignal WF:9:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal58
+Graph addsignal WF:9:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal59
+Graph addsignal WF:9:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal60
+Graph addsignal WF:9:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal61
+Graph addsignal WF:9:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal62
+Graph itemselect all rem
+Graph itemselect Signal49 add
+# Signal49
+Graph itemselect Signal50 add
+# Signal50
+Graph itemselect Signal51 add
+# Signal51
+Graph itemselect Signal52 add
+# Signal52
+Graph itemselect Signal53 add
+# Signal53
+Graph itemselect Signal54 add
+# Signal54
+Graph itemselect Signal55 add
+# Signal55
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:10:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal63
+Graph addsignal WF:10:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal64
+Graph addsignal WF:10:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal65
+Graph addsignal WF:10:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal66
+Graph addsignal WF:10:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal67
+Graph addsignal WF:10:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal68
+Graph addsignal WF:10:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal69
+Graph itemselect all rem
+Graph itemselect Signal56 add
+# Signal56
+Graph itemselect Signal57 add
+# Signal57
+Graph itemselect Signal58 add
+# Signal58
+Graph itemselect Signal59 add
+# Signal59
+Graph itemselect Signal60 add
+# Signal60
+Graph itemselect Signal61 add
+# Signal61
+Graph itemselect Signal62 add
+# Signal62
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:11:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal70
+Graph addsignal WF:11:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal71
+Graph addsignal WF:11:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal72
+Graph addsignal WF:11:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal73
+Graph addsignal WF:11:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal74
+Graph addsignal WF:11:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal75
+Graph addsignal WF:11:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal76
+Graph itemselect all rem
+Graph itemselect Signal63 add
+# Signal63
+Graph itemselect Signal64 add
+# Signal64
+Graph itemselect Signal65 add
+# Signal65
+Graph itemselect Signal66 add
+# Signal66
+Graph itemselect Signal67 add
+# Signal67
+Graph itemselect Signal68 add
+# Signal68
+Graph itemselect Signal69 add
+# Signal69
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:12:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal77
+Graph addsignal WF:12:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal78
+Graph addsignal WF:12:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal79
+Graph addsignal WF:12:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal80
+Graph addsignal WF:12:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal81
+Graph addsignal WF:12:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal82
+Graph addsignal WF:12:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal83
+Graph itemselect all rem
+Graph itemselect Signal70 add
+# Signal70
+Graph itemselect Signal71 add
+# Signal71
+Graph itemselect Signal72 add
+# Signal72
+Graph itemselect Signal73 add
+# Signal73
+Graph itemselect Signal74 add
+# Signal74
+Graph itemselect Signal75 add
+# Signal75
+Graph itemselect Signal76 add
+# Signal76
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:13:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal84
+Graph addsignal WF:13:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal85
+Graph addsignal WF:13:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal86
+Graph addsignal WF:13:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal87
+Graph addsignal WF:13:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal88
+Graph addsignal WF:13:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal89
+Graph addsignal WF:13:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal90
+Graph itemselect all rem
+Graph itemselect Signal77 add
+# Signal77
+Graph itemselect Signal78 add
+# Signal78
+Graph itemselect Signal79 add
+# Signal79
+Graph itemselect Signal80 add
+# Signal80
+Graph itemselect Signal81 add
+# Signal81
+Graph itemselect Signal82 add
+# Signal82
+Graph itemselect Signal83 add
+# Signal83
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:14:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal91
+Graph addsignal WF:14:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal92
+Graph addsignal WF:14:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal93
+Graph addsignal WF:14:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal94
+Graph addsignal WF:14:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal95
+Graph addsignal WF:14:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal96
+Graph addsignal WF:14:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal97
+Graph itemselect all rem
+Graph itemselect Signal84 add
+# Signal84
+Graph itemselect Signal85 add
+# Signal85
+Graph itemselect Signal86 add
+# Signal86
+Graph itemselect Signal87 add
+# Signal87
+Graph itemselect Signal88 add
+# Signal88
+Graph itemselect Signal89 add
+# Signal89
+Graph itemselect Signal90 add
+# Signal90
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:15:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal98
+Graph addsignal WF:15:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal99
+Graph addsignal WF:15:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal100
+Graph addsignal WF:15:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal101
+Graph addsignal WF:15:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal102
+Graph addsignal WF:15:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal103
+Graph addsignal WF:15:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal104
+Graph itemselect all rem
+Graph itemselect Signal91 add
+# Signal91
+Graph itemselect Signal92 add
+# Signal92
+Graph itemselect Signal93 add
+# Signal93
+Graph itemselect Signal94 add
+# Signal94
+Graph itemselect Signal95 add
+# Signal95
+Graph itemselect Signal96 add
+# Signal96
+Graph itemselect Signal97 add
+# Signal97
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+wm geometry . 900x785+0+0
+Mdi:ArrangeIcons
+wm geometry . 900x785+8+85
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+wm geometry . 900x785+0+0
+Mdi:ArrangeIcons
+wm geometry . 900x785+8+85
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:16:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal105
+Graph addsignal WF:16:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal106
+Graph addsignal WF:16:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal107
+Graph addsignal WF:16:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal108
+Graph addsignal WF:16:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal109
+Graph addsignal WF:16:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal110
+Graph addsignal WF:16:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal111
+Graph itemselect all rem
+Graph itemselect Signal98 add
+# Signal98
+Graph itemselect Signal99 add
+# Signal99
+Graph itemselect Signal100 add
+# Signal100
+Graph itemselect Signal101 add
+# Signal101
+Graph itemselect Signal102 add
+# Signal102
+Graph itemselect Signal103 add
+# Signal103
+Graph itemselect Signal104 add
+# Signal104
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:17:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal112
+Graph addsignal WF:17:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal113
+Graph addsignal WF:17:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal114
+Graph addsignal WF:17:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal115
+Graph addsignal WF:17:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal116
+Graph addsignal WF:17:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal117
+Graph addsignal WF:17:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal118
+Graph itemselect all rem
+Graph itemselect Signal105 add
+# Signal105
+Graph itemselect Signal106 add
+# Signal106
+Graph itemselect Signal107 add
+# Signal107
+Graph itemselect Signal108 add
+# Signal108
+Graph itemselect Signal109 add
+# Signal109
+Graph itemselect Signal110 add
+# Signal110
+Graph itemselect Signal111 add
+# Signal111
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:18:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal119
+Graph addsignal WF:18:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal120
+Graph addsignal WF:18:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal121
+Graph addsignal WF:18:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal122
+Graph addsignal WF:18:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal123
+Graph addsignal WF:18:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal124
+Graph addsignal WF:18:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal125
+Graph itemselect all rem
+Graph itemselect Signal112 add
+# Signal112
+Graph itemselect Signal113 add
+# Signal113
+Graph itemselect Signal114 add
+# Signal114
+Graph itemselect Signal115 add
+# Signal115
+Graph itemselect Signal116 add
+# Signal116
+Graph itemselect Signal117 add
+# Signal117
+Graph itemselect Signal118 add
+# Signal118
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:19:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal126
+Graph addsignal WF:19:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal127
+Graph addsignal WF:19:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal128
+Graph addsignal WF:19:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal129
+Graph addsignal WF:19:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal130
+Graph addsignal WF:19:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal131
+Graph addsignal WF:19:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal132
+Graph itemselect all rem
+Graph itemselect Signal119 add
+# Signal119
+Graph itemselect Signal120 add
+# Signal120
+Graph itemselect Signal121 add
+# Signal121
+Graph itemselect Signal122 add
+# Signal122
+Graph itemselect Signal123 add
+# Signal123
+Graph itemselect Signal124 add
+# Signal124
+Graph itemselect Signal125 add
+# Signal125
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:20:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal133
+Graph addsignal WF:20:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal134
+Graph addsignal WF:20:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal135
+Graph addsignal WF:20:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal136
+Graph addsignal WF:20:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal137
+Graph addsignal WF:20:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal138
+Graph addsignal WF:20:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal139
+Graph itemselect all rem
+Graph itemselect Signal126 add
+# Signal126
+Graph itemselect Signal127 add
+# Signal127
+Graph itemselect Signal128 add
+# Signal128
+Graph itemselect Signal129 add
+# Signal129
+Graph itemselect Signal130 add
+# Signal130
+Graph itemselect Signal131 add
+# Signal131
+Graph itemselect Signal132 add
+# Signal132
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:21:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal140
+Graph addsignal WF:21:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal141
+Graph addsignal WF:21:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal142
+Graph addsignal WF:21:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal143
+Graph addsignal WF:21:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal144
+Graph addsignal WF:21:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal145
+Graph addsignal WF:21:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal146
+Graph itemselect all rem
+Graph itemselect Signal133 add
+# Signal133
+Graph itemselect Signal134 add
+# Signal134
+Graph itemselect Signal135 add
+# Signal135
+Graph itemselect Signal136 add
+# Signal136
+Graph itemselect Signal137 add
+# Signal137
+Graph itemselect Signal138 add
+# Signal138
+Graph itemselect Signal139 add
+# Signal139
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:22:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal147
+Graph addsignal WF:22:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal148
+Graph addsignal WF:22:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal149
+Graph addsignal WF:22:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal150
+Graph addsignal WF:22:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal151
+Graph addsignal WF:22:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal152
+Graph addsignal WF:22:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal153
+Graph itemselect all rem
+Graph itemselect Signal140 add
+# Signal140
+Graph itemselect Signal141 add
+# Signal141
+Graph itemselect Signal142 add
+# Signal142
+Graph itemselect Signal143 add
+# Signal143
+Graph itemselect Signal144 add
+# Signal144
+Graph itemselect Signal145 add
+# Signal145
+Graph itemselect Signal146 add
+# Signal146
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:23:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal154
+Graph addsignal WF:23:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal155
+Graph addsignal WF:23:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal156
+Graph addsignal WF:23:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal157
+Graph addsignal WF:23:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal158
+Graph addsignal WF:23:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal159
+Graph addsignal WF:23:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal160
+Graph itemselect all rem
+Graph itemselect Signal147 add
+# Signal147
+Graph itemselect Signal148 add
+# Signal148
+Graph itemselect Signal149 add
+# Signal149
+Graph itemselect Signal150 add
+# Signal150
+Graph itemselect Signal151 add
+# Signal151
+Graph itemselect Signal152 add
+# Signal152
+Graph itemselect Signal153 add
+# Signal153
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:24:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal161
+Graph addsignal WF:24:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal162
+Graph addsignal WF:24:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal163
+Graph addsignal WF:24:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal164
+Graph addsignal WF:24:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal165
+Graph addsignal WF:24:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal166
+Graph addsignal WF:24:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal167
+Graph itemselect all rem
+Graph itemselect Signal154 add
+# Signal154
+Graph itemselect Signal155 add
+# Signal155
+Graph itemselect Signal156 add
+# Signal156
+Graph itemselect Signal157 add
+# Signal157
+Graph itemselect Signal158 add
+# Signal158
+Graph itemselect Signal159 add
+# Signal159
+Graph itemselect Signal160 add
+# Signal160
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:25:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal168
+Graph addsignal WF:25:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal169
+Graph addsignal WF:25:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal170
+Graph addsignal WF:25:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal171
+Graph addsignal WF:25:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal172
+Graph addsignal WF:25:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal173
+Graph addsignal WF:25:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal174
+Graph itemselect all rem
+Graph itemselect Signal161 add
+# Signal161
+Graph itemselect Signal162 add
+# Signal162
+Graph itemselect Signal163 add
+# Signal163
+Graph itemselect Signal164 add
+# Signal164
+Graph itemselect Signal165 add
+# Signal165
+Graph itemselect Signal166 add
+# Signal166
+Graph itemselect Signal167 add
+# Signal167
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:26:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal175
+Graph addsignal WF:26:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal176
+Graph addsignal WF:26:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal177
+Graph addsignal WF:26:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal178
+Graph addsignal WF:26:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal179
+Graph addsignal WF:26:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal180
+Graph addsignal WF:26:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal181
+Graph itemselect all rem
+Graph itemselect Signal168 add
+# Signal168
+Graph itemselect Signal169 add
+# Signal169
+Graph itemselect Signal170 add
+# Signal170
+Graph itemselect Signal171 add
+# Signal171
+Graph itemselect Signal172 add
+# Signal172
+Graph itemselect Signal173 add
+# Signal173
+Graph itemselect Signal174 add
+# Signal174
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:27:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal182
+Graph addsignal WF:27:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal183
+Graph addsignal WF:27:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal184
+Graph addsignal WF:27:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal185
+Graph addsignal WF:27:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal186
+Graph addsignal WF:27:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal187
+Graph addsignal WF:27:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal188
+Graph itemselect all rem
+Graph itemselect Signal175 add
+# Signal175
+Graph itemselect Signal176 add
+# Signal176
+Graph itemselect Signal177 add
+# Signal177
+Graph itemselect Signal178 add
+# Signal178
+Graph itemselect Signal179 add
+# Signal179
+Graph itemselect Signal180 add
+# Signal180
+Graph itemselect Signal181 add
+# Signal181
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:28:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal189
+Graph addsignal WF:28:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal190
+Graph addsignal WF:28:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal191
+Graph addsignal WF:28:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal192
+Graph addsignal WF:28:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal193
+Graph addsignal WF:28:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal194
+Graph addsignal WF:28:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal195
+Graph itemselect all rem
+Graph itemselect Signal182 add
+# Signal182
+Graph itemselect Signal183 add
+# Signal183
+Graph itemselect Signal184 add
+# Signal184
+Graph itemselect Signal185 add
+# Signal185
+Graph itemselect Signal186 add
+# Signal186
+Graph itemselect Signal187 add
+# Signal187
+Graph itemselect Signal188 add
+# Signal188
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:29:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal196
+Graph addsignal WF:29:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal197
+Graph addsignal WF:29:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal198
+Graph addsignal WF:29:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal199
+Graph addsignal WF:29:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal200
+Graph addsignal WF:29:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal201
+Graph addsignal WF:29:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal202
+Graph itemselect all rem
+Graph itemselect Signal189 add
+# Signal189
+Graph itemselect Signal190 add
+# Signal190
+Graph itemselect Signal191 add
+# Signal191
+Graph itemselect Signal192 add
+# Signal192
+Graph itemselect Signal193 add
+# Signal193
+Graph itemselect Signal194 add
+# Signal194
+Graph itemselect Signal195 add
+# Signal195
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:30:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal203
+Graph addsignal WF:30:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal204
+Graph addsignal WF:30:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal205
+Graph addsignal WF:30:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal206
+Graph addsignal WF:30:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal207
+Graph addsignal WF:30:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal208
+Graph addsignal WF:30:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal209
+Graph itemselect all rem
+Graph itemselect Signal196 add
+# Signal196
+Graph itemselect Signal197 add
+# Signal197
+Graph itemselect Signal198 add
+# Signal198
+Graph itemselect Signal199 add
+# Signal199
+Graph itemselect Signal200 add
+# Signal200
+Graph itemselect Signal201 add
+# Signal201
+Graph itemselect Signal202 add
+# Signal202
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:31:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal210
+Graph addsignal WF:31:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal211
+Graph addsignal WF:31:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal212
+Graph addsignal WF:31:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal213
+Graph addsignal WF:31:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal214
+Graph addsignal WF:31:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal215
+Graph addsignal WF:31:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal216
+Graph itemselect all rem
+Graph itemselect Signal203 add
+# Signal203
+Graph itemselect Signal204 add
+# Signal204
+Graph itemselect Signal205 add
+# Signal205
+Graph itemselect Signal206 add
+# Signal206
+Graph itemselect Signal207 add
+# Signal207
+Graph itemselect Signal208 add
+# Signal208
+Graph itemselect Signal209 add
+# Signal209
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:32:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal217
+Graph addsignal WF:32:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal218
+Graph addsignal WF:32:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal219
+Graph addsignal WF:32:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal220
+Graph addsignal WF:32:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal221
+Graph addsignal WF:32:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal222
+Graph addsignal WF:32:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal223
+Graph itemselect all rem
+Graph itemselect Signal210 add
+# Signal210
+Graph itemselect Signal211 add
+# Signal211
+Graph itemselect Signal212 add
+# Signal212
+Graph itemselect Signal213 add
+# Signal213
+Graph itemselect Signal214 add
+# Signal214
+Graph itemselect Signal215 add
+# Signal215
+Graph itemselect Signal216 add
+# Signal216
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:33:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal224
+Graph addsignal WF:33:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal225
+Graph addsignal WF:33:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal226
+Graph addsignal WF:33:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal227
+Graph addsignal WF:33:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal228
+Graph addsignal WF:33:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal229
+Graph addsignal WF:33:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal230
+Graph itemselect all rem
+Graph itemselect Signal217 add
+# Signal217
+Graph itemselect Signal218 add
+# Signal218
+Graph itemselect Signal219 add
+# Signal219
+Graph itemselect Signal220 add
+# Signal220
+Graph itemselect Signal221 add
+# Signal221
+Graph itemselect Signal222 add
+# Signal222
+Graph itemselect Signal223 add
+# Signal223
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:34:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal231
+Graph addsignal WF:34:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal232
+Graph addsignal WF:34:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal233
+Graph addsignal WF:34:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal234
+Graph addsignal WF:34:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal235
+Graph addsignal WF:34:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal236
+Graph addsignal WF:34:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal237
+Graph itemselect all rem
+Graph itemselect Signal224 add
+# Signal224
+Graph itemselect Signal225 add
+# Signal225
+Graph itemselect Signal226 add
+# Signal226
+Graph itemselect Signal227 add
+# Signal227
+Graph itemselect Signal228 add
+# Signal228
+Graph itemselect Signal229 add
+# Signal229
+Graph itemselect Signal230 add
+# Signal230
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:35:3 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal238
+Graph addsignal WF:35:2 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal239
+Graph addsignal WF:35:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal240
+Graph addsignal WF:35:5 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal241
+Graph addsignal WF:35:7 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal242
+Graph addsignal WF:35:4 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal243
+Graph addsignal WF:35:6 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal244
+Graph itemselect all rem
+Graph itemselect Signal231 add
+# Signal231
+Graph itemselect Signal232 add
+# Signal232
+Graph itemselect Signal233 add
+# Signal233
+Graph itemselect Signal234 add
+# Signal234
+Graph itemselect Signal235 add
+# Signal235
+Graph itemselect Signal236 add
+# Signal236
+Graph itemselect Signal237 add
+# Signal237
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+wm geometry .sigmgr._PF:1 231x319+798+457
+wm geometry .sigmgr._PF:1 231x319+1199+597
+wm geometry .sigmgr._PF:1 231x319+798+457
+pf:read PF:35 v(vgate1)
+# WF:35:8
+Graph addsignal WF:35:8 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal245
+pf:read PF:35 v(vgate2)
+# WF:35:9
+Graph addsignal WF:35:9 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal246
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:36:5 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal247
+Graph addsignal WF:36:4 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal248
+Graph addsignal WF:36:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal249
+Graph addsignal WF:36:7 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal250
+Graph addsignal WF:36:9 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal251
+Graph addsignal WF:36:6 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal252
+Graph addsignal WF:36:8 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal253
+Graph addsignal WF:36:2 -region 7 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate1) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal254
+Graph addsignal WF:36:3 -region 8 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate2) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal255
+Graph itemselect all rem
+Graph itemselect Signal238 add
+# Signal238
+Graph itemselect Signal239 add
+# Signal239
+Graph itemselect Signal240 add
+# Signal240
+Graph itemselect Signal241 add
+# Signal241
+Graph itemselect Signal242 add
+# Signal242
+Graph itemselect Signal243 add
+# Signal243
+Graph itemselect Signal244 add
+# Signal244
+Graph itemselect Signal245 add
+# Signal245
+Graph itemselect Signal246 add
+# Signal246
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+wm geometry .sigmgr 376x204+619+230
+wm geometry .sigmgr 376x204+522+164
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+wm geometry .sigmgr 376x204+619+230
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:FullSize
+Mdi:ArrangeIcons
+wm geometry .sigmgr 376x204+1102+341
+wm geometry .sigmgr._PF:1 231x319+1296+513
+Mdi:ArrangeIcons
+wm geometry .sigmgr._PF:1 231x319+798+457
+wm geometry .sigmgr._PF:1 231x319+1296+513
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:37:5 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal256
+Graph addsignal WF:37:4 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal257
+Graph addsignal WF:37:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal258
+Graph addsignal WF:37:7 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal259
+Graph addsignal WF:37:9 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal260
+Graph addsignal WF:37:6 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal261
+Graph addsignal WF:37:8 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal262
+Graph addsignal WF:37:2 -region 7 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate1) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal263
+Graph addsignal WF:37:3 -region 8 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate2) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal264
+Graph itemselect all rem
+Graph itemselect Signal247 add
+# Signal247
+Graph itemselect Signal248 add
+# Signal248
+Graph itemselect Signal249 add
+# Signal249
+Graph itemselect Signal250 add
+# Signal250
+Graph itemselect Signal251 add
+# Signal251
+Graph itemselect Signal252 add
+# Signal252
+Graph itemselect Signal253 add
+# Signal253
+Graph itemselect Signal254 add
+# Signal254
+Graph itemselect Signal255 add
+# Signal255
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+wm geometry . 900x785+0+0
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+wm geometry . 900x785+8+85
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:38:5 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal265
+Graph addsignal WF:38:4 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal266
+Graph addsignal WF:38:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal267
+Graph addsignal WF:38:7 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal268
+Graph addsignal WF:38:9 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal269
+Graph addsignal WF:38:6 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal270
+Graph addsignal WF:38:8 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal271
+Graph addsignal WF:38:2 -region 7 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate1) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal272
+Graph addsignal WF:38:3 -region 8 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate2) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal273
+Graph itemselect all rem
+Graph itemselect Signal256 add
+# Signal256
+Graph itemselect Signal257 add
+# Signal257
+Graph itemselect Signal258 add
+# Signal258
+Graph itemselect Signal259 add
+# Signal259
+Graph itemselect Signal260 add
+# Signal260
+Graph itemselect Signal261 add
+# Signal261
+Graph itemselect Signal262 add
+# Signal262
+Graph itemselect Signal263 add
+# Signal263
+Graph itemselect Signal264 add
+# Signal264
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:39:5 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal274
+Graph addsignal WF:39:4 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal275
+Graph addsignal WF:39:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal276
+Graph addsignal WF:39:7 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal277
+Graph addsignal WF:39:9 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal278
+Graph addsignal WF:39:6 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal279
+Graph addsignal WF:39:8 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal280
+Graph addsignal WF:39:2 -region 7 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate1) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal281
+Graph addsignal WF:39:3 -region 8 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate2) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal282
+Graph itemselect all rem
+Graph itemselect Signal265 add
+# Signal265
+Graph itemselect Signal266 add
+# Signal266
+Graph itemselect Signal267 add
+# Signal267
+Graph itemselect Signal268 add
+# Signal268
+Graph itemselect Signal269 add
+# Signal269
+Graph itemselect Signal270 add
+# Signal270
+Graph itemselect Signal271 add
+# Signal271
+Graph itemselect Signal272 add
+# Signal272
+Graph itemselect Signal273 add
+# Signal273
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:40:5 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal283
+Graph addsignal WF:40:4 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal284
+Graph addsignal WF:40:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal285
+Graph addsignal WF:40:7 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal286
+Graph addsignal WF:40:9 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal287
+Graph addsignal WF:40:6 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal288
+Graph addsignal WF:40:8 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal289
+Graph addsignal WF:40:2 -region 7 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate1) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal290
+Graph addsignal WF:40:3 -region 8 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate2) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal291
+Graph itemselect all rem
+Graph itemselect Signal274 add
+# Signal274
+Graph itemselect Signal275 add
+# Signal275
+Graph itemselect Signal276 add
+# Signal276
+Graph itemselect Signal277 add
+# Signal277
+Graph itemselect Signal278 add
+# Signal278
+Graph itemselect Signal279 add
+# Signal279
+Graph itemselect Signal280 add
+# Signal280
+Graph itemselect Signal281 add
+# Signal281
+Graph itemselect Signal282 add
+# Signal282
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:41:5 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal292
+Graph addsignal WF:41:4 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal293
+Graph addsignal WF:41:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal294
+Graph addsignal WF:41:7 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal295
+Graph addsignal WF:41:9 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal296
+Graph addsignal WF:41:6 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal297
+Graph addsignal WF:41:8 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal298
+Graph addsignal WF:41:2 -region 7 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate1) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal299
+Graph addsignal WF:41:3 -region 8 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate2) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal300
+Graph itemselect all rem
+Graph itemselect Signal283 add
+# Signal283
+Graph itemselect Signal284 add
+# Signal284
+Graph itemselect Signal285 add
+# Signal285
+Graph itemselect Signal286 add
+# Signal286
+Graph itemselect Signal287 add
+# Signal287
+Graph itemselect Signal288 add
+# Signal288
+Graph itemselect Signal289 add
+# Signal289
+Graph itemselect Signal290 add
+# Signal290
+Graph itemselect Signal291 add
+# Signal291
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:42:5 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal301
+Graph addsignal WF:42:4 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal302
+Graph addsignal WF:42:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal303
+Graph addsignal WF:42:7 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal304
+Graph addsignal WF:42:9 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal305
+Graph addsignal WF:42:6 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal306
+Graph addsignal WF:42:8 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal307
+Graph addsignal WF:42:2 -region 7 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate1) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal308
+Graph addsignal WF:42:3 -region 8 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate2) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal309
+Graph itemselect all rem
+Graph itemselect Signal292 add
+# Signal292
+Graph itemselect Signal293 add
+# Signal293
+Graph itemselect Signal294 add
+# Signal294
+Graph itemselect Signal295 add
+# Signal295
+Graph itemselect Signal296 add
+# Signal296
+Graph itemselect Signal297 add
+# Signal297
+Graph itemselect Signal298 add
+# Signal298
+Graph itemselect Signal299 add
+# Signal299
+Graph itemselect Signal300 add
+# Signal300
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+pf:read PF:42 {x2r_cell;v(blc)}
+# WF:42:10
+Graph addsignal WF:42:10 -region new -yview real(y) -xview real(x) -tracehi 2
+# Signal310
+Mdi:Resize 888 665
+Mdi:Move 0 0
+Mdi:ArrangeIcons
+wm geometry . 1214x785+8+85
+Mdi:Resize 1059 665
+Mdi:Move 0 0
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Graph addsignal WF:43:5 -region 0 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal311
+Graph addsignal WF:43:4 -region 1 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill magenta -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal312
+Graph addsignal WF:43:1 -region 2 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill cyan -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(bl) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal313
+Graph addsignal WF:43:8 -region 3 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill yellow -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_t) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal314
+Graph addsignal WF:43:10 -region 4 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #FF8000 -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_tc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal315
+Graph addsignal WF:43:7 -region 5 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(gap_b) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal316
+Graph addsignal WF:43:9 -region 6 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(wl_bc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal317
+Graph addsignal WF:43:2 -region 7 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #89ffbb -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate1) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal318
+Graph addsignal WF:43:3 -region 8 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill #edbfff -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(vgate2) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal319
+Graph addsignal WF:43:6 -region 9 -yview real(y) -xview real(x) -rainbow 0 -rbcolors {} -fill green -linestyle - -width 1 -symbol {} -symwidth 10 -bar {} -barwidth 0 -baseline 0.0 -stipple {} -label v(blc) -xaxis 0 -yaxis 0 -tracehi 2 -bus {} -segdisp y -monotonicdisp 0
+# Signal320
+Graph itemselect all rem
+Graph itemselect Signal301 add
+# Signal301
+Graph itemselect Signal302 add
+# Signal302
+Graph itemselect Signal303 add
+# Signal303
+Graph itemselect Signal304 add
+# Signal304
+Graph itemselect Signal305 add
+# Signal305
+Graph itemselect Signal306 add
+# Signal306
+Graph itemselect Signal307 add
+# Signal307
+Graph itemselect Signal308 add
+# Signal308
+Graph itemselect Signal309 add
+# Signal309
+Graph itemselect Signal310 add
+# Signal310
+Graph delsignal selected
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
+Mdi:ArrangeIcons
