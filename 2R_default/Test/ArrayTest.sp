@@ -34,7 +34,7 @@ VREF vref gnd 'V_REF'
 VCSB csb0 gnd 0
 VREB reb0 gnd 'V_DD'
 VWEB web0 gnd 0
-VCLK clk0 gnd PWL(0 0 10n 'V_DD' 1000n 0 2000n 'V_DD') 
+VCLK clk0 gnd PULSE 0 'V_DD' 10ps 0ps 0ps 1000ns 2000ns
 
 * Output
 Rout dout0_0 gnd 1G
