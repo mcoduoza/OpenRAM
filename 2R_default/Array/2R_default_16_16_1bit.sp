@@ -10,6 +10,9 @@
 * Program "Calibre xRC"
 * Version "v2007.2_34.24"
 *
+.inc opamp.sp
+.inc ../building_blocks/2R.sp
+
 .subckt dff D Q clk vdd gnd
 *
 MM21 Q a_66_6# gnd gnd NMOS_VTG L=5e-08 W=5e-07
@@ -116,6 +119,18 @@ Mpnand2_pmos1 vdd A Z vdd pmos_vtg m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03
 Mpnand2_pmos2 Z B vdd vdd pmos_vtg m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
 Mpnand2_nmos1 Z B net1 gnd nmos_vtg m=1 w=0.18u l=0.05u pd=0.46u ps=0.46u as=0.02p ad=0.02p
 Mpnand2_nmos2 net1 A gnd gnd nmos_vtg m=1 w=0.18u l=0.05u pd=0.46u ps=0.46u as=0.02p ad=0.02p
+.ENDS pnand2
+
+.SUBCKT pnand2_2 A B Z vdd gnd
+* INPUT : A 
+* INPUT : B 
+* OUTPUT: Z 
+* POWER : vdd 
+* GROUND: gnd 
+Mpnand2_pmos1 vdd A Z vdd pmos_vtg m=1 w=0.36u l=0.05u 
+Mpnand2_pmos2 Z B vdd vdd pmos_vtg m=1 w=0.36u l=0.05u 
+Mpnand2_nmos1 Z B net1 gnd nmos_vtg m=1 w=0.27u l=0.05u 
+Mpnand2_nmos2 net1 A gnd gnd nmos_vtg m=1 w=0.27u l=0.05u 
 .ENDS pnand2
 
 * spice ptx M{0} {1} nmos_vtg m=1 w=0.09u l=0.05u pd=0.28u ps=0.28u as=0.01p ad=0.01p
@@ -347,17 +362,17 @@ Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=1.08u l=0.05u pd=2.26u ps=2.26u as=0.14p a
 Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.36u l=0.05u pd=0.82u ps=0.82u as=0.04p ad=0.04p
 .ENDS pinv_0
 
-.SUBCKT wordline_driver A B Z vdd gnd
+.SUBCKT wordline_active_indicator A B Z vdd gnd
 * INPUT : A 
 * INPUT : B 
 * OUTPUT: Z 
 * POWER : vdd 
 * GROUND: gnd 
 Xwld_nand A B zb_int vdd gnd pnand2
-Xwl_driver zb_int Z vdd gnd pinv_0
-.ENDS wordline_driver
+Xwl_driver zb_int Z vdd gnd pinv
+.ENDS wordline_active_indicator
 
-.SUBCKT wordline_driver_array in_0 in_1 in_2 in_3 in_4 in_5 in_6 in_7 in_8 in_9 in_10 in_11 in_12 in_13 in_14 in_15 wl_0 wl_1 wl_2 wl_3 wl_4 wl_5 wl_6 wl_7 wl_8 wl_9 wl_10 wl_11 wl_12 wl_13 wl_14 wl_15 en vdd gnd
+.SUBCKT wordline_active_indicator_array in_0 in_1 in_2 in_3 in_4 in_5 in_6 in_7 in_8 in_9 in_10 in_11 in_12 in_13 in_14 in_15 wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 en vdd gnd
 * INPUT : in_0 
 * INPUT : in_1 
 * INPUT : in_2 
@@ -374,43 +389,43 @@ Xwl_driver zb_int Z vdd gnd pinv_0
 * INPUT : in_13 
 * INPUT : in_14 
 * INPUT : in_15 
-* OUTPUT: wl_0 
-* OUTPUT: wl_1 
-* OUTPUT: wl_2 
-* OUTPUT: wl_3 
-* OUTPUT: wl_4 
-* OUTPUT: wl_5 
-* OUTPUT: wl_6 
-* OUTPUT: wl_7 
-* OUTPUT: wl_8 
-* OUTPUT: wl_9 
-* OUTPUT: wl_10 
-* OUTPUT: wl_11 
-* OUTPUT: wl_12 
-* OUTPUT: wl_13 
-* OUTPUT: wl_14 
-* OUTPUT: wl_15 
+* OUTPUT: wl_active0 
+* OUTPUT: wl_active1 
+* OUTPUT: wl_active2 
+* OUTPUT: wl_active3 
+* OUTPUT: wl_active4 
+* OUTPUT: wl_active5 
+* OUTPUT: wl_active6 
+* OUTPUT: wl_active7 
+* OUTPUT: wl_active8 
+* OUTPUT: wl_active9 
+* OUTPUT: wl_active10 
+* OUTPUT: wl_active11 
+* OUTPUT: wl_active12 
+* OUTPUT: wl_active13 
+* OUTPUT: wl_active14 
+* OUTPUT: wl_active15 
 * INPUT : en 
 * POWER : vdd 
 * GROUND: gnd 
 * rows: 16 cols: 16
-Xwl_driver_and0 in_0 en wl_0 vdd gnd wordline_driver
-Xwl_driver_and1 in_1 en wl_1 vdd gnd wordline_driver
-Xwl_driver_and2 in_2 en wl_2 vdd gnd wordline_driver
-Xwl_driver_and3 in_3 en wl_3 vdd gnd wordline_driver
-Xwl_driver_and4 in_4 en wl_4 vdd gnd wordline_driver
-Xwl_driver_and5 in_5 en wl_5 vdd gnd wordline_driver
-Xwl_driver_and6 in_6 en wl_6 vdd gnd wordline_driver
-Xwl_driver_and7 in_7 en wl_7 vdd gnd wordline_driver
-Xwl_driver_and8 in_8 en wl_8 vdd gnd wordline_driver
-Xwl_driver_and9 in_9 en wl_9 vdd gnd wordline_driver
-Xwl_driver_and10 in_10 en wl_10 vdd gnd wordline_driver
-Xwl_driver_and11 in_11 en wl_11 vdd gnd wordline_driver
-Xwl_driver_and12 in_12 en wl_12 vdd gnd wordline_driver
-Xwl_driver_and13 in_13 en wl_13 vdd gnd wordline_driver
-Xwl_driver_and14 in_14 en wl_14 vdd gnd wordline_driver
-Xwl_driver_and15 in_15 en wl_15 vdd gnd wordline_driver
-.ENDS wordline_driver_array
+Xwl_activedriver_and0 in_0 en wl_active0 vdd gnd wordline_active_indicator
+Xwl_activedriver_and1 in_1 en wl_active1 vdd gnd wordline_active_indicator
+Xwl_activedriver_and2 in_2 en wl_active2 vdd gnd wordline_active_indicator
+Xwl_activedriver_and3 in_3 en wl_active3 vdd gnd wordline_active_indicator
+Xwl_activedriver_and4 in_4 en wl_active4 vdd gnd wordline_active_indicator
+Xwl_activedriver_and5 in_5 en wl_active5 vdd gnd wordline_active_indicator
+Xwl_activedriver_and6 in_6 en wl_active6 vdd gnd wordline_active_indicator
+Xwl_activedriver_and7 in_7 en wl_active7 vdd gnd wordline_active_indicator
+Xwl_activedriver_and8 in_8 en wl_active8 vdd gnd wordline_active_indicator
+Xwl_activedriver_and9 in_9 en wl_active9 vdd gnd wordline_active_indicator
+Xwl_activedriver_and10 in_10 en wl_active10 vdd gnd wordline_active_indicator
+Xwl_activedriver_and11 in_11 en wl_active11 vdd gnd wordline_active_indicator
+Xwl_activedriver_and12 in_12 en wl_active12 vdd gnd wordline_active_indicator
+Xwl_activedriver_and13 in_13 en wl_active13 vdd gnd wordline_active_indicator
+Xwl_activedriver_and14 in_14 en wl_active14 vdd gnd wordline_active_indicator
+Xwl_activedriver_and15 in_15 en wl_active15 vdd gnd wordline_active_indicator
+.ENDS wordline_active_indicator_array
 
 .SUBCKT pinv_1 A Z vdd gnd
 * INPUT : A 
@@ -430,850 +445,510 @@ Xbuf_inv1 A zb_int vdd gnd pinv
 Xbuf_inv2 zb_int Z vdd gnd pinv_1
 .ENDS pbuf
 
-.SUBCKT port_address addr_0 addr_1 addr_2 addr_3 wl_en wl_0 wl_1 wl_2 wl_3 wl_4 wl_5 wl_6 wl_7 wl_8 wl_9 wl_10 wl_11 wl_12 wl_13 wl_14 wl_15 rbl_wl vdd gnd
+.SUBCKT wordline_driver write_1_int write_0_int wl_active r_en wlt wlb vdd gnd vwrite vread vhold 
+* INPUT : write_1_int
+* INPUT : write_0_int
+* INPUT : wl_active
+* INPUT : r_en
+* OUTPUT : wlt
+* OUTPUT : wlb
+* POWER : vdd 
+* GROUND : gnd
+* POWER : vwrite 
+* POWER : vread
+* POWER : vhold
+Xpbuf wl_active wl_active_buf vdd gnd pbuf_0
+Xpinv wl_active_buf wl_active_bar vdd gnd pinv_20
+
+Xpnand_a write_1_int wl_active_buf wl_write1_bar_int_a vdd gnd pnand2_2
+Xpinv_a_1 wl_write1_bar_int_a wl_write1_int_a vdd gnd pinv_20
+Xpinv_a_2 wl_write1_int_a wl_write1_bar vdd gnd pinv_16
+
+Xpnand_b r_en wl_active_buf wl_read_mode_bar vdd gnd pnand2_2
+Xpinv_b wl_read_mode_bar wl_read_mode vdd gnd pinv_20
+
+Xpnand_c write_0_int wl_active_buf wl_write0_bar vdd gnd pnand2_2
+Xpinv_c wl_write0_bar wl_write0 vdd gnd pinv_14
+
+Xpnand_d wl_write0_bar wl_read_mode_bar drive_b_low vdd gnd pnand2_2
+
+mp_vwrite_top wlt wl_write1_bar vwrite vdd pmos_vtg w=1.62u l=0.05u
+mp_vhold_top wlt wl_active_buf vhold vdd pmos_vtg w=1.62u l=0.05u
+mn_vhold_top wlt wl_active_bar vhold gnd nmos_vtg w=0.54u l=0.05u
+mp_vread_top wlt wl_read_mode_bar vread vdd pmos_vtg w=1.62u l=0.05u
+mn_vread_top wlt wl_read_mode vread gnd nmos_vtg w=0.54u l=0.05u
+mn_v0_top wlt wl_write0 gnd gnd nmos_vtg w=0.54u l=0.05u
+
+mp_vwrite_bot wlb wl_write1_bar vwrite vdd pmos_vtg w=1.62u l=0.05u
+mp_vhold_bot wlb wl_active_buf vhold vdd pmos_vtg w=1.62u l=0.05u
+mn_vhold_bot wlb wl_active_bar vhold gnd nmos_vtg w=0.54u l=0.05u
+mn_v0_bot wlb drive_b_low gnd gnd nmos_vtg w=0.54u l=0.05u 
+.ENDS wordline_driver
+
+.SUBCKT wordline_driver_array write_1_int write_0_int r_en wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold
+* INPUT : write_1_int
+* INPUT : write_0_int 
+* INPUT : r_en
+* INPUT: wl_active0 
+* INPUT: wl_active1 
+* INPUT: wl_active2 
+* INPUT: wl_active3 
+* INPUT: wl_active4 
+* INPUT: wl_active5 
+* INPUT: wl_active6 
+* INPUT: wl_active7 
+* INPUT: wl_active8 
+* INPUT: wl_active9 
+* INPUT: wl_active10 
+* INPUT: wl_active11 
+* INPUT: wl_active12 
+* INPUT: wl_active13 
+* INPUT: wl_active14 
+* INPUT: wl_active15 
+* OUTPUT: wlt_0 
+* OUTPUT: wlt_1 
+* OUTPUT: wlt_2 
+* OUTPUT: wlt_3 
+* OUTPUT: wlt_4 
+* OUTPUT: wlt_5 
+* OUTPUT: wlt_6 
+* OUTPUT: wlt_7 
+* OUTPUT: wlt_8 
+* OUTPUT: wlt_9 
+* OUTPUT: wlt_10 
+* OUTPUT: wlt_11 
+* OUTPUT: wlt_12 
+* OUTPUT: wlt_13 
+* OUTPUT: wlt_14 
+* OUTPUT: wlt_15 
+* OUTPUT: wlb_0 
+* OUTPUT: wlb_1 
+* OUTPUT: wlb_2 
+* OUTPUT: wlb_3 
+* OUTPUT: wlb_4 
+* OUTPUT: wlb_5 
+* OUTPUT: wlb_6 
+* OUTPUT: wlb_7 
+* OUTPUT: wlb_8 
+* OUTPUT: wlb_9 
+* OUTPUT: wlb_10 
+* OUTPUT: wlb_11 
+* OUTPUT: wlb_12 
+* OUTPUT: wlb_13 
+* OUTPUT: wlb_14 
+* OUTPUT: wlb_15 
+* POWER : vdd 
+* GROUND: gnd 
+* POWER : vwrite 
+* POWER : vread 
+* POWER : vhold
+Xwordline_driver0 write_1_int write_0_int wl_active0 r_en wlt_0 wlb_0 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver1 write_1_int write_0_int wl_active1 r_en wlt_1 wlb_1 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver2 write_1_int write_0_int wl_active2 r_en wlt_2 wlb_2 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver3 write_1_int write_0_int wl_active3 r_en wlt_3 wlb_3 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver4 write_1_int write_0_int wl_active4 r_en wlt_4 wlb_4 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver5 write_1_int write_0_int wl_active5 r_en wlt_5 wlb_5 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver6 write_1_int write_0_int wl_active6 r_en wlt_6 wlb_6 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver7 write_1_int write_0_int wl_active7 r_en wlt_7 wlb_7 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver8 write_1_int write_0_int wl_active8 r_en wlt_8 wlb_8 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver9 write_1_int write_0_int wl_active9 r_en wlt_9 wlb_9 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver10 write_1_int write_0_int wl_active10 r_en wlt_10 wlb_10 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver11 write_1_int write_0_int wl_active11 r_en wlt_11 wlb_11 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver12 write_1_int write_0_int wl_active12 r_en wlt_12 wlb_12 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver13 write_1_int write_0_int wl_active13 r_en wlt_13 wlb_13 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver14 write_1_int write_0_int wl_active14 r_en wlt_14 wlb_14 vdd gnd vwrite vread vhold wordline_driver
+Xwordline_driver15 write_1_int write_0_int wl_active15 r_en wlt_15 wlb_15 vdd gnd vwrite vread vhold wordline_driver
+.ENDS wordline_driver_array
+
+.SUBCKT port_address addr_0 addr_1 addr_2 addr_3 wl_en write_1_int write_0_int r_en wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold
 * INPUT : addr_0 
 * INPUT : addr_1 
 * INPUT : addr_2 
 * INPUT : addr_3 
-* INPUT : wl_en 
-* OUTPUT: wl_0 
-* OUTPUT: wl_1 
-* OUTPUT: wl_2 
-* OUTPUT: wl_3 
-* OUTPUT: wl_4 
-* OUTPUT: wl_5 
-* OUTPUT: wl_6 
-* OUTPUT: wl_7 
-* OUTPUT: wl_8 
-* OUTPUT: wl_9 
-* OUTPUT: wl_10 
-* OUTPUT: wl_11 
-* OUTPUT: wl_12 
-* OUTPUT: wl_13 
-* OUTPUT: wl_14 
-* OUTPUT: wl_15 
-* OUTPUT: rbl_wl 
+* INPUT : wl_en
+* INPUT : write_1_int
+* INPUT : write_0_int 
+* INPUT : r_en
+* OUTPUT: wlt_0 
+* OUTPUT: wlt_1 
+* OUTPUT: wlt_2 
+* OUTPUT: wlt_3 
+* OUTPUT: wlt_4 
+* OUTPUT: wlt_5 
+* OUTPUT: wlt_6 
+* OUTPUT: wlt_7 
+* OUTPUT: wlt_8 
+* OUTPUT: wlt_9 
+* OUTPUT: wlt_10 
+* OUTPUT: wlt_11 
+* OUTPUT: wlt_12 
+* OUTPUT: wlt_13 
+* OUTPUT: wlt_14 
+* OUTPUT: wlt_15 
+* OUTPUT: wlb_0 
+* OUTPUT: wlb_1 
+* OUTPUT: wlb_2 
+* OUTPUT: wlb_3 
+* OUTPUT: wlb_4 
+* OUTPUT: wlb_5 
+* OUTPUT: wlb_6 
+* OUTPUT: wlb_7 
+* OUTPUT: wlb_8 
+* OUTPUT: wlb_9 
+* OUTPUT: wlb_10 
+* OUTPUT: wlb_11 
+* OUTPUT: wlb_12 
+* OUTPUT: wlb_13 
+* OUTPUT: wlb_14 
+* OUTPUT: wlb_15 
 * POWER : vdd 
 * GROUND: gnd 
+* POWER : vwrite 
+* POWER : vread 
+* POWER : vhold
 Xrow_decoder addr_0 addr_1 addr_2 addr_3 dec_out_0 dec_out_1 dec_out_2 dec_out_3 dec_out_4 dec_out_5 dec_out_6 dec_out_7 dec_out_8 dec_out_9 dec_out_10 dec_out_11 dec_out_12 dec_out_13 dec_out_14 dec_out_15 vdd gnd hierarchical_decoder
-Xwordline_driver dec_out_0 dec_out_1 dec_out_2 dec_out_3 dec_out_4 dec_out_5 dec_out_6 dec_out_7 dec_out_8 dec_out_9 dec_out_10 dec_out_11 dec_out_12 dec_out_13 dec_out_14 dec_out_15 wl_0 wl_1 wl_2 wl_3 wl_4 wl_5 wl_6 wl_7 wl_8 wl_9 wl_10 wl_11 wl_12 wl_13 wl_14 wl_15 wl_en vdd gnd wordline_driver_array
-Xrbl_driver wl_en rbl_wl vdd gnd pbuf
+Xwordline_active_indicator_array dec_out_0 dec_out_1 dec_out_2 dec_out_3 dec_out_4 dec_out_5 dec_out_6 dec_out_7 dec_out_8 dec_out_9 dec_out_10 dec_out_11 dec_out_12 dec_out_13 dec_out_14 dec_out_15 wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 wl_en vdd gnd wordline_active_indicator_array
+Xwordline_driver_array write_1_int write_0_int r_en wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold wordline_driver_array
 .ENDS port_address
 
-.SUBCKT cell_6t bl br wl vdd gnd
-* Inverter 1
-MM0 Q_bar Q gnd gnd NMOS_VTG W=205.00n L=50n
-MM4 Q_bar Q vdd vdd PMOS_VTG W=90n L=50n
-
-* Inverer 2
-MM1 Q Q_bar gnd gnd NMOS_VTG W=205.00n L=50n
-MM5 Q Q_bar vdd vdd PMOS_VTG W=90n L=50n
-
-* Access transistors
-MM3 bl wl Q gnd NMOS_VTG W=135.00n L=50n
-MM2 br wl Q_bar gnd NMOS_VTG W=135.00n L=50n
-.ENDS cell_6t
-
-
-.SUBCKT bitcell_array bl_0_0 br_0_0 bl_0_1 br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7 br_0_7 bl_0_8 br_0_8 bl_0_9 br_0_9 bl_0_10 br_0_10 bl_0_11 br_0_11 bl_0_12 br_0_12 bl_0_13 br_0_13 bl_0_14 br_0_14 bl_0_15 br_0_15 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 vdd gnd
+.SUBCKT bitcell_array bl_0_0 bl_0_1 bl_0_2 bl_0_3 bl_0_4 bl_0_5 bl_0_6 bl_0_7 bl_0_8 bl_0_9 bl_0_10 bl_0_11 bl_0_12 bl_0_13 bl_0_14 bl_0_15 wlt_0_0 wlt_0_1 wlt_0_2 wlt_0_3 wlt_0_4 wlt_0_5 wlt_0_6 wlt_0_7 wlt_0_8 wlt_0_9 wlt_0_10 wlt_0_11 wlt_0_12 wlt_0_13 wlt_0_14 wlt_0_15 wlb_0_0 wlb_0_1 wlb_0_2 wlb_0_3 wlb_0_4 wlb_0_5 wlb_0_6 wlb_0_7 wlb_0_8 wlb_0_9 wlb_0_10 wlb_0_11 wlb_0_12 wlb_0_13 wlb_0_14 wlb_0_15
 * INOUT : bl_0_0 
-* INOUT : br_0_0 
 * INOUT : bl_0_1 
-* INOUT : br_0_1 
 * INOUT : bl_0_2 
-* INOUT : br_0_2 
 * INOUT : bl_0_3 
-* INOUT : br_0_3 
 * INOUT : bl_0_4 
-* INOUT : br_0_4 
 * INOUT : bl_0_5 
-* INOUT : br_0_5 
 * INOUT : bl_0_6 
-* INOUT : br_0_6 
 * INOUT : bl_0_7 
-* INOUT : br_0_7 
 * INOUT : bl_0_8 
-* INOUT : br_0_8 
 * INOUT : bl_0_9 
-* INOUT : br_0_9 
 * INOUT : bl_0_10 
-* INOUT : br_0_10 
 * INOUT : bl_0_11 
-* INOUT : br_0_11 
 * INOUT : bl_0_12 
-* INOUT : br_0_12 
 * INOUT : bl_0_13 
-* INOUT : br_0_13 
 * INOUT : bl_0_14 
-* INOUT : br_0_14 
 * INOUT : bl_0_15 
-* INOUT : br_0_15 
-* INPUT : wl_0_0 
-* INPUT : wl_0_1 
-* INPUT : wl_0_2 
-* INPUT : wl_0_3 
-* INPUT : wl_0_4 
-* INPUT : wl_0_5 
-* INPUT : wl_0_6 
-* INPUT : wl_0_7 
-* INPUT : wl_0_8 
-* INPUT : wl_0_9 
-* INPUT : wl_0_10 
-* INPUT : wl_0_11 
-* INPUT : wl_0_12 
-* INPUT : wl_0_13 
-* INPUT : wl_0_14 
-* INPUT : wl_0_15 
-* POWER : vdd 
-* GROUND: gnd 
+* INPUT : wlt_0_0
+* INPUT : wlt_0_1  
+* INPUT : wlt_0_2 
+* INPUT : wlt_0_3 
+* INPUT : wlt_0_4 
+* INPUT : wlt_0_5
+* INPUT : wlt_0_6 
+* INPUT : wlt_0_7 
+* INPUT : wlt_0_8 
+* INPUT : wlt_0_9 
+* INPUT : wlt_0_10 
+* INPUT : wlt_0_11 
+* INPUT : wlt_0_12 
+* INPUT : wlt_0_13 
+* INPUT : wlt_0_14
+* INPUT : wlt_0_15
+* INPUT : wlb_0_0 
+* INPUT : wlb_0_1 
+* INPUT : wlb_0_2 
+* INPUT : wlb_0_3 
+* INPUT : wlb_0_4 
+* INPUT : wlb_0_5 
+* INPUT : wlb_0_6 
+* INPUT : wlb_0_7 
+* INPUT : wlb_0_8 
+* INPUT : wlb_0_9 
+* INPUT : wlb_0_10 
+* INPUT : wlb_0_11 
+* INPUT : wlb_0_12 
+* INPUT : wlb_0_13 
+* INPUT : wlb_0_14 
+* INPUT : wlb_0_15 
 * rows: 16 cols: 16
-Xbit_r0_c0 bl_0_0 br_0_0 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c0 bl_0_0 br_0_0 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c0 bl_0_0 br_0_0 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c0 bl_0_0 br_0_0 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c0 bl_0_0 br_0_0 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c0 bl_0_0 br_0_0 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c0 bl_0_0 br_0_0 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c0 bl_0_0 br_0_0 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c0 bl_0_0 br_0_0 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c0 bl_0_0 br_0_0 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c0 bl_0_0 br_0_0 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c0 bl_0_0 br_0_0 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c0 bl_0_0 br_0_0 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c0 bl_0_0 br_0_0 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c0 bl_0_0 br_0_0 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c0 bl_0_0 br_0_0 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c1 bl_0_1 br_0_1 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c1 bl_0_1 br_0_1 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c1 bl_0_1 br_0_1 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c1 bl_0_1 br_0_1 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c1 bl_0_1 br_0_1 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c1 bl_0_1 br_0_1 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c1 bl_0_1 br_0_1 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c1 bl_0_1 br_0_1 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c1 bl_0_1 br_0_1 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c1 bl_0_1 br_0_1 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c1 bl_0_1 br_0_1 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c1 bl_0_1 br_0_1 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c1 bl_0_1 br_0_1 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c1 bl_0_1 br_0_1 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c1 bl_0_1 br_0_1 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c1 bl_0_1 br_0_1 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c2 bl_0_2 br_0_2 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c2 bl_0_2 br_0_2 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c2 bl_0_2 br_0_2 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c2 bl_0_2 br_0_2 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c2 bl_0_2 br_0_2 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c2 bl_0_2 br_0_2 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c2 bl_0_2 br_0_2 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c2 bl_0_2 br_0_2 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c2 bl_0_2 br_0_2 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c2 bl_0_2 br_0_2 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c2 bl_0_2 br_0_2 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c2 bl_0_2 br_0_2 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c2 bl_0_2 br_0_2 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c2 bl_0_2 br_0_2 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c2 bl_0_2 br_0_2 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c2 bl_0_2 br_0_2 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c3 bl_0_3 br_0_3 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c3 bl_0_3 br_0_3 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c3 bl_0_3 br_0_3 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c3 bl_0_3 br_0_3 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c3 bl_0_3 br_0_3 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c3 bl_0_3 br_0_3 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c3 bl_0_3 br_0_3 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c3 bl_0_3 br_0_3 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c3 bl_0_3 br_0_3 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c3 bl_0_3 br_0_3 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c3 bl_0_3 br_0_3 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c3 bl_0_3 br_0_3 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c3 bl_0_3 br_0_3 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c3 bl_0_3 br_0_3 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c3 bl_0_3 br_0_3 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c3 bl_0_3 br_0_3 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c4 bl_0_4 br_0_4 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c4 bl_0_4 br_0_4 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c4 bl_0_4 br_0_4 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c4 bl_0_4 br_0_4 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c4 bl_0_4 br_0_4 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c4 bl_0_4 br_0_4 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c4 bl_0_4 br_0_4 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c4 bl_0_4 br_0_4 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c4 bl_0_4 br_0_4 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c4 bl_0_4 br_0_4 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c4 bl_0_4 br_0_4 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c4 bl_0_4 br_0_4 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c4 bl_0_4 br_0_4 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c4 bl_0_4 br_0_4 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c4 bl_0_4 br_0_4 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c4 bl_0_4 br_0_4 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c5 bl_0_5 br_0_5 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c5 bl_0_5 br_0_5 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c5 bl_0_5 br_0_5 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c5 bl_0_5 br_0_5 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c5 bl_0_5 br_0_5 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c5 bl_0_5 br_0_5 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c5 bl_0_5 br_0_5 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c5 bl_0_5 br_0_5 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c5 bl_0_5 br_0_5 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c5 bl_0_5 br_0_5 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c5 bl_0_5 br_0_5 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c5 bl_0_5 br_0_5 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c5 bl_0_5 br_0_5 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c5 bl_0_5 br_0_5 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c5 bl_0_5 br_0_5 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c5 bl_0_5 br_0_5 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c6 bl_0_6 br_0_6 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c6 bl_0_6 br_0_6 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c6 bl_0_6 br_0_6 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c6 bl_0_6 br_0_6 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c6 bl_0_6 br_0_6 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c6 bl_0_6 br_0_6 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c6 bl_0_6 br_0_6 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c6 bl_0_6 br_0_6 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c6 bl_0_6 br_0_6 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c6 bl_0_6 br_0_6 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c6 bl_0_6 br_0_6 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c6 bl_0_6 br_0_6 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c6 bl_0_6 br_0_6 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c6 bl_0_6 br_0_6 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c6 bl_0_6 br_0_6 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c6 bl_0_6 br_0_6 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c7 bl_0_7 br_0_7 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c7 bl_0_7 br_0_7 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c7 bl_0_7 br_0_7 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c7 bl_0_7 br_0_7 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c7 bl_0_7 br_0_7 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c7 bl_0_7 br_0_7 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c7 bl_0_7 br_0_7 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c7 bl_0_7 br_0_7 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c7 bl_0_7 br_0_7 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c7 bl_0_7 br_0_7 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c7 bl_0_7 br_0_7 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c7 bl_0_7 br_0_7 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c7 bl_0_7 br_0_7 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c7 bl_0_7 br_0_7 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c7 bl_0_7 br_0_7 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c7 bl_0_7 br_0_7 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c8 bl_0_8 br_0_8 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c8 bl_0_8 br_0_8 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c8 bl_0_8 br_0_8 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c8 bl_0_8 br_0_8 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c8 bl_0_8 br_0_8 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c8 bl_0_8 br_0_8 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c8 bl_0_8 br_0_8 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c8 bl_0_8 br_0_8 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c8 bl_0_8 br_0_8 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c8 bl_0_8 br_0_8 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c8 bl_0_8 br_0_8 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c8 bl_0_8 br_0_8 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c8 bl_0_8 br_0_8 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c8 bl_0_8 br_0_8 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c8 bl_0_8 br_0_8 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c8 bl_0_8 br_0_8 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c9 bl_0_9 br_0_9 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c9 bl_0_9 br_0_9 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c9 bl_0_9 br_0_9 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c9 bl_0_9 br_0_9 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c9 bl_0_9 br_0_9 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c9 bl_0_9 br_0_9 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c9 bl_0_9 br_0_9 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c9 bl_0_9 br_0_9 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c9 bl_0_9 br_0_9 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c9 bl_0_9 br_0_9 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c9 bl_0_9 br_0_9 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c9 bl_0_9 br_0_9 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c9 bl_0_9 br_0_9 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c9 bl_0_9 br_0_9 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c9 bl_0_9 br_0_9 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c9 bl_0_9 br_0_9 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c10 bl_0_10 br_0_10 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c10 bl_0_10 br_0_10 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c10 bl_0_10 br_0_10 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c10 bl_0_10 br_0_10 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c10 bl_0_10 br_0_10 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c10 bl_0_10 br_0_10 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c10 bl_0_10 br_0_10 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c10 bl_0_10 br_0_10 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c10 bl_0_10 br_0_10 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c10 bl_0_10 br_0_10 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c10 bl_0_10 br_0_10 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c10 bl_0_10 br_0_10 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c10 bl_0_10 br_0_10 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c10 bl_0_10 br_0_10 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c10 bl_0_10 br_0_10 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c10 bl_0_10 br_0_10 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c11 bl_0_11 br_0_11 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c11 bl_0_11 br_0_11 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c11 bl_0_11 br_0_11 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c11 bl_0_11 br_0_11 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c11 bl_0_11 br_0_11 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c11 bl_0_11 br_0_11 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c11 bl_0_11 br_0_11 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c11 bl_0_11 br_0_11 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c11 bl_0_11 br_0_11 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c11 bl_0_11 br_0_11 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c11 bl_0_11 br_0_11 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c11 bl_0_11 br_0_11 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c11 bl_0_11 br_0_11 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c11 bl_0_11 br_0_11 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c11 bl_0_11 br_0_11 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c11 bl_0_11 br_0_11 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c12 bl_0_12 br_0_12 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c12 bl_0_12 br_0_12 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c12 bl_0_12 br_0_12 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c12 bl_0_12 br_0_12 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c12 bl_0_12 br_0_12 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c12 bl_0_12 br_0_12 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c12 bl_0_12 br_0_12 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c12 bl_0_12 br_0_12 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c12 bl_0_12 br_0_12 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c12 bl_0_12 br_0_12 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c12 bl_0_12 br_0_12 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c12 bl_0_12 br_0_12 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c12 bl_0_12 br_0_12 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c12 bl_0_12 br_0_12 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c12 bl_0_12 br_0_12 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c12 bl_0_12 br_0_12 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c13 bl_0_13 br_0_13 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c13 bl_0_13 br_0_13 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c13 bl_0_13 br_0_13 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c13 bl_0_13 br_0_13 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c13 bl_0_13 br_0_13 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c13 bl_0_13 br_0_13 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c13 bl_0_13 br_0_13 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c13 bl_0_13 br_0_13 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c13 bl_0_13 br_0_13 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c13 bl_0_13 br_0_13 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c13 bl_0_13 br_0_13 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c13 bl_0_13 br_0_13 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c13 bl_0_13 br_0_13 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c13 bl_0_13 br_0_13 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c13 bl_0_13 br_0_13 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c13 bl_0_13 br_0_13 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c14 bl_0_14 br_0_14 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c14 bl_0_14 br_0_14 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c14 bl_0_14 br_0_14 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c14 bl_0_14 br_0_14 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c14 bl_0_14 br_0_14 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c14 bl_0_14 br_0_14 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c14 bl_0_14 br_0_14 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c14 bl_0_14 br_0_14 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c14 bl_0_14 br_0_14 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c14 bl_0_14 br_0_14 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c14 bl_0_14 br_0_14 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c14 bl_0_14 br_0_14 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c14 bl_0_14 br_0_14 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c14 bl_0_14 br_0_14 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c14 bl_0_14 br_0_14 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c14 bl_0_14 br_0_14 wl_0_15 vdd gnd cell_6t
-Xbit_r0_c15 bl_0_15 br_0_15 wl_0_0 vdd gnd cell_6t
-Xbit_r1_c15 bl_0_15 br_0_15 wl_0_1 vdd gnd cell_6t
-Xbit_r2_c15 bl_0_15 br_0_15 wl_0_2 vdd gnd cell_6t
-Xbit_r3_c15 bl_0_15 br_0_15 wl_0_3 vdd gnd cell_6t
-Xbit_r4_c15 bl_0_15 br_0_15 wl_0_4 vdd gnd cell_6t
-Xbit_r5_c15 bl_0_15 br_0_15 wl_0_5 vdd gnd cell_6t
-Xbit_r6_c15 bl_0_15 br_0_15 wl_0_6 vdd gnd cell_6t
-Xbit_r7_c15 bl_0_15 br_0_15 wl_0_7 vdd gnd cell_6t
-Xbit_r8_c15 bl_0_15 br_0_15 wl_0_8 vdd gnd cell_6t
-Xbit_r9_c15 bl_0_15 br_0_15 wl_0_9 vdd gnd cell_6t
-Xbit_r10_c15 bl_0_15 br_0_15 wl_0_10 vdd gnd cell_6t
-Xbit_r11_c15 bl_0_15 br_0_15 wl_0_11 vdd gnd cell_6t
-Xbit_r12_c15 bl_0_15 br_0_15 wl_0_12 vdd gnd cell_6t
-Xbit_r13_c15 bl_0_15 br_0_15 wl_0_13 vdd gnd cell_6t
-Xbit_r14_c15 bl_0_15 br_0_15 wl_0_14 vdd gnd cell_6t
-Xbit_r15_c15 bl_0_15 br_0_15 wl_0_15 vdd gnd cell_6t
+Xbit_r0_c0 bl_0_0 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c0 bl_0_0 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c0 bl_0_0 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c0 bl_0_0 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c0 bl_0_0 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c0 bl_0_0 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c0 bl_0_0 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c0 bl_0_0 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c0 bl_0_0 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c0 bl_0_0 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c0 bl_0_0 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c0 bl_0_0 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c0 bl_0_0 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c0 bl_0_0 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c0 bl_0_0 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c0 bl_0_0 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c1 bl_0_1 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c1 bl_0_1 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c1 bl_0_1 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c1 bl_0_1 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c1 bl_0_1 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c1 bl_0_1 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c1 bl_0_1 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c1 bl_0_1 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c1 bl_0_1 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c1 bl_0_1 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c1 bl_0_1 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c1 bl_0_1 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c1 bl_0_1 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c1 bl_0_1 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c1 bl_0_1 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c1 bl_0_1 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c2 bl_0_2 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c2 bl_0_2 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c2 bl_0_2 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c2 bl_0_2 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c2 bl_0_2 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c2 bl_0_2 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c2 bl_0_2 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c2 bl_0_2 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c2 bl_0_2 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c2 bl_0_2 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c2 bl_0_2 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c2 bl_0_2 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c2 bl_0_2 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c2 bl_0_2 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c2 bl_0_2 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c2 bl_0_2 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c3 bl_0_3 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c3 bl_0_3 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c3 bl_0_3 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c3 bl_0_3 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c3 bl_0_3 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c3 bl_0_3 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c3 bl_0_3 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c3 bl_0_3 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c3 bl_0_3 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c3 bl_0_3 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c3 bl_0_3 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c3 bl_0_3 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c3 bl_0_3 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c3 bl_0_3 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c3 bl_0_3 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c3 bl_0_3 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c4 bl_0_4 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c4 bl_0_4 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c4 bl_0_4 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c4 bl_0_4 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c4 bl_0_4 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c4 bl_0_4 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c4 bl_0_4 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c4 bl_0_4 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c4 bl_0_4 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c4 bl_0_4 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c4 bl_0_4 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c4 bl_0_4 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c4 bl_0_4 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c4 bl_0_4 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c4 bl_0_4 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c4 bl_0_4 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c5 bl_0_5 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c5 bl_0_5 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c5 bl_0_5 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c5 bl_0_5 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c5 bl_0_5 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c5 bl_0_5 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c5 bl_0_5 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c5 bl_0_5 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c5 bl_0_5 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c5 bl_0_5 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c5 bl_0_5 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c5 bl_0_5 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c5 bl_0_5 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c5 bl_0_5 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c5 bl_0_5 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c5 bl_0_5 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c6 bl_0_6 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c6 bl_0_6 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c6 bl_0_6 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c6 bl_0_6 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c6 bl_0_6 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c6 bl_0_6 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c6 bl_0_6 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c6 bl_0_6 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c6 bl_0_6 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c6 bl_0_6 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c6 bl_0_6 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c6 bl_0_6 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c6 bl_0_6 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c6 bl_0_6 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c6 bl_0_6 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c6 bl_0_6 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c7 bl_0_7 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c7 bl_0_7 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c7 bl_0_7 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c7 bl_0_7 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c7 bl_0_7 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c7 bl_0_7 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c7 bl_0_7 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c7 bl_0_7 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c7 bl_0_7 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c7 bl_0_7 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c7 bl_0_7 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c7 bl_0_7 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c7 bl_0_7 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c7 bl_0_7 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c7 bl_0_7 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c7 bl_0_7 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c8 bl_0_8 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c8 bl_0_8 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c8 bl_0_8 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c8 bl_0_8 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c8 bl_0_8 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c8 bl_0_8 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c8 bl_0_8 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c8 bl_0_8 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c8 bl_0_8 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c8 bl_0_8 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c8 bl_0_8 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c8 bl_0_8 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c8 bl_0_8 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c8 bl_0_8 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c8 bl_0_8 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c8 bl_0_8 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c9 bl_0_9 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c9 bl_0_9 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c9 bl_0_9 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c9 bl_0_9 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c9 bl_0_9 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c9 bl_0_9 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c9 bl_0_9 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c9 bl_0_9 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c9 bl_0_9 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c9 bl_0_9 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c9 bl_0_9 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c9 bl_0_9 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c9 bl_0_9 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c9 bl_0_9 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c9 bl_0_9 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c9 bl_0_9 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c10 bl_0_10 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c10 bl_0_10 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c10 bl_0_10 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c10 bl_0_10 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c10 bl_0_10 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c10 bl_0_10 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c10 bl_0_10 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c10 bl_0_10 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c10 bl_0_10 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c10 bl_0_10 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c10 bl_0_10 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c10 bl_0_10 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c10 bl_0_10 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c10 bl_0_10 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c10 bl_0_10 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c10 bl_0_10 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c11 bl_0_11 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c11 bl_0_11 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c11 bl_0_11 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c11 bl_0_11 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c11 bl_0_11 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c11 bl_0_11 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c11 bl_0_11 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c11 bl_0_11 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c11 bl_0_11 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c11 bl_0_11 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c11 bl_0_11 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c11 bl_0_11 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c11 bl_0_11 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c11 bl_0_11 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c11 bl_0_11 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c11 bl_0_11 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c12 bl_0_12 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c12 bl_0_12 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c12 bl_0_12 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c12 bl_0_12 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c12 bl_0_12 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c12 bl_0_12 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c12 bl_0_12 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c12 bl_0_12 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c12 bl_0_12 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c12 bl_0_12 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c12 bl_0_12 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c12 bl_0_12 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c12 bl_0_12 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c12 bl_0_12 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c12 bl_0_12 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c12 bl_0_12 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c13 bl_0_13 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c13 bl_0_13 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c13 bl_0_13 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c13 bl_0_13 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c13 bl_0_13 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c13 bl_0_13 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c13 bl_0_13 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c13 bl_0_13 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c13 bl_0_13 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c13 bl_0_13 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c13 bl_0_13 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c13 bl_0_13 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c13 bl_0_13 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c13 bl_0_13 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c13 bl_0_13 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c13 bl_0_13 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c14 bl_0_14 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c14 bl_0_14 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c14 bl_0_14 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c14 bl_0_14 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c14 bl_0_14 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c14 bl_0_14 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c14 bl_0_14 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c14 bl_0_14 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c14 bl_0_14 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c14 bl_0_14 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c14 bl_0_14 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c14 bl_0_14 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c14 bl_0_14 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c14 bl_0_14 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c14 bl_0_14 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c14 bl_0_14 wlt_0_15 wlb_0_15 cell_2r
+Xbit_r0_c15 bl_0_15 wlt_0_0 wlb_0_0 cell_2r
+Xbit_r1_c15 bl_0_15 wlt_0_1 wlb_0_1 cell_2r
+Xbit_r2_c15 bl_0_15 wlt_0_2 wlb_0_2 cell_2r
+Xbit_r3_c15 bl_0_15 wlt_0_3 wlb_0_3 cell_2r
+Xbit_r4_c15 bl_0_15 wlt_0_4 wlb_0_4 cell_2r
+Xbit_r5_c15 bl_0_15 wlt_0_5 wlb_0_5 cell_2r
+Xbit_r6_c15 bl_0_15 wlt_0_6 wlb_0_6 cell_2r
+Xbit_r7_c15 bl_0_15 wlt_0_7 wlb_0_7 cell_2r
+Xbit_r8_c15 bl_0_15 wlt_0_8 wlb_0_8 cell_2r
+Xbit_r9_c15 bl_0_15 wlt_0_9 wlb_0_9 cell_2r
+Xbit_r10_c15 bl_0_15 wlt_0_10 wlb_0_10 cell_2r
+Xbit_r11_c15 bl_0_15 wlt_0_11 wlb_0_11 cell_2r
+Xbit_r12_c15 bl_0_15 wlt_0_12 wlb_0_12 cell_2r
+Xbit_r13_c15 bl_0_15 wlt_0_13 wlb_0_13 cell_2r
+Xbit_r14_c15 bl_0_15 wlt_0_14 wlb_0_14 cell_2r
+Xbit_r15_c15 bl_0_15 wlt_0_15 wlb_0_15 cell_2r
 .ENDS bitcell_array
-
-.SUBCKT replica_cell_6t bl br wl vdd gnd
-* Inverter 1
-MM0 vdd Q gnd gnd NMOS_VTG W=205.00n L=50n
-MM4 vdd Q vdd vdd PMOS_VTG W=90n L=50n
-
-* Inverer 2
-MM1 Q vdd gnd gnd NMOS_VTG W=205.00n L=50n
-MM5 Q vdd vdd vdd PMOS_VTG W=90n L=50n
-
-* Access transistors
-MM3 bl wl Q gnd NMOS_VTG W=135.00n L=50n
-MM2 br wl vdd gnd NMOS_VTG W=135.00n L=50n
-.ENDS cell_6t
-
-
-.SUBCKT dummy_cell_6t bl br wl vdd gnd
-* Inverter 1
-MM0 Q_bar Q gnd gnd NMOS_VTG W=205.00n L=50n
-MM4 Q_bar Q vdd vdd PMOS_VTG W=90n L=50n
-
-* Inverer 2
-MM1 Q Q_bar gnd gnd NMOS_VTG W=205.00n L=50n
-MM5 Q Q_bar vdd vdd PMOS_VTG W=90n L=50n
-
-* Access transistors
-MM3 bl_noconn wl Q gnd NMOS_VTG W=135.00n L=50n
-MM2 br_noconn wl Q_bar gnd NMOS_VTG W=135.00n L=50n
-.ENDS cell_6t
-
-
-.SUBCKT replica_column bl_0_0 br_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 wl_0_16 wl_0_17 wl_0_18 vdd gnd
-* OUTPUT: bl_0_0 
-* OUTPUT: br_0_0 
-* INPUT : wl_0_0 
-* INPUT : wl_0_1 
-* INPUT : wl_0_2 
-* INPUT : wl_0_3 
-* INPUT : wl_0_4 
-* INPUT : wl_0_5 
-* INPUT : wl_0_6 
-* INPUT : wl_0_7 
-* INPUT : wl_0_8 
-* INPUT : wl_0_9 
-* INPUT : wl_0_10 
-* INPUT : wl_0_11 
-* INPUT : wl_0_12 
-* INPUT : wl_0_13 
-* INPUT : wl_0_14 
-* INPUT : wl_0_15 
-* INPUT : wl_0_16 
-* INPUT : wl_0_17 
-* INPUT : wl_0_18 
-* POWER : vdd 
-* GROUND: gnd 
-Xrbc_0 bl_0_0 br_0_0 wl_0_0 vdd gnd dummy_cell_6t
-Xrbc_1 bl_0_0 br_0_0 wl_0_1 vdd gnd replica_cell_6t
-Xrbc_2 bl_0_0 br_0_0 wl_0_2 vdd gnd replica_cell_6t
-Xrbc_3 bl_0_0 br_0_0 wl_0_3 vdd gnd replica_cell_6t
-Xrbc_4 bl_0_0 br_0_0 wl_0_4 vdd gnd replica_cell_6t
-Xrbc_5 bl_0_0 br_0_0 wl_0_5 vdd gnd replica_cell_6t
-Xrbc_6 bl_0_0 br_0_0 wl_0_6 vdd gnd replica_cell_6t
-Xrbc_7 bl_0_0 br_0_0 wl_0_7 vdd gnd replica_cell_6t
-Xrbc_8 bl_0_0 br_0_0 wl_0_8 vdd gnd replica_cell_6t
-Xrbc_9 bl_0_0 br_0_0 wl_0_9 vdd gnd replica_cell_6t
-Xrbc_10 bl_0_0 br_0_0 wl_0_10 vdd gnd replica_cell_6t
-Xrbc_11 bl_0_0 br_0_0 wl_0_11 vdd gnd replica_cell_6t
-Xrbc_12 bl_0_0 br_0_0 wl_0_12 vdd gnd replica_cell_6t
-Xrbc_13 bl_0_0 br_0_0 wl_0_13 vdd gnd replica_cell_6t
-Xrbc_14 bl_0_0 br_0_0 wl_0_14 vdd gnd replica_cell_6t
-Xrbc_15 bl_0_0 br_0_0 wl_0_15 vdd gnd replica_cell_6t
-Xrbc_16 bl_0_0 br_0_0 wl_0_16 vdd gnd replica_cell_6t
-Xrbc_17 bl_0_0 br_0_0 wl_0_17 vdd gnd replica_cell_6t
-Xrbc_18 bl_0_0 br_0_0 wl_0_18 vdd gnd dummy_cell_6t
-.ENDS replica_column
-
-.SUBCKT dummy_array wl_0_0 vdd gnd
-* INPUT : wl_0_0 
-* POWER : vdd 
-* GROUND: gnd 
-Xbit_r0_c0 bl_0_0 br_0_0 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c1 bl_0_1 br_0_1 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c2 bl_0_2 br_0_2 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c3 bl_0_3 br_0_3 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c4 bl_0_4 br_0_4 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c5 bl_0_5 br_0_5 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c6 bl_0_6 br_0_6 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c7 bl_0_7 br_0_7 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c8 bl_0_8 br_0_8 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c9 bl_0_9 br_0_9 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c10 bl_0_10 br_0_10 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c11 bl_0_11 br_0_11 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c12 bl_0_12 br_0_12 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c13 bl_0_13 br_0_13 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c14 bl_0_14 br_0_14 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r0_c15 bl_0_15 br_0_15 wl_0_0 vdd gnd dummy_cell_6t
-.ENDS dummy_array
-
-.SUBCKT dummy_array_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 wl_0_16 wl_0_17 wl_0_18 vdd gnd
-* INPUT : wl_0_0 
-* INPUT : wl_0_1 
-* INPUT : wl_0_2 
-* INPUT : wl_0_3 
-* INPUT : wl_0_4 
-* INPUT : wl_0_5 
-* INPUT : wl_0_6 
-* INPUT : wl_0_7 
-* INPUT : wl_0_8 
-* INPUT : wl_0_9 
-* INPUT : wl_0_10 
-* INPUT : wl_0_11 
-* INPUT : wl_0_12 
-* INPUT : wl_0_13 
-* INPUT : wl_0_14 
-* INPUT : wl_0_15 
-* INPUT : wl_0_16 
-* INPUT : wl_0_17 
-* INPUT : wl_0_18 
-* POWER : vdd 
-* GROUND: gnd 
-Xbit_r0_c0 bl_0_0 br_0_0 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r1_c0 bl_0_0 br_0_0 wl_0_1 vdd gnd dummy_cell_6t
-Xbit_r2_c0 bl_0_0 br_0_0 wl_0_2 vdd gnd dummy_cell_6t
-Xbit_r3_c0 bl_0_0 br_0_0 wl_0_3 vdd gnd dummy_cell_6t
-Xbit_r4_c0 bl_0_0 br_0_0 wl_0_4 vdd gnd dummy_cell_6t
-Xbit_r5_c0 bl_0_0 br_0_0 wl_0_5 vdd gnd dummy_cell_6t
-Xbit_r6_c0 bl_0_0 br_0_0 wl_0_6 vdd gnd dummy_cell_6t
-Xbit_r7_c0 bl_0_0 br_0_0 wl_0_7 vdd gnd dummy_cell_6t
-Xbit_r8_c0 bl_0_0 br_0_0 wl_0_8 vdd gnd dummy_cell_6t
-Xbit_r9_c0 bl_0_0 br_0_0 wl_0_9 vdd gnd dummy_cell_6t
-Xbit_r10_c0 bl_0_0 br_0_0 wl_0_10 vdd gnd dummy_cell_6t
-Xbit_r11_c0 bl_0_0 br_0_0 wl_0_11 vdd gnd dummy_cell_6t
-Xbit_r12_c0 bl_0_0 br_0_0 wl_0_12 vdd gnd dummy_cell_6t
-Xbit_r13_c0 bl_0_0 br_0_0 wl_0_13 vdd gnd dummy_cell_6t
-Xbit_r14_c0 bl_0_0 br_0_0 wl_0_14 vdd gnd dummy_cell_6t
-Xbit_r15_c0 bl_0_0 br_0_0 wl_0_15 vdd gnd dummy_cell_6t
-Xbit_r16_c0 bl_0_0 br_0_0 wl_0_16 vdd gnd dummy_cell_6t
-Xbit_r17_c0 bl_0_0 br_0_0 wl_0_17 vdd gnd dummy_cell_6t
-Xbit_r18_c0 bl_0_0 br_0_0 wl_0_18 vdd gnd dummy_cell_6t
-.ENDS dummy_array_0
-
-.SUBCKT dummy_array_1 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 wl_0_16 wl_0_17 wl_0_18 vdd gnd
-* INPUT : wl_0_0 
-* INPUT : wl_0_1 
-* INPUT : wl_0_2 
-* INPUT : wl_0_3 
-* INPUT : wl_0_4 
-* INPUT : wl_0_5 
-* INPUT : wl_0_6 
-* INPUT : wl_0_7 
-* INPUT : wl_0_8 
-* INPUT : wl_0_9 
-* INPUT : wl_0_10 
-* INPUT : wl_0_11 
-* INPUT : wl_0_12 
-* INPUT : wl_0_13 
-* INPUT : wl_0_14 
-* INPUT : wl_0_15 
-* INPUT : wl_0_16 
-* INPUT : wl_0_17 
-* INPUT : wl_0_18 
-* POWER : vdd 
-* GROUND: gnd 
-Xbit_r0_c0 bl_0_0 br_0_0 wl_0_0 vdd gnd dummy_cell_6t
-Xbit_r1_c0 bl_0_0 br_0_0 wl_0_1 vdd gnd dummy_cell_6t
-Xbit_r2_c0 bl_0_0 br_0_0 wl_0_2 vdd gnd dummy_cell_6t
-Xbit_r3_c0 bl_0_0 br_0_0 wl_0_3 vdd gnd dummy_cell_6t
-Xbit_r4_c0 bl_0_0 br_0_0 wl_0_4 vdd gnd dummy_cell_6t
-Xbit_r5_c0 bl_0_0 br_0_0 wl_0_5 vdd gnd dummy_cell_6t
-Xbit_r6_c0 bl_0_0 br_0_0 wl_0_6 vdd gnd dummy_cell_6t
-Xbit_r7_c0 bl_0_0 br_0_0 wl_0_7 vdd gnd dummy_cell_6t
-Xbit_r8_c0 bl_0_0 br_0_0 wl_0_8 vdd gnd dummy_cell_6t
-Xbit_r9_c0 bl_0_0 br_0_0 wl_0_9 vdd gnd dummy_cell_6t
-Xbit_r10_c0 bl_0_0 br_0_0 wl_0_10 vdd gnd dummy_cell_6t
-Xbit_r11_c0 bl_0_0 br_0_0 wl_0_11 vdd gnd dummy_cell_6t
-Xbit_r12_c0 bl_0_0 br_0_0 wl_0_12 vdd gnd dummy_cell_6t
-Xbit_r13_c0 bl_0_0 br_0_0 wl_0_13 vdd gnd dummy_cell_6t
-Xbit_r14_c0 bl_0_0 br_0_0 wl_0_14 vdd gnd dummy_cell_6t
-Xbit_r15_c0 bl_0_0 br_0_0 wl_0_15 vdd gnd dummy_cell_6t
-Xbit_r16_c0 bl_0_0 br_0_0 wl_0_16 vdd gnd dummy_cell_6t
-Xbit_r17_c0 bl_0_0 br_0_0 wl_0_17 vdd gnd dummy_cell_6t
-Xbit_r18_c0 bl_0_0 br_0_0 wl_0_18 vdd gnd dummy_cell_6t
-.ENDS dummy_array_1
-
-.SUBCKT replica_bitcell_array rbl_bl_0_0 rbl_br_0_0 bl_0_0 br_0_0 bl_0_1 br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7 br_0_7 bl_0_8 br_0_8 bl_0_9 br_0_9 bl_0_10 br_0_10 bl_0_11 br_0_11 bl_0_12 br_0_12 bl_0_13 br_0_13 bl_0_14 br_0_14 bl_0_15 br_0_15 rbl_wl_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 vdd gnd
-* INOUT : rbl_bl_0_0 
-* INOUT : rbl_br_0_0 
-* INOUT : bl_0_0 
-* INOUT : br_0_0 
-* INOUT : bl_0_1 
-* INOUT : br_0_1 
-* INOUT : bl_0_2 
-* INOUT : br_0_2 
-* INOUT : bl_0_3 
-* INOUT : br_0_3 
-* INOUT : bl_0_4 
-* INOUT : br_0_4 
-* INOUT : bl_0_5 
-* INOUT : br_0_5 
-* INOUT : bl_0_6 
-* INOUT : br_0_6 
-* INOUT : bl_0_7 
-* INOUT : br_0_7 
-* INOUT : bl_0_8 
-* INOUT : br_0_8 
-* INOUT : bl_0_9 
-* INOUT : br_0_9 
-* INOUT : bl_0_10 
-* INOUT : br_0_10 
-* INOUT : bl_0_11 
-* INOUT : br_0_11 
-* INOUT : bl_0_12 
-* INOUT : br_0_12 
-* INOUT : bl_0_13 
-* INOUT : br_0_13 
-* INOUT : bl_0_14 
-* INOUT : br_0_14 
-* INOUT : bl_0_15 
-* INOUT : br_0_15 
-* INPUT : rbl_wl_0_0 
-* INPUT : wl_0_0 
-* INPUT : wl_0_1 
-* INPUT : wl_0_2 
-* INPUT : wl_0_3 
-* INPUT : wl_0_4 
-* INPUT : wl_0_5 
-* INPUT : wl_0_6 
-* INPUT : wl_0_7 
-* INPUT : wl_0_8 
-* INPUT : wl_0_9 
-* INPUT : wl_0_10 
-* INPUT : wl_0_11 
-* INPUT : wl_0_12 
-* INPUT : wl_0_13 
-* INPUT : wl_0_14 
-* INPUT : wl_0_15 
-* POWER : vdd 
-* GROUND: gnd 
-* rbl: None left_rbl: None right_rbl: None
-Xbitcell_array bl_0_0 br_0_0 bl_0_1 br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7 br_0_7 bl_0_8 br_0_8 bl_0_9 br_0_9 bl_0_10 br_0_10 bl_0_11 br_0_11 bl_0_12 br_0_12 bl_0_13 br_0_13 bl_0_14 br_0_14 bl_0_15 br_0_15 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 vdd gnd bitcell_array
-Xreplica_col_0 rbl_bl_0_0 rbl_br_0_0 gnd rbl_wl_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 gnd vdd gnd replica_column
-Xdummy_row_0 rbl_wl_0_0 vdd gnd dummy_array
-Xdummy_row_bot gnd vdd gnd dummy_array
-Xdummy_row_top gnd vdd gnd dummy_array
-Xdummy_col_left gnd rbl_wl_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 gnd vdd gnd dummy_array_0
-Xdummy_col_right gnd rbl_wl_0_0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 gnd vdd gnd dummy_array_1
-.ENDS replica_bitcell_array
-
-.SUBCKT precharge_0 bl br en_bar vdd
-* OUTPUT: bl 
-* OUTPUT: br 
-* INPUT : en_bar 
-* POWER : vdd 
-Mlower_pmos bl en_bar br vdd pmos_vtg m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
-Mupper_pmos1 bl en_bar vdd vdd pmos_vtg m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
-Mupper_pmos2 br en_bar vdd vdd pmos_vtg m=1 w=0.27u l=0.05u pd=0.64u ps=0.64u as=0.03p ad=0.03p
-.ENDS precharge_0
-
-.SUBCKT precharge_array bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 bl_16 br_16 en_bar vdd
-* OUTPUT: bl_0 
-* OUTPUT: br_0 
-* OUTPUT: bl_1 
-* OUTPUT: br_1 
-* OUTPUT: bl_2 
-* OUTPUT: br_2 
-* OUTPUT: bl_3 
-* OUTPUT: br_3 
-* OUTPUT: bl_4 
-* OUTPUT: br_4 
-* OUTPUT: bl_5 
-* OUTPUT: br_5 
-* OUTPUT: bl_6 
-* OUTPUT: br_6 
-* OUTPUT: bl_7 
-* OUTPUT: br_7 
-* OUTPUT: bl_8 
-* OUTPUT: br_8 
-* OUTPUT: bl_9 
-* OUTPUT: br_9 
-* OUTPUT: bl_10 
-* OUTPUT: br_10 
-* OUTPUT: bl_11 
-* OUTPUT: br_11 
-* OUTPUT: bl_12 
-* OUTPUT: br_12 
-* OUTPUT: bl_13 
-* OUTPUT: br_13 
-* OUTPUT: bl_14 
-* OUTPUT: br_14 
-* OUTPUT: bl_15 
-* OUTPUT: br_15 
-* OUTPUT: bl_16 
-* OUTPUT: br_16 
-* INPUT : en_bar 
-* POWER : vdd 
-* cols: 17 size: 1 bl: bl br: br
-Xpre_column_0 bl_0 br_0 en_bar vdd precharge_0
-Xpre_column_1 bl_1 br_1 en_bar vdd precharge_0
-Xpre_column_2 bl_2 br_2 en_bar vdd precharge_0
-Xpre_column_3 bl_3 br_3 en_bar vdd precharge_0
-Xpre_column_4 bl_4 br_4 en_bar vdd precharge_0
-Xpre_column_5 bl_5 br_5 en_bar vdd precharge_0
-Xpre_column_6 bl_6 br_6 en_bar vdd precharge_0
-Xpre_column_7 bl_7 br_7 en_bar vdd precharge_0
-Xpre_column_8 bl_8 br_8 en_bar vdd precharge_0
-Xpre_column_9 bl_9 br_9 en_bar vdd precharge_0
-Xpre_column_10 bl_10 br_10 en_bar vdd precharge_0
-Xpre_column_11 bl_11 br_11 en_bar vdd precharge_0
-Xpre_column_12 bl_12 br_12 en_bar vdd precharge_0
-Xpre_column_13 bl_13 br_13 en_bar vdd precharge_0
-Xpre_column_14 bl_14 br_14 en_bar vdd precharge_0
-Xpre_column_15 bl_15 br_15 en_bar vdd precharge_0
-Xpre_column_16 bl_16 br_16 en_bar vdd precharge_0
-.ENDS precharge_array
-
-.SUBCKT sense_amp bl br dout en vdd gnd
-M_1 dout net_1 vdd vdd pmos_vtg w=540.0n l=50.0n
-M_3 net_1 dout vdd vdd pmos_vtg w=540.0n l=50.0n
-M_2 dout net_1 net_2 gnd nmos_vtg w=270.0n l=50.0n
-M_8 net_1 dout net_2 gnd nmos_vtg w=270.0n l=50.0n
-M_5 bl en dout vdd pmos_vtg w=720.0n l=50.0n
-M_6 br en net_1 vdd pmos_vtg w=720.0n l=50.0n
-M_7 net_2 en gnd gnd nmos_vtg w=270.0n l=50.0n
-.ENDS sense_amp
-
-
-.SUBCKT sense_amp_array data_0 bl_0 br_0 en vdd gnd
-* OUTPUT: data_0 
-* INPUT : bl_0 
-* INPUT : br_0 
-* INPUT : en 
-* POWER : vdd 
-* GROUND: gnd 
-* words_per_row: 16
-Xsa_d0 bl_0 br_0 data_0 en vdd gnd sense_amp
-.ENDS sense_amp_array
 
 * spice ptx M{0} {1} nmos_vtg m=1 w=0.72u l=0.05u pd=1.54u ps=1.54u as=0.09p ad=0.09p
 
-.SUBCKT column_mux bl br bl_out br_out sel gnd
-* INOUT : bl 
-* INOUT : br 
-* INOUT : bl_out 
-* INOUT : br_out 
-* INOUT : sel 
-* INOUT : gnd 
-Mmux_tx1 bl sel bl_out gnd nmos_vtg m=1 w=0.72u l=0.05u pd=1.54u ps=1.54u as=0.09p ad=0.09p
-Mmux_tx2 br sel br_out gnd nmos_vtg m=1 w=0.72u l=0.05u pd=1.54u ps=1.54u as=0.09p ad=0.09p
-.ENDS column_mux
-
-.SUBCKT column_mux_array bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 bl_out_0 br_out_0 gnd
-* INOUT : bl_0 
-* INOUT : br_0 
-* INOUT : bl_1 
-* INOUT : br_1 
-* INOUT : bl_2 
-* INOUT : br_2 
-* INOUT : bl_3 
-* INOUT : br_3 
-* INOUT : bl_4 
-* INOUT : br_4 
-* INOUT : bl_5 
-* INOUT : br_5 
-* INOUT : bl_6 
-* INOUT : br_6 
-* INOUT : bl_7 
-* INOUT : br_7 
-* INOUT : bl_8 
-* INOUT : br_8 
-* INOUT : bl_9 
-* INOUT : br_9 
-* INOUT : bl_10 
-* INOUT : br_10 
-* INOUT : bl_11 
-* INOUT : br_11 
-* INOUT : bl_12 
-* INOUT : br_12 
-* INOUT : bl_13 
-* INOUT : br_13 
-* INOUT : bl_14 
-* INOUT : br_14 
-* INOUT : bl_15 
-* INOUT : br_15 
-* INOUT : sel_0 
-* INOUT : sel_1 
-* INOUT : sel_2 
-* INOUT : sel_3 
-* INOUT : sel_4 
-* INOUT : sel_5 
-* INOUT : sel_6 
-* INOUT : sel_7 
-* INOUT : sel_8 
-* INOUT : sel_9 
-* INOUT : sel_10 
-* INOUT : sel_11 
-* INOUT : sel_12 
-* INOUT : sel_13 
-* INOUT : sel_14 
-* INOUT : sel_15 
-* INOUT : bl_out_0 
-* INOUT : br_out_0 
-* INOUT : gnd 
-* cols: 16 word_size: 1 bl: bl br: br
-XXMUX0 bl_0 br_0 bl_out_0 br_out_0 sel_0 gnd column_mux
-XXMUX1 bl_1 br_1 bl_out_0 br_out_0 sel_1 gnd column_mux
-XXMUX2 bl_2 br_2 bl_out_0 br_out_0 sel_2 gnd column_mux
-XXMUX3 bl_3 br_3 bl_out_0 br_out_0 sel_3 gnd column_mux
-XXMUX4 bl_4 br_4 bl_out_0 br_out_0 sel_4 gnd column_mux
-XXMUX5 bl_5 br_5 bl_out_0 br_out_0 sel_5 gnd column_mux
-XXMUX6 bl_6 br_6 bl_out_0 br_out_0 sel_6 gnd column_mux
-XXMUX7 bl_7 br_7 bl_out_0 br_out_0 sel_7 gnd column_mux
-XXMUX8 bl_8 br_8 bl_out_0 br_out_0 sel_8 gnd column_mux
-XXMUX9 bl_9 br_9 bl_out_0 br_out_0 sel_9 gnd column_mux
-XXMUX10 bl_10 br_10 bl_out_0 br_out_0 sel_10 gnd column_mux
-XXMUX11 bl_11 br_11 bl_out_0 br_out_0 sel_11 gnd column_mux
-XXMUX12 bl_12 br_12 bl_out_0 br_out_0 sel_12 gnd column_mux
-XXMUX13 bl_13 br_13 bl_out_0 br_out_0 sel_13 gnd column_mux
-XXMUX14 bl_14 br_14 bl_out_0 br_out_0 sel_14 gnd column_mux
-XXMUX15 bl_15 br_15 bl_out_0 br_out_0 sel_15 gnd column_mux
-.ENDS column_mux_array
-
-.SUBCKT write_driver din bl br en vdd gnd
-*inverters for enable and data input
-minP bl_bar din vdd vdd pmos_vtg w=360.000000n l=50.000000n
-minN bl_bar din gnd gnd nmos_vtg w=180.000000n l=50.000000n
-moutP en_bar en vdd vdd pmos_vtg w=360.000000n l=50.000000n
-moutN en_bar en gnd gnd nmos_vtg w=180.000000n l=50.000000n
-
-*tristate for BL
-mout0P int1 bl_bar vdd vdd pmos_vtg w=360.000000n l=50.000000n
-mout0P2 bl en_bar int1 vdd pmos_vtg w=360.000000n l=50.000000n
-mout0N bl en int2 gnd nmos_vtg w=180.000000n l=50.000000n
-mout0N2 int2 bl_bar gnd gnd nmos_vtg w=180.000000n l=50.000000n
-
-*tristate for BR
-mout1P int3 din vdd vdd pmos_vtg w=360.000000n l=50.000000n
-mout1P2 br en_bar int3 vdd pmos_vtg w=360.000000n l=50.000000n
-mout1N br en int4 gnd nmos_vtg w=180.000000n l=50.000000n
-mout1N2 int4 din gnd gnd nmos_vtg w=180.000000n l=50.000000n
-.ENDS write_driver
-
-
-.SUBCKT write_driver_array data_0 bl_0 br_0 en vdd gnd
-* INPUT : data_0 
-* OUTPUT: bl_0 
-* OUTPUT: br_0 
-* INPUT : en 
+.SUBCKT column_transmission_gate bl bl_out sel vdd gnd
+* INPUT : bl 
+* INPUT : sel 
+* OUTPUT : bl_out 
 * POWER : vdd 
-* GROUND: gnd 
-* word_size 1
-Xwrite_driver0 data_0 bl_0 br_0 en vdd gnd write_driver
-.ENDS write_driver_array
+* GROUND : gnd 
+Xsel_inv sel sel_bar vdd gnd pinv_1 
+Mp bl sel_bar bl_out vdd pmos_vtg m=1 w=2.16u l=0.05u
+Mn bl sel bl_out gnd nmos_vtg m=1 w=0.72u l=0.05u 
+.ENDS column_transmission_gate
 
-.SUBCKT port_data rbl_bl rbl_br bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 dout_0 din_0 sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 s_en p_en_bar w_en vdd gnd
-* INOUT : rbl_bl 
-* INOUT : rbl_br 
-* INOUT : bl_0 
-* INOUT : br_0 
-* INOUT : bl_1 
-* INOUT : br_1 
-* INOUT : bl_2 
-* INOUT : br_2 
-* INOUT : bl_3 
-* INOUT : br_3 
-* INOUT : bl_4 
-* INOUT : br_4 
-* INOUT : bl_5 
-* INOUT : br_5 
-* INOUT : bl_6 
-* INOUT : br_6 
-* INOUT : bl_7 
-* INOUT : br_7 
-* INOUT : bl_8 
-* INOUT : br_8 
-* INOUT : bl_9 
-* INOUT : br_9 
-* INOUT : bl_10 
-* INOUT : br_10 
-* INOUT : bl_11 
-* INOUT : br_11 
-* INOUT : bl_12 
-* INOUT : br_12 
-* INOUT : bl_13 
-* INOUT : br_13 
-* INOUT : bl_14 
-* INOUT : br_14 
-* INOUT : bl_15 
-* INOUT : br_15 
-* OUTPUT: dout_0 
-* INPUT : din_0 
+.SUBCKT column_mux bl_0 bl_1 bl_2 bl_3 bl_4 bl_5 bl_6 bl_7 bl_8 bl_9 bl_10 bl_11 bl_12 bl_13 bl_14 bl_15 sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 bl_out_0 vdd gnd
+* INPUT : bl_0 
+* INPUT : bl_1 
+* INPUT : bl_2 
+* INPUT : bl_3 
+* INPUT : bl_4 
+* INPUT : bl_5 
+* INPUT : bl_6 
+* INPUT : bl_7 
+* INPUT : bl_8 
+* INPUT : bl_9 
+* INPUT : bl_10 
+* INPUT : bl_11 
+* INPUT : bl_12 
+* INPUT : bl_13 
+* INPUT : bl_14 
+* INPUT : bl_15 
 * INPUT : sel_0 
 * INPUT : sel_1 
 * INPUT : sel_2 
@@ -1290,16 +965,208 @@ Xwrite_driver0 data_0 bl_0 br_0 en vdd gnd write_driver
 * INPUT : sel_13 
 * INPUT : sel_14 
 * INPUT : sel_15 
-* INPUT : s_en 
-* INPUT : p_en_bar 
-* INPUT : w_en 
+* OUTPUT : bl_out_0 
+* POWER : vdd
+* GROUND : gnd 
+* cols: 16 word_size: 1 
+XXMUX0 bl_0 bl_out_0 sel_0 vdd gnd column_transmission_gate
+XXMUX1 bl_1 bl_out_0 sel_1 vdd gnd column_transmission_gate
+XXMUX2 bl_2 bl_out_0 sel_2 vdd gnd column_transmission_gate
+XXMUX3 bl_3 bl_out_0 sel_3 vdd gnd column_transmission_gate
+XXMUX4 bl_4 bl_out_0 sel_4 vdd gnd column_transmission_gate
+XXMUX5 bl_5 bl_out_0 sel_5 vdd gnd column_transmission_gate
+XXMUX6 bl_6 bl_out_0 sel_6 vdd gnd column_transmission_gate
+XXMUX7 bl_7 bl_out_0 sel_7 vdd gnd column_transmission_gate
+XXMUX8 bl_8 bl_out_0 sel_8 vdd gnd column_transmission_gate
+XXMUX9 bl_9 bl_out_0 sel_9 vdd gnd column_transmission_gate
+XXMUX10 bl_10 bl_out_0 sel_10 vdd gnd column_transmission_gate
+XXMUX11 bl_11 bl_out_0 sel_11 vdd gnd column_transmission_gate
+XXMUX12 bl_12 bl_out_0 sel_12 vdd gnd column_transmission_gate
+XXMUX13 bl_13 bl_out_0 sel_13 vdd gnd column_transmission_gate
+XXMUX14 bl_14 bl_out_0 sel_14 vdd gnd column_transmission_gate
+XXMUX15 bl_15 bl_out_0 sel_15 vdd gnd column_transmission_gate
+.ENDS column_mux
+
+.SUBCKT bitline_driver write_1_int write_0_int col_active bl vdd gnd vwrite vhold 
+* INPUT : write_1_int
+* INPUT : write_0_int
+* INPUT : col_active
+* OUTPUT: bl
 * POWER : vdd 
 * GROUND: gnd 
-Xprecharge_array0 rbl_bl rbl_br bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 p_en_bar vdd precharge_array
-Xsense_amp_array0 dout_0 bl_out_0 br_out_0 s_en vdd gnd sense_amp_array
-Xwrite_driver_array0 din_0 bl_out_0 br_out_0 w_en vdd gnd write_driver_array
-Xcolumn_mux_array0 bl_0 br_0 bl_1 br_1 bl_2 br_2 bl_3 br_3 bl_4 br_4 bl_5 br_5 bl_6 br_6 bl_7 br_7 bl_8 br_8 bl_9 br_9 bl_10 br_10 bl_11 br_11 bl_12 br_12 bl_13 br_13 bl_14 br_14 bl_15 br_15 sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 bl_out_0 br_out_0 gnd column_mux_array
-.ENDS port_data
+* POWER : vwrite 
+* POWER : vhold
+Xpinv_buf1 col_active col_active_bar vdd gnd pinv_9
+Xpinv_buf2 col_active_bar col_active_buf vdd gnd pinv_10
+Xpnand_a write_1_int col_active_buf col_write1_bar vdd gnd pnand2
+Xpinv_a col_write1_bar col_write1 vdd gnd pinv
+Xpnand_c write_0_int col_active_buf col_write0_bar vdd gnd pnand2
+
+mp_vwrite_top bl col_write0_bar vwrite vdd pmos_vtg w=1.62u l=0.05u
+mp_vhold bl col_active_buf vhold vdd pmos_vtg w=1.62u l=0.05u
+mn_vhold bl col_active_bar vhold gnd nmos_vtg w=0.54u l=0.05u
+mn_v0_top bl col_write1 gnd gnd nmos_vtg w=0.54u l=0.05u
+.ENDS bitline_driver
+
+
+.SUBCKT bitline_driver_array write_1_int write_0_int sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 bl_0 bl_1 bl_2 bl_3 bl_4 bl_5 bl_6 bl_7 bl_8 bl_9 bl_10 bl_11 bl_12 bl_13 bl_14 bl_15 vdd gnd vwrite vhold 
+* INPUT : write_1_int
+* INPUT : write_0_int
+* INPUT : sel_0 
+* INPUT : sel_1 
+* INPUT : sel_2 
+* INPUT : sel_3 
+* INPUT : sel_4 
+* INPUT : sel_5 
+* INPUT : sel_6 
+* INPUT : sel_7 
+* INPUT : sel_8 
+* INPUT : sel_9 
+* INPUT : sel_10 
+* INPUT : sel_11 
+* INPUT : sel_12 
+* INPUT : sel_13 
+* INPUT : sel_14 
+* INPUT : sel_15
+* OUTPUT : bl_0 
+* OUTPUT : bl_1 
+* OUTPUT : bl_2 
+* OUTPUT : bl_3 
+* OUTPUT : bl_4 
+* OUTPUT : bl_5 
+* OUTPUT : bl_6 
+* OUTPUT : bl_7 
+* OUTPUT : bl_8 
+* OUTPUT : bl_9 
+* OUTPUT : bl_10 
+* OUTPUT : bl_11 
+* OUTPUT : bl_12 
+* OUTPUT : bl_13 
+* OUTPUT : bl_14 
+* OUTPUT : bl_15  
+* POWER : vdd 
+* GROUND: gnd 
+* POWER : vwrite 
+* POWER : vhold
+Xbitline_driver0 write_1_int write_0_int sel_0 bl_0 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver1 write_1_int write_0_int sel_1 bl_1 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver2 write_1_int write_0_int sel_2 bl_2 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver3 write_1_int write_0_int sel_3 bl_3 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver4 write_1_int write_0_int sel_4 bl_4 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver5 write_1_int write_0_int sel_5 bl_5 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver6 write_1_int write_0_int sel_6 bl_6 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver7 write_1_int write_0_int sel_7 bl_7 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver8 write_1_int write_0_int sel_8 bl_8 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver9 write_1_int write_0_int sel_9 bl_9 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver10 write_1_int write_0_int sel_10 bl_10 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver11 write_1_int write_0_int sel_11 bl_11 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver12 write_1_int write_0_int sel_12 bl_12 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver13 write_1_int write_0_int sel_13 bl_13 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver14 write_1_int write_0_int sel_14 bl_14 vdd gnd vwrite vhold bitline_driver
+Xbitline_driver15 write_1_int write_0_int sel_15 bl_15 vdd gnd vwrite vhold bitline_driver
+.ENDS bitline_driver_array 
+
+.SUBCKT column_mux_enable_array r_en sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 sel_read_0 sel_read_1 sel_read_2 sel_read_3 sel_read_4 sel_read_5 sel_read_6 sel_read_7 sel_read_8 sel_read_9 sel_read_10 sel_read_11 sel_read_12 sel_read_13 sel_read_14 sel_read_15 vdd gnd
+* INPUT : r_en
+* INPUT : sel_0 
+* INPUT : sel_1 
+* INPUT : sel_2 
+* INPUT : sel_3 
+* INPUT : sel_4 
+* INPUT : sel_5 
+* INPUT : sel_6 
+* INPUT : sel_7 
+* INPUT : sel_8 
+* INPUT : sel_9 
+* INPUT : sel_10 
+* INPUT : sel_11 
+* INPUT : sel_12 
+* INPUT : sel_13 
+* INPUT : sel_14 
+* INPUT : sel_15
+* OUTPUT : sel_read_0 
+* OUTPUT : sel_read_1 
+* OUTPUT : sel_read_2 
+* OUTPUT : sel_read_3 
+* OUTPUT : sel_read_4 
+* OUTPUT : sel_read_5 
+* OUTPUT : sel_read_6 
+* OUTPUT : sel_read_7 
+* OUTPUT : sel_read_8 
+* OUTPUT : sel_read_9 
+* OUTPUT : sel_read_10 
+* OUTPUT : sel_read_11 
+* OUTPUT : sel_read_12 
+* OUTPUT : sel_read_13 
+* OUTPUT : sel_read_14 
+* OUTPUT : sel_read_15
+* POWER : vdd 
+* GROUND: gnd
+Xcol_read_activedriver_and0 sel_0 r_en sel_read_0 vdd gnd and2_dec
+Xcol_read_activedriver_and1 sel_1 r_en sel_read_1 vdd gnd and2_dec
+Xcol_read_activedriver_and2 sel_2 r_en sel_read_2 vdd gnd and2_dec
+Xcol_read_activedriver_and3 sel_3 r_en sel_read_3 vdd gnd and2_dec
+Xcol_read_activedriver_and4 sel_4 r_en sel_read_4 vdd gnd and2_dec
+Xcol_read_activedriver_and5 sel_5 r_en sel_read_5 vdd gnd and2_dec
+Xcol_read_activedriver_and6 sel_6 r_en sel_read_6 vdd gnd and2_dec
+Xcol_read_activedriver_and7 sel_7 r_en sel_read_7 vdd gnd and2_dec
+Xcol_read_activedriver_and8 sel_8 r_en sel_read_8 vdd gnd and2_dec
+Xcol_read_activedriver_and9 sel_9 r_en sel_read_9 vdd gnd and2_dec
+Xcol_read_activedriver_and10 sel_10 r_en sel_read_10 vdd gnd and2_dec
+Xcol_read_activedriver_and11 sel_11 r_en sel_read_11 vdd gnd and2_dec
+Xcol_read_activedriver_and12 sel_12 r_en sel_read_12 vdd gnd and2_dec
+Xcol_read_activedriver_and13 sel_13 r_en sel_read_13 vdd gnd and2_dec
+Xcol_read_activedriver_and14 sel_14 r_en sel_read_14 vdd gnd and2_dec
+Xcol_read_activedriver_and15 sel_15 r_en sel_read_15 vdd gnd and2_dec
+.ENDS column_mux_enable_array
+
+.SUBCKT column_interface write_1_int write_0_int r_en bl_0 bl_1 bl_2 bl_3 bl_4 bl_5 bl_6 bl_7 bl_8 bl_9 bl_10 bl_11 bl_12 bl_13 bl_14 bl_15 dout_0 sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 vdd gnd vwrite vhold vref
+* INPUT : write_1_int
+* INPUT : write_1_int
+* INPUT : r_en
+* INPUT : bl_0 
+* INPUT : bl_1 
+* INPUT : bl_2 
+* INPUT : bl_3 
+* INPUT : bl_4 
+* INPUT : bl_5 
+* INPUT : bl_6 
+* INPUT : bl_7 
+* INPUT : bl_8 
+* INPUT : bl_9 
+* INPUT : bl_10 
+* INPUT : bl_11 
+* INPUT : bl_12 
+* INPUT : bl_13 
+* INPUT : bl_14 
+* INPUT : bl_15  
+* OUTPUT: dout_0 
+* INPUT : sel_0 
+* INPUT : sel_1 
+* INPUT : sel_2 
+* INPUT : sel_3 
+* INPUT : sel_4 
+* INPUT : sel_5 
+* INPUT : sel_6 
+* INPUT : sel_7 
+* INPUT : sel_8 
+* INPUT : sel_9 
+* INPUT : sel_10 
+* INPUT : sel_11 
+* INPUT : sel_12 
+* INPUT : sel_13 
+* INPUT : sel_14 
+* INPUT : sel_15 
+* POWER : vdd 
+* POWER : vwrite
+* POWER : vhold
+* POWER : vref
+* GROUND: gnd 
+Xopamp bl_out_0 vref dout_0 vdd gnd opamp
+Xbitline_driver_array0 write_1_int write_0_int sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 bl_0 bl_1 bl_2 bl_3 bl_4 bl_5 bl_6 bl_7 bl_8 bl_9 bl_10 bl_11 bl_12 bl_13 bl_14 bl_15 vdd gnd vwrite vhold bitline_driver_array
+Xcolumn_mux_enable_array0 r_en sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 sel_read_0 sel_read_1 sel_read_2 sel_read_3 sel_read_4 sel_read_5 sel_read_6 sel_read_7 sel_read_8 sel_read_9 sel_read_10 sel_read_11 sel_read_12 sel_read_13 sel_read_14 sel_read_15 vdd gnd column_mux_enable_array
+Xcolumn_mux0 bl_0 bl_1 bl_2 bl_3 bl_4 bl_5 bl_6 bl_7 bl_8 bl_9 bl_10 bl_11 bl_12 bl_13 bl_14 bl_15 sel_read_0 sel_read_1 sel_read_2 sel_read_3 sel_read_4 sel_read_5 sel_read_6 sel_read_7 sel_read_8 sel_read_9 sel_read_10 sel_read_11 sel_read_12 sel_read_13 sel_read_14 sel_read_15 bl_out_0 vdd gnd column_mux
+.ENDS column_interface
 
 .SUBCKT pnand4_0 A B C D Z vdd gnd
 * INPUT : A 
@@ -1403,9 +1270,8 @@ XXpre4x16_and_14 inbar_0 in_1 in_2 in_3 out_14 vdd gnd pand4
 XXpre4x16_and_15 in_0 in_1 in_2 in_3 out_15 vdd gnd pand4
 .ENDS hierarchical_predecode4x16_0
 
-.SUBCKT bank dout0_0 rbl_bl_0_0 din0_0 addr0_0 addr0_1 addr0_2 addr0_3 addr0_4 addr0_5 addr0_6 addr0_7 s_en0 p_en_bar0 w_en0 wl_en0 vdd gnd
-* OUTPUT: dout0_0 
-* OUTPUT: rbl_bl_0_0 
+.SUBCKT bank dout0_0 din0_0 addr0_0 addr0_1 addr0_2 addr0_3 addr0_4 addr0_5 addr0_6 addr0_7 w_en0 r_en0 wl_en0 vdd gnd vwrite vread vhold vref
+* OUTPUT: dout0_0  
 * INPUT : din0_0 
 * INPUT : addr0_0 
 * INPUT : addr0_1 
@@ -1415,15 +1281,24 @@ XXpre4x16_and_15 in_0 in_1 in_2 in_3 out_15 vdd gnd pand4
 * INPUT : addr0_5 
 * INPUT : addr0_6 
 * INPUT : addr0_7 
-* INPUT : s_en0 
-* INPUT : p_en_bar0 
 * INPUT : w_en0 
+* INPUT : r_en0 
 * INPUT : wl_en0 
 * POWER : vdd 
 * GROUND: gnd 
-Xbitcell_array rbl_bl_0_0 rbl_br_0_0 bl_0_0 br_0_0 bl_0_1 br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7 br_0_7 bl_0_8 br_0_8 bl_0_9 br_0_9 bl_0_10 br_0_10 bl_0_11 br_0_11 bl_0_12 br_0_12 bl_0_13 br_0_13 bl_0_14 br_0_14 bl_0_15 br_0_15 rbl_wl0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 vdd gnd replica_bitcell_array
-Xport_data0 rbl_bl_0_0 rbl_br_0_0 bl_0_0 br_0_0 bl_0_1 br_0_1 bl_0_2 br_0_2 bl_0_3 br_0_3 bl_0_4 br_0_4 bl_0_5 br_0_5 bl_0_6 br_0_6 bl_0_7 br_0_7 bl_0_8 br_0_8 bl_0_9 br_0_9 bl_0_10 br_0_10 bl_0_11 br_0_11 bl_0_12 br_0_12 bl_0_13 br_0_13 bl_0_14 br_0_14 bl_0_15 br_0_15 dout0_0 din0_0 sel0_0 sel0_1 sel0_2 sel0_3 sel0_4 sel0_5 sel0_6 sel0_7 sel0_8 sel0_9 sel0_10 sel0_11 sel0_12 sel0_13 sel0_14 sel0_15 s_en0 p_en_bar0 w_en0 vdd gnd port_data
-Xport_address0 addr0_4 addr0_5 addr0_6 addr0_7 wl_en0 wl_0_0 wl_0_1 wl_0_2 wl_0_3 wl_0_4 wl_0_5 wl_0_6 wl_0_7 wl_0_8 wl_0_9 wl_0_10 wl_0_11 wl_0_12 wl_0_13 wl_0_14 wl_0_15 rbl_wl0 vdd gnd port_address
+* POWER : vwrite 
+* POWER : vread
+* POWER : vhold
+* POWER : vref
+Xdin_and_write din0_0 w_en0 write_1_int_a vdd gnd pand2
+Xdin_and_write_buf write_1_int_a write_1_int vdd gnd pdriver_1
+Xdin_inv din0_0 din0_0_bar vdd gnd pinv
+Xdin_bar_and_write din0_0_bar w_en0 write_0_int_a vdd gnd pand2
+Xdin_bar_and_write_buf write_0_int_a write_0_int vdd gnd pdriver_1
+
+Xbitcell_array bl_0_0 bl_0_1 bl_0_2 bl_0_3 bl_0_4 bl_0_5 bl_0_6 bl_0_7 bl_0_8 bl_0_9 bl_0_10 bl_0_11 bl_0_12 bl_0_13 bl_0_14 bl_0_15 wlt_0_0 wlt_0_1 wlt_0_2 wlt_0_3 wlt_0_4 wlt_0_5 wlt_0_6 wlt_0_7 wlt_0_8 wlt_0_9 wlt_0_10 wlt_0_11 wlt_0_12 wlt_0_13 wlt_0_14 wlt_0_15 wlb_0_0 wlb_0_1 wlb_0_2 wlb_0_3 wlb_0_4 wlb_0_5 wlb_0_6 wlb_0_7 wlb_0_8 wlb_0_9 wlb_0_10 wlb_0_11 wlb_0_12 wlb_0_13 wlb_0_14 wlb_0_15
+Xcolumn_interface0 write_1_int write_0_int r_en0 bl_0_0 bl_0_1 bl_0_2 bl_0_3 bl_0_4 bl_0_5 bl_0_6 bl_0_7 bl_0_8 bl_0_9 bl_0_10 bl_0_11 bl_0_12 bl_0_13 bl_0_14 bl_0_15 dout0_0 sel0_0 sel0_1 sel0_2 sel0_3 sel0_4 sel0_5 sel0_6 sel0_7 sel0_8 sel0_9 sel0_10 sel0_11 sel0_12 sel0_13 sel0_14 sel0_15 vdd gnd vwrite vhold vref column_interface
+Xport_address0 addr0_4 addr0_5 addr0_6 addr0_7 wl_en0 write_1_int write_0_int r_en0 wlt_0_0 wlt_0_1 wlt_0_2 wlt_0_3 wlt_0_4 wlt_0_5 wlt_0_6 wlt_0_7 wlt_0_8 wlt_0_9 wlt_0_10 wlt_0_11 wlt_0_12 wlt_0_13 wlt_0_14 wlt_0_15 wlb_0_0 wlb_0_1 wlb_0_2 wlb_0_3 wlb_0_4 wlb_0_5 wlb_0_6 wlb_0_7 wlb_0_8 wlb_0_9 wlb_0_10 wlb_0_11 wlb_0_12 wlb_0_13 wlb_0_14 wlb_0_15 vdd gnd vwrite vread vhold port_address
 Xcol_address_decoder0 addr0_0 addr0_1 addr0_2 addr0_3 sel0_0 sel0_1 sel0_2 sel0_3 sel0_4 sel0_5 sel0_6 sel0_7 sel0_8 sel0_9 sel0_10 sel0_11 sel0_12 sel0_13 sel0_14 sel0_15 vdd gnd hierarchical_predecode4x16_0
 .ENDS bank
 
@@ -1462,7 +1337,7 @@ Xdff_buf_inv1 qint Qb vdd gnd pinv_4
 Xdff_buf_inv2 Qb Q vdd gnd pinv_5
 .ENDS dff_buf_0
 
-.SUBCKT dff_buf_array din_0 din_1 dout_0 dout_bar_0 dout_1 dout_bar_1 clk vdd gnd
+.SUBCKT dff_buf_array din_0 din_1 din_2 dout_0 dout_bar_0 dout_1 dout_bar_1 dout_2 dout_bar_2 clk vdd gnd
 * INPUT : din_0 
 * INPUT : din_1 
 * OUTPUT: dout_0 
@@ -1475,6 +1350,7 @@ Xdff_buf_inv2 Qb Q vdd gnd pinv_5
 * inv1: 2 inv2: 4
 Xdff_r0_c0 din_0 dout_0 dout_bar_0 clk vdd gnd dff_buf_0
 Xdff_r1_c0 din_1 dout_1 dout_bar_1 clk vdd gnd dff_buf_0
+Xdff_r2_c0 din_2 dout_2 dout_bar_2 clk vdd gnd dff_buf_0
 .ENDS dff_buf_array
 
 .SUBCKT pnand2_0 A B Z vdd gnd
@@ -1679,6 +1555,15 @@ Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=2.4299999999999997u l=0.05u pd=4.96u ps=4.
 Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.8099999999999999u l=0.05u pd=1.72u ps=1.72u as=0.10p ad=0.10p
 .ENDS pinv_16
 
+.SUBCKT pinv_20 A Z vdd gnd
+* INPUT : A 
+* OUTPUT: Z 
+* POWER : vdd 
+* GROUND: gnd 
+Mpinv_pmos Z A vdd vdd pmos_vtg m=1 w=1.62u l=0.05u
+Mpinv_nmos Z A gnd gnd nmos_vtg m=1 w=0.54u l=0.05u
+.ENDS pinv_20
+
 .SUBCKT pdriver_3 A Z vdd gnd
 * INPUT : A 
 * OUTPUT: Z 
@@ -1802,34 +1687,35 @@ Xdload_8_2 out n_8_2 vdd gnd pinv_18
 Xdload_8_3 out n_8_3 vdd gnd pinv_18
 .ENDS delay_chain
 
-.SUBCKT control_logic_rw csb web clk rbl_bl s_en w_en p_en_bar wl_en clk_buf vdd gnd
+.SUBCKT control_logic_rw csb web reb clk w_en r_en wl_en clk_buf vdd gnd
 * INPUT : csb 
 * INPUT : web 
+* INPUT : reb 
 * INPUT : clk 
-* INPUT : rbl_bl 
-* OUTPUT: s_en 
 * OUTPUT: w_en 
-* OUTPUT: p_en_bar 
+* OUTPUT: r_en
 * OUTPUT: wl_en 
 * OUTPUT: clk_buf 
 * POWER : vdd 
 * GROUND: gnd 
 * word_size 1
-Xctrl_dffs csb web cs_bar cs we_bar we clk_buf vdd gnd dff_buf_array
 Xclkbuf clk clk_buf vdd gnd pdriver_1
-Xinv_clk_bar clk_buf clk_bar vdd gnd pinv_17
-Xand2_gated_clk_bar clk_bar cs gated_clk_bar vdd gnd pand2
+Xctrl_dffs csb web reb cs_bar cs we_bar w_en re_bar re clk_buf vdd gnd dff_buf_array
+*Xinv_clk_bar clk_buf clk_bar vdd gnd pinv_17
+*Xand2_gated_clk_bar clk_bar cs gated_clk_bar vdd gnd pand2
 Xand2_gated_clk_buf clk_buf cs gated_clk_buf vdd gnd pand2
-Xbuf_wl_en gated_clk_bar wl_en vdd gnd pdriver_2
-Xrbl_bl_delay_inv rbl_bl_delay rbl_bl_delay_bar vdd gnd pinv_17
-Xw_en_and we rbl_bl_delay_bar gated_clk_bar w_en vdd gnd pand3
-Xbuf_s_en_and rbl_bl_delay gated_clk_bar we_bar s_en vdd gnd pand3_0
-Xdelay_chain rbl_bl rbl_bl_delay vdd gnd delay_chain
-Xnand_p_en_bar gated_clk_buf rbl_bl_delay p_en_bar_unbuf vdd gnd pnand2_1
-Xbuf_p_en_bar p_en_bar_unbuf p_en_bar vdd gnd pdriver_2
+Xbuf_wl_en gated_clk_buf wl_en vdd gnd pdriver_2
+*Xbuf_w_en we w_en vdd gnd pdriver_2 MIGHT NEED TO PUT THIS BACK
+Xbuf_r_en re r_en vdd gnd pdriver_1 
+*Xrbl_bl_delay_inv rbl_bl_delay rbl_bl_delay_bar vdd gnd pinv_17
+*Xw_en_and we rbl_bl_delay_bar gated_clk_bar w_en vdd gnd pand3
+*Xbuf_s_en_and rbl_bl_delay gated_clk_bar we_bar s_en vdd gnd pand3_0
+*Xdelay_chain rbl_bl rbl_bl_delay vdd gnd delay_chain
+*Xnand_p_en_bar gated_clk_buf rbl_bl_delay p_en_bar_unbuf vdd gnd pnand2_1
+*Xbuf_p_en_bar p_en_bar_unbuf p_en_bar vdd gnd pdriver_2
 .ENDS control_logic_rw
 
-.SUBCKT 2R_MLC_1_256_freepdk45 din0[0] addr0[0] addr0[1] addr0[2] addr0[3] addr0[4] addr0[5] addr0[6] addr0[7] csb0 web0 clk0 dout0[0] vdd gnd
+.SUBCKT 2R_default_16_16_1bit din0[0] addr0[0] addr0[1] addr0[2] addr0[3] addr0[4] addr0[5] addr0[6] addr0[7] csb0 web0 reb0 clk0 dout0[0] vdd gnd vwrite vread vhold vref
 * INPUT : din0[0] 
 * INPUT : addr0[0] 
 * INPUT : addr0[1] 
@@ -1841,13 +1727,17 @@ Xbuf_p_en_bar p_en_bar_unbuf p_en_bar vdd gnd pdriver_2
 * INPUT : addr0[7] 
 * INPUT : csb0 
 * INPUT : web0 
+* INPUT : reb0 
 * INPUT : clk0 
 * OUTPUT: dout0[0] 
 * POWER : vdd 
 * GROUND: gnd 
-Xbank0 dout0[0] rbl_bl0 bank_din0[0] a0[0] a0[1] a0[2] a0[3] a0[4] a0[5] a0[6] a0[7] s_en0 p_en_bar0 w_en0 wl_en0 vdd gnd bank
-Xcontrol0 csb0 web0 clk0 rbl_bl0 s_en0 w_en0 p_en_bar0 wl_en0 clk_buf0 vdd gnd control_logic_rw
+* POWER : vwrite 
+* POWER : vread
+* POWER : vhold
+Xbank0 dout0[0] bank_din0[0] a0[0] a0[1] a0[2] a0[3] a0[4] a0[5] a0[6] a0[7] w_en0 r_en0 wl_en0 vdd gnd vwrite vread vhold vref bank
+Xcontrol0 csb0 web0 reb0 clk0 w_en0 r_en0 wl_en0 clk_buf0 vdd gnd control_logic_rw
 Xrow_address0 addr0[4] addr0[5] addr0[6] addr0[7] a0[4] a0[5] a0[6] a0[7] clk_buf0 vdd gnd row_addr_dff
 Xcol_address0 addr0[0] addr0[1] addr0[2] addr0[3] a0[0] a0[1] a0[2] a0[3] clk_buf0 vdd gnd col_addr_dff
 Xdata_dff0 din0[0] bank_din0[0] clk_buf0 vdd gnd data_dff
-.ENDS 2R_MLC_1_256_freepdk45
+.ENDS 2R_default_16_16_1bit

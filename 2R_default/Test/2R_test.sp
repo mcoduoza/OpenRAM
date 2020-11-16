@@ -27,7 +27,7 @@ MT2 wl_b vgate2 gnd gnd NMOS_VTG W=1800n L=50n
 MT3 bl vgate3 vwr vwr PMOS_VTG W=1800n L=50n
 
 *Cell under test
-X2R_cell wl_t wl_b bl cell_2r 
+X2R_cell bl wl_t wl_b cell_2r 
 
 *Control signals
 Vgate1 vgate1 gnd 'V_GATE1'

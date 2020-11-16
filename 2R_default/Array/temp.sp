@@ -1,0 +1,16 @@
+XXMUX0 bl_0 bl_out_0 sel_0 vdd gnd column_transmission_gate
+XXMUX1 bl_1 bl_out_0 sel_1 vdd gnd column_transmission_gate
+XXMUX2 bl_2 bl_out_0 sel_2 vdd gnd column_transmission_gate
+XXMUX3 bl_3 bl_out_0 sel_3 vdd gnd column_transmission_gate
+XXMUX4 bl_4 bl_out_0 sel_4 vdd gnd column_transmission_gate
+XXMUX5 bl_5 bl_out_0 sel_5 vdd gnd column_transmission_gate
+XXMUX6 bl_6 bl_out_0 sel_6 vdd gnd column_transmission_gate
+XXMUX7 bl_7 bl_out_0 sel_7 vdd gnd column_transmission_gate
+XXMUX8 bl_8 bl_out_0 sel_8 vdd gnd column_transmission_gate
+XXMUX9 bl_9 bl_out_0 sel_9 vdd gnd column_transmission_gate
+XXMUX10 bl_10 bl_out_0 sel_10 vdd gnd column_transmission_gate
+XXMUX11 bl_11 bl_out_0 sel_11 vdd gnd column_transmission_gate
+XXMUX12 bl_12 bl_out_0 sel_12 vdd gnd column_transmission_gate
+XXMUX13 bl_13 bl_out_0 sel_13 vdd gnd column_transmission_gate
+XXMUX14 bl_14 bl_out_0 sel_14 vdd gnd column_transmission_gate
+XXMUX15 bl_15 bl_out_0 sel_15 vdd gnd column_transmission_gate
