@@ -34,11 +34,11 @@ VREF vref gnd 'V_REF'
 VCSB csb0 gnd 0
 VREB reb0 gnd 'V_DD'
 VWEB web0 gnd 0
-VCLK clk0 gnd PULSE 0 'V_DD' 10ps 0ps 0ps 25ns 50ns
+VCLK clk0 gnd PULSE 0 'V_DD' 10ps 0ps 0ps 5ns 10ns
 
 * Output
 Rout dout0_0 gnd 1G
 
 * Transient simulation
-.tran 10p 40n
+.tran 10p 15n
 .end
