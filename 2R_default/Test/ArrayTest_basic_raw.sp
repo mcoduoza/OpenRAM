@@ -36,7 +36,7 @@ VREB reb0 gnd PWL(0 'V_DD' 70n 'V_DD' 75n 0 150n 0 155n 'V_DD' 10000n 'V_DD')
 VWEB web0 gnd 0 PWL(0 0 70n 0 75n 'V_DD' 200n 'V_DD' 10000n 'V_DD')
 
 *VCLK clk0 gnd PULSE 0 'V_DD' 10ps 0ps 0ps 50ns 100ns
-VCLK clk0 gnd PWL(0 0 10ps 'V_DD' 49990ps 'V_DD' 50000ps 0 99990ps 0 100000ps 'V_DD' 149990ps 'V_DD' 150000ps 0 10000n 0)
+VCLK clk0 gnd PWL(0 0 10ps 'V_DD' 49990ps 'V_DD' 50000ps 0 99990ps 0 100000ps 'V_DD' 1000ns 'V_DD')
 * Output
 Rout dout0_0 gnd 1G
 
