@@ -7,6 +7,7 @@
 .param V_GATE2=1.5
 .param V_GATE3=0
 
+
 *Vwrite voltage source (from off-chip)
 Vwrite vwr gnd 'V_WRITE'
 

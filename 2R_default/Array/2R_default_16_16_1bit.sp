@@ -1715,7 +1715,7 @@ Xbuf_r_en re r_en vdd gnd pdriver_1
 *Xbuf_p_en_bar p_en_bar_unbuf p_en_bar vdd gnd pdriver_2
 .ENDS control_logic_rw
 
-.SUBCKT 2R_default_16_16_1bit din0[0] addr0[0] addr0[1] addr0[2] addr0[3] addr0[4] addr0[5] addr0[6] addr0[7] csb0 web0 reb0 clk0 dout0[0] vdd gnd vwrite vread vhold vref
+.SUBCKT 2R_default_16_16_1bit din0_0 addr0_0 addr0_1 addr0_2 addr0_3 addr0_4 addr0_5 addr0_6 addr0_7 csb0 web0 reb0 clk0 dout0_0 vdd gnd vwrite vread vhold vref
 * INPUT : din0[0] 
 * INPUT : addr0[0] 
 * INPUT : addr0[1] 
@@ -1735,9 +1735,9 @@ Xbuf_r_en re r_en vdd gnd pdriver_1
 * POWER : vwrite 
 * POWER : vread
 * POWER : vhold
-Xbank0 dout0[0] bank_din0[0] a0[0] a0[1] a0[2] a0[3] a0[4] a0[5] a0[6] a0[7] w_en0 r_en0 wl_en0 vdd gnd vwrite vread vhold vref bank
+Xbank0 dout0_0 bank_din0_0 a0_0 a0_1 a0_2 a0_3 a0_4 a0_5 a0_6 a0_7 w_en0 r_en0 wl_en0 vdd gnd vwrite vread vhold vref bank
 Xcontrol0 csb0 web0 reb0 clk0 w_en0 r_en0 wl_en0 clk_buf0 vdd gnd control_logic_rw
-Xrow_address0 addr0[4] addr0[5] addr0[6] addr0[7] a0[4] a0[5] a0[6] a0[7] clk_buf0 vdd gnd row_addr_dff
-Xcol_address0 addr0[0] addr0[1] addr0[2] addr0[3] a0[0] a0[1] a0[2] a0[3] clk_buf0 vdd gnd col_addr_dff
-Xdata_dff0 din0[0] bank_din0[0] clk_buf0 vdd gnd data_dff
+Xrow_address0 addr0_4 addr0_5 addr0_6 addr0_7 a0_4 a0_5 a0_6 a0_7 clk_buf0 vdd gnd row_addr_dff
+Xcol_address0 addr0_0 addr0_1 addr0_2 addr0_3 a0_0 a0_1 a0_2 a0_3 clk_buf0 vdd gnd col_addr_dff
+Xdata_dff0 din0_0 bank_din0_0 clk_buf0 vdd gnd data_dff
 .ENDS 2R_default_16_16_1bit
