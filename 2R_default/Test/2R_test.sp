@@ -1,7 +1,7 @@
 * 2R test
 .inc ../building_blocks/2R.sp
-.inc PMOS_VTG.inc
-.inc NMOS_VTG.inc
+.inc ../PMOS_VTG.inc
+.inc ../NMOS_VTG.inc
 .param V_WRITE=1.5
 .param V_GATE1=1.5
 .param V_GATE2=1.5

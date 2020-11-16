@@ -1,0 +1,36 @@
+Args: pva -p hsp -t spi -f ArrayTest.pvadir/pvaHDL.lis -o ArrayTest.pvadir
+
+Begin of pVA compiling on Sun Nov 15 21:48:43 2020	GTM/In-use: 0.6250/0.5394 MB
+
+Parsing '../Array/../building_blocks/../Array/../building_blocks/rram.va'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/disciplines.vams'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/constants.vams'
+Parsing include file '../Array/../building_blocks/smoothfunctions.va'
+
+End of pVA compiling on Sun Nov 15 21:48:43 2020	GTM/In-use: 1.3750/1.2833 MB
+
+
+End of build pVA DB on Sun Nov 15 21:48:43 2020	GTM/In-use: 2.3750/2.3479 MB
+
+*pvaI* Module (RRAM): 3 unexpanded port, 0 init, 78 behav, 3 contrib, 27/235 expr(s)
+*pvaW*        Variable 'clip_minGap' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (../Array/../building_blocks/../Array/../building_blocks/rram.va:37)
+*pvaI*        No DIS, 28/32 afCount, 0 MT, dlg, IO(0/0/0/0)
+*pvaI*        0 gmdIsThreadSafe 
+*pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
+*pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
+*pvaW*        variable 'clip_0' declared but not used in RHS, deleted (../Array/../building_blocks/../Array/../building_blocks/rram.va:24)
+*pvaW*                   To relax this rule, use 'setenv PVA_KEEP_VARS 1' to keep variables for probing.
+*pvaI*        generated 0 flow node(s) during compilation.
+
+End of pVA genC on Sun Nov 15 21:48:44 2020	GTM/In-use: 2.8750/2.6861 MB
+
+*pvaI* #### Total 229 line-size(s), 27/235 expr(s), 3 contr(s), 0 init(s), 78 behav(s), 3 port(s)
+
+Generating ArrayTest.pvadir/pvaRTL_linux64.so
+
+
+End of submitting pVA ArrayTest.pvadir/pvaRTL.mak on Sun Nov 15 21:48:44 2020	GTM/In-use: 2.8750/2.6862 MB
+
+
+End of pVA elaboration on Sun Nov 15 21:48:44 2020	GTM/In-use: 2.8750/2.5602 MB
+
