@@ -40,5 +40,5 @@ VCLK clk0 gnd PULSE 0 'V_DD' 10ps 0ps 0ps 5ns 10ns
 Rout dout0_0 gnd 1G
 
 * Transient simulation
-.tran 10p 15n
+.tran 10p 8n
 .end
