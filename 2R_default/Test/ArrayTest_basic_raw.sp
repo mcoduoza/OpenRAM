@@ -41,5 +41,5 @@ VCLK clk0 gnd PWL(0 0 10ps 'V_DD' 49990ps 'V_DD' 50000ps 0 99990ps 0 100000ps 'V
 Rout dout0_0 gnd 1G
 
 * Transient simulation
-.tran 10p 10000n
+.tran 10p 1000n
 .end
