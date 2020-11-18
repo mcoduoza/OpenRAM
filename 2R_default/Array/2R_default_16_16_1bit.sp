@@ -1050,7 +1050,7 @@ Xinv_c drive_0_bar drive_0 vdd gnd pinv
 mp_vwrite_top bl drive_vwrite_bar vwrite vdd pmos_vtg w=1.62u l=0.05u
 mp_vhold bl drive_vhold_bar vhold vdd pmos_vtg w=1.62u l=0.05u
 mn_vhold bl drive_vhold vhold gnd nmos_vtg w=0.54u l=0.05u
-mn_v0_top bl drive_0 gnd gnd nmos_vtg w=0.54u l=0.05u
+mn_v0_top bl drive_0 gnd gnd nmos_vtg w=0.75u l=0.05u
 .ENDS bitline_driver
 
 
