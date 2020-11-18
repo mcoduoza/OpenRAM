@@ -12,6 +12,7 @@
 *
 .inc opamp.sp
 .inc ../building_blocks/2R.sp
+.inc ../building_blocks/comparator.va
 
 .subckt dff D Q clk vdd gnd
 *
@@ -1211,7 +1212,8 @@ Xcol_read_activedriver_and15 sel_15 r_en sel_read_15 vdd gnd and2_dec
 * POWER : vhold
 * POWER : vref
 * GROUND: gnd 
-Xopamp bl_out_0 vref dout_0 vdd gnd opamp
+*Xopamp bl_out_0 vref dout_0 vdd gnd opamp
+Xcomparator bl_out_0 vref dout_0 comparator
 Xbitline_driver_array0 write_1_int write_0_int w_en nop sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 bl_0 bl_1 bl_2 bl_3 bl_4 bl_5 bl_6 bl_7 bl_8 bl_9 bl_10 bl_11 bl_12 bl_13 bl_14 bl_15 vdd gnd vwrite vhold bitline_driver_array
 Xcolumn_mux_enable_array0 r_en sel_0 sel_1 sel_2 sel_3 sel_4 sel_5 sel_6 sel_7 sel_8 sel_9 sel_10 sel_11 sel_12 sel_13 sel_14 sel_15 sel_read_0 sel_read_1 sel_read_2 sel_read_3 sel_read_4 sel_read_5 sel_read_6 sel_read_7 sel_read_8 sel_read_9 sel_read_10 sel_read_11 sel_read_12 sel_read_13 sel_read_14 sel_read_15 vdd gnd column_mux_enable_array
 Xcolumn_mux0 bl_0 bl_1 bl_2 bl_3 bl_4 bl_5 bl_6 bl_7 bl_8 bl_9 bl_10 bl_11 bl_12 bl_13 bl_14 bl_15 sel_read_0 sel_read_1 sel_read_2 sel_read_3 sel_read_4 sel_read_5 sel_read_6 sel_read_7 sel_read_8 sel_read_9 sel_read_10 sel_read_11 sel_read_12 sel_read_13 sel_read_14 sel_read_15 bl_out_0 vdd gnd column_mux
