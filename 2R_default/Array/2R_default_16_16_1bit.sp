@@ -12,7 +12,7 @@
 *
 .inc opamp.sp
 .inc ../building_blocks/2R.sp
-.inc ../building_blocks/comparator.va
+.hdl ../building_blocks/comparator.va
 
 .subckt dff D Q clk vdd gnd
 *
