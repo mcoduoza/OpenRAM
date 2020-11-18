@@ -9,9 +9,9 @@ XR_T wl_tc blc gap_t RRAM I0=1e-4 Vel0=100
 .ic V(wl_tc)=0
 .ic V(blc)=0
 
-* Bottom RRAM cell and initial condition (HRS)
+* Bottom RRAM cell and initial condition (LRS)
 XR_B blc wl_bc gap_b RRAM I0=1e-4 Vel0=100
-.ic V(gap_b)=1.5
+.ic V(gap_b)=0.7
 .ic V(wl_bc)=0
 
 * Parasitics
