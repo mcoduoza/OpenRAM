@@ -519,7 +519,7 @@ mn_v0_top wlt drive_top_0 gnd gnd nmos_vtg w=0.54u l=0.05u
 mp_vwrite_bot wlb drive_vwrite_bar vwrite vdd pmos_vtg w=1.62u l=0.05u
 mp_vhold_bot wlb drive_vhold_bar vhold vdd pmos_vtg w=1.62u l=0.05u
 mn_vhold_bot wlb drive_vhold vhold gnd nmos_vtg w=0.54u l=0.05u
-mn_v0_bot wlb drive_bot_0 gnd gnd nmos_vtg w=0.75u l=0.05u 
+mn_v0_bot wlb drive_bot_0 gnd gnd nmos_vtg w=0.9u l=0.05u 
 .ENDS wordline_driver
 
 .SUBCKT wordline_driver_array write_1_int write_0_int w_en r_en nop wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold
