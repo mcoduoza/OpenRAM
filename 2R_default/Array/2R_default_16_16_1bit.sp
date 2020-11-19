@@ -509,16 +509,16 @@ Xnand2_e write_0_int wl_active drive_top_0_bar vdd gnd pnand2
 Xinv_e drive_top_0_bar drive_top_0 vdd gnd pinv
 Xnand2_f drive_top_vread_bar drive_top_0_bar drive_bot_0 vdd gnd pnand2
 
-mp_vwrite_top wlt drive_vwrite_bar vwrite vdd pmos_vtg w=1.62u l=0.05u
-mp_vhold_top wlt drive_vhold_bar vhold vdd pmos_vtg w=1.62u l=0.05u
-mn_vhold_top wlt drive_vhold vhold gnd nmos_vtg w=0.54u l=0.05u
-mp_vread_top wlt drive_top_vread_bar vread vdd pmos_vtg w=1.62u l=0.05u
-mn_vread_top wlt drive_top_vread vread gnd nmos_vtg w=0.54u l=0.05u
+mp_vwrite_top wlt drive_vwrite_bar vwrite vdd pmos_vtg w=4.0u l=0.05u
+mp_vhold_top wlt drive_vhold_bar vhold vdd pmos_vtg w=4.0u l=0.05u
+mn_vhold_top wlt drive_vhold vhold gnd nmos_vtg w=1.8u l=0.05u
+mp_vread_top wlt drive_top_vread_bar vread vdd pmos_vtg w=4.0u l=0.05u
+mn_vread_top wlt drive_top_vread vread gnd nmos_vtg w=1.8u l=0.05u
 mn_v0_top wlt drive_top_0 gnd gnd nmos_vtg w=1.8u l=0.05u
 
-mp_vwrite_bot wlb drive_vwrite_bar vwrite vdd pmos_vtg w=1.62u l=0.05u
-mp_vhold_bot wlb drive_vhold_bar vhold vdd pmos_vtg w=1.62u l=0.05u
-mn_vhold_bot wlb drive_vhold vhold gnd nmos_vtg w=0.54u l=0.05u
+mp_vwrite_bot wlb drive_vwrite_bar vwrite vdd pmos_vtg w=4.0u l=0.05u
+mp_vhold_bot wlb drive_vhold_bar vhold vdd pmos_vtg w=4.0u l=0.05u
+mn_vhold_bot wlb drive_vhold vhold gnd nmos_vtg w=1.8u l=0.05u
 mn_v0_bot wlb drive_bot_0 gnd gnd nmos_vtg w=1.8u l=0.05u 
 .ENDS wordline_driver
 
@@ -1048,10 +1048,10 @@ Xinv_b drive_vhold drive_vhold_bar vdd gnd pinv
 Xnand2_d write_1_int col_active_buf drive_0_bar vdd gnd pnand2
 Xinv_c drive_0_bar drive_0 vdd gnd pinv
 
-mp_vwrite_top bl drive_vwrite_bar vwrite vdd pmos_vtg w=1.62u l=0.05u
-mp_vhold bl drive_vhold_bar vhold vdd pmos_vtg w=1.62u l=0.05u
-mn_vhold bl drive_vhold vhold gnd nmos_vtg w=0.54u l=0.05u
-mn_v0_top bl drive_0 gnd gnd nmos_vtg w=0.75u l=0.05u
+mp_vwrite_top bl drive_vwrite_bar vwrite vdd pmos_vtg w=4.0u l=0.05u
+mp_vhold bl drive_vhold_bar vhold vdd pmos_vtg w=4.0u l=0.05u
+mn_vhold bl drive_vhold vhold gnd nmos_vtg w=1.8u l=0.05u
+mn_v0_top bl drive_0 gnd gnd nmos_vtg w=1.8u l=0.05u
 .ENDS bitline_driver
 
 
