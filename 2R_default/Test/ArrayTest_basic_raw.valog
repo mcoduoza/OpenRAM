@@ -1,0 +1,94 @@
+
+*pvaI* current limit stacksize=10485760, set new limit stacksize=62914560
+ --------------------------------------------------------
+|                                                        |
+|             Synopsys Unified Verilog-A (pVA)           |
+|                                                        |
+|        Machine Name: r6cad-tsmc40r.stanford.edu        |
+| Copyright (c) 2015 Synopsys Inc., All Rights Reserved. |
+|                                                        |
+ --------------------------------------------------------
+
+libepva built by pvamgr synmake_pva_build  on Mon Jul 31 14:32:23 PDT 2017 - p4:4618024
+HSP_HOME:   /cad/synopsys/hspice/M-2017.03-SP2/hspice
+HSP_ARCH:   linux64
+HSP_GCC :   /cad/synopsys/hspice/M-2017.03-SP2/hspice/GNU/linux64/gcc/bin/gcc -m64 
+HSP_GCC_VER:   5.2.0
+Working-Dir: /home/mcoduoza/2R_design/OpenRAM/2R_default/Test
+Args:        -p hsp -t spi -f ArrayTest_basic_raw.pvadir/pvaHDL.lis -o ArrayTest_basic_raw.pvadir 
+
+### optimize mode ###
+Args: pva -p hsp -t spi -f ArrayTest_basic_raw.pvadir/pvaHDL.lis -o ArrayTest_basic_raw.pvadir
+
+Begin of pVA compiling on Thu Nov 19 14:35:39 2020	GTM/In-use: 0.6250/0.5500 MB
+
+Parsing '../Array/../building_blocks/../Array/../building_blocks/rram.va'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/disciplines.vams'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/constants.vams'
+Parsing include file '../Array/../building_blocks/smoothfunctions.va'
+Parsing '../Array/../Array/../building_blocks/comparator.va'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/discipline.h'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/constants.h'
+
+End of pVA compiling on Thu Nov 19 14:35:39 2020	GTM/In-use: 1.5000/1.3337 MB
+
+
+End of build pVA DB on Thu Nov 19 14:35:39 2020	GTM/In-use: 3.3750/3.3326 MB
+
+*pvaI* Module (RRAM): 3 unexpanded port, 0 init, 78 behav, 3 contrib, 27/235 expr(s)
+*pvaW*        Variable 'clip_minGap' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (../Array/../building_blocks/../Array/../building_blocks/rram.va:37)
+*pvaI*        No DIS, 28/32 afCount, 0 MT, dlg, IO(0/0/0/0)
+*pvaI*        0 gmdIsThreadSafe 
+*pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
+*pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
+*pvaW*        variable 'clip_0' declared but not used in RHS, deleted (../Array/../building_blocks/../Array/../building_blocks/rram.va:24)
+*pvaW*                   To relax this rule, use 'setenv PVA_KEEP_VARS 1' to keep variables for probing.
+*pvaI*        generated 0 flow node(s) during compilation.
+*pvaI* Module (comparator): 3 unexpanded port, 2 init, 1 behav, 1 contrib, 27/0 expr(s)
+*pvaI*        Has DIS(AE SB), 0/0 afCount, 0 MT, dlg, IO(0/1/1/1)
+*pvaI*        0 gmdIsThreadSafe (AE SB)
+*pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
+*pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
+*pvaI*        Port direction output of 'sigout' is coerced to inout (../Array/../Array/../building_blocks/comparator.va:44)
+*pvaI*        generated 1 flow node(s) during compilation.
+
+End of pVA genC on Thu Nov 19 14:35:40 2020	GTM/In-use: 4.1250/3.8488 MB
+
+*pvaI* #### Total 493 line-size(s), 54/235 expr(s), 4 contr(s), 2 init(s), 79 behav(s), 6 port(s)
+
+ArrayTest_basic_raw.pvadir/pvaRTL_linux64.so is reused
+
+End of pVA elaboration on Thu Nov 19 14:35:40 2020	GTM/In-use: 4.1250/3.5980 MB
+
+*pvaI* Creating VA module (RRAM) for instance XDEFAULT_2R_16_16_1BIT.XBANK0.XBITCELL_ARRAY.XBIT_R14_C15.XR_B with gmd reduction
+*pvaI*        termCount=3 diwSize=14 probeSize=25 Qsize=1 Isize=2
+End of GMD creation on Thu Nov 19 14:35:40 2020	GTM/In-use: 4.1250/1.7230 MB
+
+*pvaI* Creating VA module (comparator) for instance XDEFAULT_2R_16_16_1BIT.XBANK0.XCOLUMN_INTERFACE0.XCOMPARATOR with gmd reduction
+*pvaI*        termCount=4 diwSize=11 probeSize=8 Qsize=0 Isize=2
+End of GMD creation on Thu Nov 19 14:35:40 2020	GTM/In-use: 4.1250/1.7251 MB
+
+End of pVA setup    on Thu Nov 19 14:35:41 2020	GTM/In-use: 4.1250/1.7269 MB
+
+Begin of pVA simulation on Thu Nov 19 14:35:41 2020	GTM/In-use: 4.1250/1.7269 MB
+
+*pvaW* (31) FPE: Encountered numerical Inf with node (t, b) (../Array/../building_blocks/../Array/../building_blocks/rram.va:30)
+*pvaW*           in N/A-instname(RRAM)
+*pvaW* (31)      For a complete list of FPE warnings, please setenv PVA_ENABLE_FPE3 2
+*pvaW* (31)      For debugging, please use $strobe to print the value of signal.
+
+*pvaI* minimum timestep = 1e-20
+
+			pVA malloc          0.251 Mbytes         2987 times
+			pVA calloc          4.767 Mbytes        15409 times
+			pVA realloc         0.062 Mbytes          171 times
+			pVA valloc          0.000 Mbytes            0 times
+			pVA alloca          0.000 Mbytes            0 times
+
+			pVA TOT-MEM         5.080 Mbytes        18567 times
+			pVA free                                 3885 times
+			pVA strdup          0.000 Mbytes            0 times
+
+
+pVA concluded on Thu Nov 19 14:35:51 2020	GTM/In-use: 4.1250/1.6023 MB
+

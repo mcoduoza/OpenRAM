@@ -1,0 +1,42 @@
+Args: pva -p hsp -t spi -f ArrayTest_basic_raw.pvadir/pvaHDL.lis -o ArrayTest_basic_raw.pvadir
+
+Begin of pVA compiling on Thu Nov 19 14:35:39 2020	GTM/In-use: 0.6250/0.5500 MB
+
+Parsing '../Array/../building_blocks/../Array/../building_blocks/rram.va'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/disciplines.vams'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/constants.vams'
+Parsing include file '../Array/../building_blocks/smoothfunctions.va'
+Parsing '../Array/../Array/../building_blocks/comparator.va'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/discipline.h'
+Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/constants.h'
+
+End of pVA compiling on Thu Nov 19 14:35:39 2020	GTM/In-use: 1.5000/1.3337 MB
+
+
+End of build pVA DB on Thu Nov 19 14:35:39 2020	GTM/In-use: 3.3750/3.3326 MB
+
+*pvaI* Module (RRAM): 3 unexpanded port, 0 init, 78 behav, 3 contrib, 27/235 expr(s)
+*pvaW*        Variable 'clip_minGap' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (../Array/../building_blocks/../Array/../building_blocks/rram.va:37)
+*pvaI*        No DIS, 28/32 afCount, 0 MT, dlg, IO(0/0/0/0)
+*pvaI*        0 gmdIsThreadSafe 
+*pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
+*pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
+*pvaW*        variable 'clip_0' declared but not used in RHS, deleted (../Array/../building_blocks/../Array/../building_blocks/rram.va:24)
+*pvaW*                   To relax this rule, use 'setenv PVA_KEEP_VARS 1' to keep variables for probing.
+*pvaI*        generated 0 flow node(s) during compilation.
+*pvaI* Module (comparator): 3 unexpanded port, 2 init, 1 behav, 1 contrib, 27/0 expr(s)
+*pvaI*        Has DIS(AE SB), 0/0 afCount, 0 MT, dlg, IO(0/1/1/1)
+*pvaI*        0 gmdIsThreadSafe (AE SB)
+*pvaI*        0 const-G and 0 const-C, No switchBranch, 22 bypassOpt, 0 bus2scalar, 0 vwb
+*pvaI*        set_va_exp = 80 [80.0, 704.0] set by default
+*pvaI*        Port direction output of 'sigout' is coerced to inout (../Array/../Array/../building_blocks/comparator.va:44)
+*pvaI*        generated 1 flow node(s) during compilation.
+
+End of pVA genC on Thu Nov 19 14:35:40 2020	GTM/In-use: 4.1250/3.8488 MB
+
+*pvaI* #### Total 493 line-size(s), 54/235 expr(s), 4 contr(s), 2 init(s), 79 behav(s), 6 port(s)
+
+ArrayTest_basic_raw.pvadir/pvaRTL_linux64.so is reused
+
+End of pVA elaboration on Thu Nov 19 14:35:40 2020	GTM/In-use: 4.1250/3.5980 MB
+
