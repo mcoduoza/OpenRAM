@@ -32,14 +32,14 @@ VREF vref gnd 'V_REF'
 
 * Control signals: write mode; chip is selected
 VCSB csb0 gnd 0
-VREB reb0 gnd PWL(0 'V_DD' 120n 'V_DD' 121n 0 350n 0 351n 'V_DD' 400n 'V_DD')
-VWEB web0 gnd 0 PWL(0 0 120n 0 121n 'V_DD' 400n 'V_DD')
+VREB reb0 gnd PWL(0 'V_DD' 70n 'V_DD' 71n 0 150n 0 151n 'V_DD' 200n 'V_DD')
+VWEB web0 gnd 0 PWL(0 0 70n 0 71n 'V_DD' 200n 'V_DD')
 
-VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 100ns 200ns
+VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 50ns 100ns
 *VCLK clk0 gnd PWL(0 0 10ps 'V_DD' 49990ps 'V_DD' 50000ps 0 99990ps 0 100000ps 'V_DD' 1000ns 'V_DD')
 * Output
 Rout dout0_0 gnd 1G
 
 * Transient simulation
-.tran 10p 400n
+.tran 10p 200n
 .end
