@@ -5,7 +5,7 @@
 
 * Top RRAM cell and initial condition (HRS)
 XR_T wl_tc blc gap_t RRAM
-.ic V(gap_t)=0.7
+.ic V(gap_t)=1.0
 .ic V(wl_tc)=0
 .ic V(blc)=0
 
