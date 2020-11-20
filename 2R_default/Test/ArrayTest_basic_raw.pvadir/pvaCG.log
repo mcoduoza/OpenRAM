@@ -1,6 +1,6 @@
 Args: pva -p hsp -t spi -f ArrayTest_basic_raw.pvadir/pvaHDL.lis -o ArrayTest_basic_raw.pvadir
 
-Begin of pVA compiling on Thu Nov 19 14:35:39 2020	GTM/In-use: 0.6250/0.5500 MB
+Begin of pVA compiling on Thu Nov 19 23:19:09 2020	GTM/In-use: 0.6250/0.5500 MB
 
 Parsing '../Array/../building_blocks/../Array/../building_blocks/rram.va'
 Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/disciplines.vams'
@@ -10,10 +10,10 @@ Parsing '../Array/../Array/../building_blocks/comparator.va'
 Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/discipline.h'
 Parsing include file '/cad/synopsys/hspice/M-2017.03-SP2/hspice/include/constants.h'
 
-End of pVA compiling on Thu Nov 19 14:35:39 2020	GTM/In-use: 1.5000/1.3337 MB
+End of pVA compiling on Thu Nov 19 23:19:09 2020	GTM/In-use: 1.5000/1.3337 MB
 
 
-End of build pVA DB on Thu Nov 19 14:35:39 2020	GTM/In-use: 3.3750/3.3326 MB
+End of build pVA DB on Thu Nov 19 23:19:09 2020	GTM/In-use: 3.3750/3.3326 MB
 
 *pvaI* Module (RRAM): 3 unexpanded port, 0 init, 78 behav, 3 contrib, 27/235 expr(s)
 *pvaW*        Variable 'clip_minGap' is used without declaration, set to real. To error out, setenv PVA_AUTO_DECLARE 0 (../Array/../building_blocks/../Array/../building_blocks/rram.va:37)
@@ -32,11 +32,11 @@ End of build pVA DB on Thu Nov 19 14:35:39 2020	GTM/In-use: 3.3750/3.3326 MB
 *pvaI*        Port direction output of 'sigout' is coerced to inout (../Array/../Array/../building_blocks/comparator.va:44)
 *pvaI*        generated 1 flow node(s) during compilation.
 
-End of pVA genC on Thu Nov 19 14:35:40 2020	GTM/In-use: 4.1250/3.8488 MB
+End of pVA genC on Thu Nov 19 23:19:10 2020	GTM/In-use: 4.1250/3.8488 MB
 
 *pvaI* #### Total 493 line-size(s), 54/235 expr(s), 4 contr(s), 2 init(s), 79 behav(s), 6 port(s)
 
 ArrayTest_basic_raw.pvadir/pvaRTL_linux64.so is reused
 
-End of pVA elaboration on Thu Nov 19 14:35:40 2020	GTM/In-use: 4.1250/3.5980 MB
+End of pVA elaboration on Thu Nov 19 23:19:10 2020	GTM/In-use: 4.1250/3.5980 MB
 

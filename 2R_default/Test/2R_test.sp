@@ -4,7 +4,7 @@
 .inc ../NMOS_VTG.inc
 .param V_WRITE=1.5
 .param V_READ=0.2
-.param V_GATE1=0
+.param V_GATE1=1.5
 .param V_GATE2=1.5
 .param V_GATE3=0
 
@@ -23,7 +23,7 @@ Vread vread gnd 'V_READ'
 
 
 *Top driving transistor
-MT1 wl_t vgate1 vread vdd PMOS_VTG W=1800n L=50n
+MT1 wl_t vgate1 vread gnd NMOS_VTG W=1800n L=50n
 
 *Bottom driving transistor
 MT2 wl_b vgate2 gnd gnd NMOS_VTG W=1800n L=50n
