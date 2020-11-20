@@ -1,15 +1,10 @@
 **************************************************
-* OpenRAM generated memory.
+* 2R Architecture
 * Words: 256
 * Data bits: 1
 * Banks: 1
 * Column mux: 16:1
 **************************************************
-* File: DFFPOSX1.pex.netlist
-* Created: Wed Jan  2 18:36:24 2008
-* Program "Calibre xRC"
-* Version "v2007.2_34.24"
-*
 .inc opamp.sp
 .inc ../building_blocks/2R.sp
 .hdl ../building_blocks/comparator.va
