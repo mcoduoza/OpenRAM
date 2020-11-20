@@ -509,6 +509,7 @@ Xnand2_e write_0_int wl_active drive_top_0_bar vdd gnd pnand2
 Xinv_e drive_top_0_bar drive_top_0 vdd gnd pinv
 Xnand2_f drive_top_vread_bar drive_top_0_bar drive_bot_0 vdd gnd pnand2
 
+* Connected to top wordline 
 mp_vwrite_top wlt drive_vwrite_bar vwrite vdd pmos_vtg w=4.0u l=0.05u
 mp_vhold_top wlt drive_vhold_bar vhold vdd pmos_vtg w=4.0u l=0.05u
 mn_vhold_top wlt drive_vhold vhold gnd nmos_vtg w=1.8u l=0.05u
@@ -516,6 +517,7 @@ mp_vread_top wlt drive_top_vread_bar vread vdd pmos_vtg w=4.0u l=0.05u
 mn_vread_top wlt drive_top_vread vread gnd nmos_vtg w=1.8u l=0.05u
 mn_v0_top wlt drive_top_0 gnd gnd nmos_vtg w=1.8u l=0.05u
 
+* Connected to bottom wordline 
 mp_vwrite_bot wlb drive_vwrite_bar vwrite vdd pmos_vtg w=4.0u l=0.05u
 mp_vhold_bot wlb drive_vhold_bar vhold vdd pmos_vtg w=4.0u l=0.05u
 mn_vhold_bot wlb drive_vhold vhold gnd nmos_vtg w=1.8u l=0.05u
@@ -1764,8 +1766,8 @@ Xdload_8_3 out n_8_3 vdd gnd pinv_18
 Xclkbuf clk clk_buf vdd gnd pdriver_1
 Xctrl_dffs csb web reb cs_bar cs we_bar we re_bar re clk_buf vdd gnd dff_buf_array
 Xand2_gated_clk_buf clk_buf cs gated_clk_buf vdd gnd pand2
-*Xbuf_wl_en gated_clk_buf wl_en vdd gnd pdriver_2
-Xbuf_wl_en vdd wl_en vdd gnd pdriver_2
+Xbuf_wl_en gated_clk_buf wl_en vdd gnd pdriver_2
+*Xbuf_wl_en vdd wl_en vdd gnd pdriver_2
 Xbuf_r_en re r_en vdd gnd pdriver_1 
 Xbuf_w_en we w_en vdd gnd pdriver_1 
 Xnop re we nop_int vdd gnd pnor2_2
