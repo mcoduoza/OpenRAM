@@ -19,14 +19,14 @@ Vdin din0_0 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'V_DD' 75n 'V_DD' 75.1n 'ZERO' 125
 * Address (r2,c2): 00100010
 * Address (r3,c3): 00110011
 * Address (r4,c4): 01000100
-Vaddr0 addr0_0 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'V_DD' 75n 'V_DD' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'V_DD' 175n 'V_DD' 175.1n 'ZERO' 200n 'ZERO')
-Vaddr1 addr0_1 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'V_DD' 125n 'V_DD' 125.1n 'V_DD' 175n 'V_DD' 175.1n 'ZERO' 200n 'ZERO')
-Vaddr2 addr0_2 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'ZERO' 175n 'ZERO' 175.1n 'V_DD' 200n 'V_DD')
-Vaddr3 addr0_3 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'ZERO' 175n 'ZERO' 175.1n 'ZERO' 200n 'ZERO')
-Vaddr4 addr0_4 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'V_DD' 75n 'V_DD' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'V_DD' 175n 'V_DD' 175.1n 'ZERO' 200n 'ZERO')
-Vaddr5 addr0_5 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'V_DD' 125n 'V_DD' 125.1n 'V_DD' 175n 'V_DD' 175.1n 'ZERO' 200n 'ZERO')
-Vaddr6 addr0_6 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'ZERO' 175n 'ZERO' 175.1n 'V_DD' 200n 'V_DD')
-Vaddr7 addr0_7 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'ZERO' 175n 'ZERO' 175.1n 'ZERO' 200n 'ZERO')
+Vaddr0 addr0_0 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'V_DD' 75n 'V_DD' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'V_DD' 175n 'V_DD' 175.1n 'ZERO' 225n 'ZERO' 225.1n 'V_DD' 275n 'V_DD' 275.1n 'ZERO' 325n 'ZERO' 325.1n 'V_DD' 375n 'V_DD' 375.1n 'ZERO') 
+Vaddr1 addr0_1 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'V_DD' 125n 'V_DD' 125.1n 'V_DD' 175n 'V_DD' 175.1n 'ZERO' 225n 'ZERO' 225.1n 'ZERO' 275n 'ZERO' 275.1n 'V_DD' 325n 'V_DD' 325.1n 'V_DD' 375n 'V_DD' 375.1n 'ZERO')
+Vaddr2 addr0_2 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'ZERO' 175n 'ZERO' 175.1n 'V_DD' 225n 'ZERO' 225.1n 'ZERO' 275n 'ZERO' 275.1n 'ZERO' 325n 'ZERO' 325.1n 'ZERO' 375n 'ZERO' 375.1n 'V_DD') 
+Vaddr3 addr0_3 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'ZERO' 175n 'ZERO' 175.1n 'ZERO' 225n 'ZERO' 225.1n 'ZERO' 275n 'ZERO' 275.1n 'ZERO' 325n 'ZERO' 325.1n 'ZERO' 375n 'ZERO' 375.1n 'ZERO') 
+Vaddr4 addr0_4 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'V_DD' 75n 'V_DD' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'V_DD' 175n 'V_DD' 175.1n 'ZERO' 225n 'ZERO' 225.1n 'V_DD' 275n 'V_DD' 275.1n 'ZERO' 325n 'ZERO' 325.1n 'V_DD' 375n 'V_DD' 375.1n 'ZERO') 
+Vaddr5 addr0_5 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'V_DD' 125n 'V_DD' 125.1n 'V_DD' 175n 'V_DD' 175.1n 'ZERO' 225n 'ZERO' 225.1n 'ZERO' 275n 'ZERO' 275.1n 'V_DD' 325n 'V_DD' 325.1n 'V_DD' 375n 'V_DD' 375.1n 'ZERO')
+Vaddr6 addr0_6 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'ZERO' 175n 'ZERO' 175.1n 'V_DD' 225n 'ZERO' 225.1n 'ZERO' 275n 'ZERO' 275.1n 'ZERO' 325n 'ZERO' 325.1n 'ZERO' 375n 'ZERO' 375.1n 'V_DD') 
+Vaddr7 addr0_7 gnd PWL(0 'ZERO' 25n 'ZERO' 25.1n 'ZERO' 75n 'ZERO' 75.1n 'ZERO' 125n 'ZERO' 125.1n 'ZERO' 175n 'ZERO' 175.1n 'ZERO' 225n 'ZERO' 225.1n 'ZERO' 275n 'ZERO' 275.1n 'ZERO' 325n 'ZERO' 325.1n 'ZERO' 375n 'ZERO' 375.1n 'ZERO') 
 
 * Power signals
 VDD vdd gnd 'V_DD'
@@ -38,9 +38,9 @@ VREF vref gnd 'V_REF'
 * Control signals: write mode; chip is selected
 VCSB csb0 gnd 0
 *VREB reb0 gnd PWL(0 'V_DD' 25n 'V_DD' 25.1n 0 60n 0 60.1n 'V_DD' 110n 'V_DD' 110.1n 0 175n 0 175.1n 'V_DD' 200n 'V_DD')
-VREB reb0 gnd 'V_DD'
+VREB reb0 gnd PWL(0 'V_DD' 225n 'V_DD' 225.1n 'ZERO' 500n 'ZERO')
 *VWEB web0 gnd 0 PWL(0 0 25n 0 25.1n 'V_DD' 60n 'V_DD' 60.1n 0 110n 0 110.1n 'V_DD' 200n 'V_DD')
-VWEB web0 gnd 'ZERO'
+VWEB web0 gnd PWL(0 'ZERO' 225n 'ZERO' 225.1n 'V_DD' 500n 'V_DD')
 
 VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 25ns 50ns
 *VCLK clk0 gnd PWL(0 0 10ps 'V_DD' 49990ps 'V_DD' 50000ps 0 99990ps 0 100000ps 'V_DD' 1000ns 'V_DD')
@@ -48,5 +48,5 @@ VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 25ns 50ns
 Rout dout0_0 gnd 1G
 
 * Transient simulation
-.tran 10p 250n
+.tran 10p 500n
 .end
