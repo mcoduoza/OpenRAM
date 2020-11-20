@@ -15,7 +15,7 @@ XMLC_2R_16_16_1bit din0_1 din0_0 addr0_0 addr0_1 addr0_2 addr0_3 addr0_4 addr0_5
 
 * Data-in: 2'b01
 Vdin0 din0_0 gnd 'V_DD'
-Vdin0 din0_1 gnd gnd
+Vdin1 din0_1 gnd gnd
 
 * Address: 00000000
 Vaddr0 addr0_0 gnd 0
