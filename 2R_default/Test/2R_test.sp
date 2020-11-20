@@ -3,7 +3,7 @@
 .inc ../PMOS_VTG.inc
 .inc ../NMOS_VTG.inc
 .param V_WRITE=1.5
-.param V_READ=0.5
+.param V_READ=0.2
 .param V_GATE1=0
 .param V_GATE2=1.5
 .param V_GATE3=0
