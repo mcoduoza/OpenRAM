@@ -22,5 +22,8 @@ Rwl_b wl_b wl_bc 0.25
 Cwl_b wl_bc gnd 0.2f
 Rbl bl blc 0.25
 Cbl blc gnd 0.2f
+
+.probe v(gap_t,blc)
+.probe v(gap_b,wl_bc)
 .ENDS cell_2r
 
