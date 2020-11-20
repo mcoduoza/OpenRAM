@@ -3,8 +3,8 @@
 .param V_DD=1.5
 .param V_WRITE=1.5
 .param V_HOLD=0.75
-.param V_READ=0.5
-.param V_REF=0.25
+.param V_READ=0.2
+.param V_REF=0.1
 .option post=2
 
 * DUT
