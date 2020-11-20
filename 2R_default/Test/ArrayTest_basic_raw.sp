@@ -32,7 +32,7 @@ VREF vref gnd 'V_REF'
 
 * Control signals: write mode; chip is selected
 VCSB csb0 gnd 0
-VREB reb0 gnd PWL(0 'V_DD' 25n 'V_DD' 25.1n 0 60n 0 60.1n 'V_DD' 110n 'V_DD' 110.1n 0 176n 0 175.1n 'V_DD' 200n 'V_DD')
+VREB reb0 gnd PWL(0 'V_DD' 25n 'V_DD' 25.1n 0 60n 0 60.1n 'V_DD' 110n 'V_DD' 110.1n 0 175n 0 175.1n 'V_DD' 200n 'V_DD')
 VWEB web0 gnd 0 PWL(0 0 25n 0 25.1n 'V_DD' 60n 'V_DD' 60.1n 0 110n 0 110.1n 'V_DD' 200n 'V_DD')
 
 VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 25ns 50ns
