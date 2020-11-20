@@ -11,7 +11,7 @@
 Xdefault_2R_16_16_1bit din0_0 addr0_0 addr0_1 addr0_2 addr0_3 addr0_4 addr0_5 addr0_6 addr0_7 csb0 web0 reb0 clk0 dout0_0 vdd gnd vwrite vread vhold vref default_2R_16_16_1bit
 
 * Data-in
-Vdin din0_0 PWL(0 0 70n 0 70.1n 'V_DD' 200n 'V_DD')
+Vdin din0_0 gnd PWL(0 0 70n 0 70.1n 'V_DD' 200n 'V_DD')
 
 * Address: 00000000
 Vaddr0 addr0_0 gnd 0
