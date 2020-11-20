@@ -1,6 +1,6 @@
 * Array Test
 .inc ../Array/2R_default_16_16_1bit.sp
-.param V_DD=1.5
+.param V_DD=1.8
 .param V_WRITE=1.5
 .param V_HOLD=0.75
 .param V_READ=0.2

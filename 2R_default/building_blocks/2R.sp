@@ -6,7 +6,7 @@
 * Top RRAM cell and initial condition (LRS)
 *I0=1e-4 Vel0=100
 XR_T wl_tc blc gap_t RRAM 
-.ic V(gap_t)=1.0
+.ic V(gap_t)=0.7
 .ic V(wl_tc)=0
 .ic V(blc)=0
 
