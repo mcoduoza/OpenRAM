@@ -510,18 +510,18 @@ Xinv_e drive_top_0_bar drive_top_0 vdd gnd pinv
 Xnand2_f drive_top_vread_bar drive_top_0_bar drive_bot_0 vdd gnd pnand2
 
 * Connected to top wordline 
-mp_vwrite_top wlt drive_vwrite_bar vwrite vdd pmos_vtg w=4.0u l=0.05u
-mp_vhold_top wlt drive_vhold_bar vhold vdd pmos_vtg w=4.0u l=0.05u
-mn_vhold_top wlt drive_vhold vhold gnd nmos_vtg w=1.8u l=0.05u
-mp_vread_top wlt drive_top_vread_bar vread vdd pmos_vtg w=4.0u l=0.05u
-mn_vread_top wlt drive_top_vread vread gnd nmos_vtg w=1.8u l=0.05u
-mn_v0_top wlt drive_top_0 gnd gnd nmos_vtg w=1.8u l=0.05u
+mp_vwrite_top wlt drive_vwrite_bar vwrite vdd pmos_vtg w=7.2u l=0.05u
+mp_vhold_top wlt drive_vhold_bar vhold vdd pmos_vtg w=7.2u l=0.05u
+mn_vhold_top wlt drive_vhold vhold gnd nmos_vtg w=3.6u l=0.05u
+mp_vread_top wlt drive_top_vread_bar vread vdd pmos_vtg w=7.2u l=0.05u
+mn_vread_top wlt drive_top_vread vread gnd nmos_vtg w=3.6u l=0.05u
+mn_v0_top wlt drive_top_0 gnd gnd nmos_vtg w=3.6u l=0.05u
 
 * Connected to bottom wordline 
-mp_vwrite_bot wlb drive_vwrite_bar vwrite vdd pmos_vtg w=4.0u l=0.05u
-mp_vhold_bot wlb drive_vhold_bar vhold vdd pmos_vtg w=4.0u l=0.05u
-mn_vhold_bot wlb drive_vhold vhold gnd nmos_vtg w=1.8u l=0.05u
-mn_v0_bot wlb drive_bot_0 gnd gnd nmos_vtg w=1.8u l=0.05u 
+mp_vwrite_bot wlb drive_vwrite_bar vwrite vdd pmos_vtg w=7.2u l=0.05u
+mp_vhold_bot wlb drive_vhold_bar vhold vdd pmos_vtg w=7.2u l=0.05u
+mn_vhold_bot wlb drive_vhold vhold gnd nmos_vtg w=3.6u l=0.05u
+mn_v0_bot wlb drive_bot_0 gnd gnd nmos_vtg w=3.6u l=0.05u 
 .ENDS wordline_driver
 
 .SUBCKT wordline_driver_array write_1_int write_0_int w_en r_en nop wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold
@@ -1050,10 +1050,10 @@ Xinv_b drive_vhold drive_vhold_bar vdd gnd pinv
 Xnand2_d write_1_int col_active_buf drive_0_bar vdd gnd pnand2
 Xinv_c drive_0_bar drive_0 vdd gnd pinv
 
-mp_vwrite_top bl drive_vwrite_bar vwrite vdd pmos_vtg w=4.0u l=0.05u
-mp_vhold bl drive_vhold_bar vhold vdd pmos_vtg w=4.0u l=0.05u
-mn_vhold bl drive_vhold vhold gnd nmos_vtg w=1.8u l=0.05u
-mn_v0_top bl drive_0 gnd gnd nmos_vtg w=1.8u l=0.05u
+mp_vwrite_top bl drive_vwrite_bar vwrite vdd pmos_vtg w=7.2u l=0.05u
+mp_vhold bl drive_vhold_bar vhold vdd pmos_vtg w=7.2u l=0.05u
+mn_vhold bl drive_vhold vhold gnd nmos_vtg w=3.6u l=0.05u
+mn_v0_top bl drive_0 gnd gnd nmos_vtg w=3.6u l=0.05u
 .ENDS bitline_driver
 
 
