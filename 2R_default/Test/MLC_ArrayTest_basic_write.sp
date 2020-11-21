@@ -13,9 +13,9 @@
 * DUT
 XMLC_2R_16_16_1bit din0_1 din0_0 addr0_0 addr0_1 addr0_2 addr0_3 addr0_4 addr0_5 addr0_6 addr0_7 csb0 web0 reb0 clk0 dout0_1 dout0_0 vdd gnd vwrite vread vhold vref1 vref2 vref3 vmrs MLC_2R_16_16_1bit
 
-* Data-in: 2'b01
-Vdin0 din0_0 gnd 'V_DD'
-Vdin1 din0_1 gnd 0
+* Data-in: 2'b10
+Vdin0 din0_0 gnd gnd
+Vdin1 din0_1 gnd 'V_DD'
 
 * Address: 00000000
 Vaddr0 addr0_0 gnd 0

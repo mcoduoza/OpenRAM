@@ -510,7 +510,7 @@ Mpinv_nmos_gnd Z drive_gnd gnd gnd nmos_vtg w=0.44u l=0.05u
 Mpinv_nmos_alt_gnd Z drive_alt_gnd alt_gnd gnd nmos_vtg w=0.44u l=0.05u
 .ENDS pinv_special
 
-.SUBCKT wordline_driver write_1_int write_0_int write_00_int mrs wl_active w_en r_en nop wlt wlb vdd gnd vwrite vread vhold vmrs 
+.SUBCKT wordline_driver write_1_int write_0_int mrs wl_active w_en r_en nop wlt wlb vdd gnd vwrite vread vhold vmrs 
 * INPUT : write_1_int
 * INPUT : write_0_int
 * INPUT : mrs
@@ -526,16 +526,12 @@ Mpinv_nmos_alt_gnd Z drive_alt_gnd alt_gnd gnd nmos_vtg w=0.44u l=0.05u
 * POWER : vread
 * POWER : vhold
 * POWER : vmrs
+* START HERE *
 Xinv_a wl_active wl_active_bar vdd gnd pinv
 Xinv_b nop nop_bar vdd gnd pinv
 
-Xinv_h write_00_int write_00_int_bar vdd gnd pinv
-Xdata01_indicator write_0_int mrs data_is_01 vdd gnd pand2
-
 Xand2_a write_1_int wl_active write10or11 vdd gnd pand2
-
-Xinv_special write10or11 mrs drive_top_vwrite_bar_bias vdd gnd vmrs pinv_special
-Xnand2_g write_1_int data_is_01 drive_bot_vwrite_bar vdd gnd pnor2_2
+Xinv_special write10or11 mrs drive_vwrite_bar_bias vdd gnd vmrs pinv_special
 
 Xnand2_b w_en wl_active_bar vhold_gate_in vdd gnd pnand2
 Xnand2_c nop_bar vhold_gate_in drive_vhold vdd gnd pnand2_2
@@ -544,22 +540,22 @@ Xnand2_d r_en wl_active drive_top_vread_bar vdd gnd pnand2
 Xinv_d drive_top_vread_bar drive_top_vread vdd gnd pinv
 Xnand2_e write_0_int wl_active drive_top_0_bar vdd gnd pnand2
 Xinv_e drive_top_0_bar drive_top_0 vdd gnd pinv
-Xnand2_f drive_top_vread_bar write_00_int_bar drive_bot_0 vdd gnd pnand2
+Xnand2_f drive_top_vread_bar drive_top_0_bar drive_bot_0 vdd gnd pnand2
 
-mp_vwrite_top wlt drive_top_vwrite_bar_bias vwrite vdd pmos_vtg w=4.0u l=0.05u
+mp_vwrite_top wlt drive_vwrite_bar_bias vwrite vdd pmos_vtg w=4.0u l=0.05u
 mp_vhold_top wlt drive_vhold_bar vhold vdd pmos_vtg w=4.0u l=0.05u
 mn_vhold_top wlt drive_vhold vhold gnd nmos_vtg w=1.8u l=0.05u
 mp_vread_top wlt drive_top_vread_bar vread vdd pmos_vtg w=4.0u l=0.05u
 mn_vread_top wlt drive_top_vread vread gnd nmos_vtg w=1.8u l=0.05u
 mn_v0_top wlt drive_top_0 gnd gnd nmos_vtg w=1.8u l=0.05u
 
-mp_vwrite_bot wlb drive_bot_vwrite_bar vwrite vdd pmos_vtg w=4.0u l=0.05u
+mp_vwrite_bot wlb drive_vwrite_bar_bias vwrite vdd pmos_vtg w=4.0u l=0.05u
 mp_vhold_bot wlb drive_vhold_bar vhold vdd pmos_vtg w=4.0u l=0.05u
 mn_vhold_bot wlb drive_vhold vhold gnd nmos_vtg w=1.8u l=0.05u
 mn_v0_bot wlb drive_bot_0 gnd gnd nmos_vtg w=1.8u l=0.05u 
 .ENDS wordline_driver
 
-.SUBCKT wordline_driver_array write_1_int write_0_int write_00_int mrs w_en r_en nop wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold vmrs
+.SUBCKT wordline_driver_array write_1_int write_0_int mrs w_en r_en nop wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold vmrs
 * INPUT : write_1_int
 * INPUT : write_0_int 
 * INPUT : mrs
@@ -620,25 +616,25 @@ mn_v0_bot wlb drive_bot_0 gnd gnd nmos_vtg w=1.8u l=0.05u
 * POWER : vread 
 * POWER : vhold
 * POWER : vmrs
-Xwordline_driver0 write_1_int write_0_int write_00_int mrs wl_active0 w_en r_en nop wlt_0 wlb_0 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver1 write_1_int write_0_int write_00_int mrs wl_active1 w_en r_en nop wlt_1 wlb_1 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver2 write_1_int write_0_int write_00_int mrs wl_active2 w_en r_en nop wlt_2 wlb_2 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver3 write_1_int write_0_int write_00_int mrs wl_active3 w_en r_en nop wlt_3 wlb_3 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver4 write_1_int write_0_int write_00_int mrs wl_active4 w_en r_en nop wlt_4 wlb_4 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver5 write_1_int write_0_int write_00_int mrs wl_active5 w_en r_en nop wlt_5 wlb_5 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver6 write_1_int write_0_int write_00_int mrs wl_active6 w_en r_en nop wlt_6 wlb_6 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver7 write_1_int write_0_int write_00_int mrs wl_active7 w_en r_en nop wlt_7 wlb_7 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver8 write_1_int write_0_int write_00_int mrs wl_active8 w_en r_en nop wlt_8 wlb_8 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver9 write_1_int write_0_int write_00_int mrs wl_active9 w_en r_en nop wlt_9 wlb_9 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver10 write_1_int write_0_int write_00_int mrs wl_active10 w_en r_en nop wlt_10 wlb_10 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver11 write_1_int write_0_int write_00_int mrs wl_active11 w_en r_en nop wlt_11 wlb_11 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver12 write_1_int write_0_int write_00_int mrs wl_active12 w_en r_en nop wlt_12 wlb_12 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver13 write_1_int write_0_int write_00_int mrs wl_active13 w_en r_en nop wlt_13 wlb_13 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver14 write_1_int write_0_int write_00_int mrs wl_active14 w_en r_en nop wlt_14 wlb_14 vdd gnd vwrite vread vhold vmrs wordline_driver
-Xwordline_driver15 write_1_int write_0_int write_00_int mrs wl_active15 w_en r_en nop wlt_15 wlb_15 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver0 write_1_int write_0_int mrs wl_active0 w_en r_en nop wlt_0 wlb_0 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver1 write_1_int write_0_int mrs wl_active1 w_en r_en nop wlt_1 wlb_1 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver2 write_1_int write_0_int mrs wl_active2 w_en r_en nop wlt_2 wlb_2 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver3 write_1_int write_0_int mrs wl_active3 w_en r_en nop wlt_3 wlb_3 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver4 write_1_int write_0_int mrs wl_active4 w_en r_en nop wlt_4 wlb_4 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver5 write_1_int write_0_int mrs wl_active5 w_en r_en nop wlt_5 wlb_5 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver6 write_1_int write_0_int mrs wl_active6 w_en r_en nop wlt_6 wlb_6 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver7 write_1_int write_0_int mrs wl_active7 w_en r_en nop wlt_7 wlb_7 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver8 write_1_int write_0_int mrs wl_active8 w_en r_en nop wlt_8 wlb_8 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver9 write_1_int write_0_int mrs wl_active9 w_en r_en nop wlt_9 wlb_9 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver10 write_1_int write_0_int mrs wl_active10 w_en r_en nop wlt_10 wlb_10 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver11 write_1_int write_0_int mrs wl_active11 w_en r_en nop wlt_11 wlb_11 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver12 write_1_int write_0_int mrs wl_active12 w_en r_en nop wlt_12 wlb_12 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver13 write_1_int write_0_int mrs wl_active13 w_en r_en nop wlt_13 wlb_13 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver14 write_1_int write_0_int mrs wl_active14 w_en r_en nop wlt_14 wlb_14 vdd gnd vwrite vread vhold vmrs wordline_driver
+Xwordline_driver15 write_1_int write_0_int mrs wl_active15 w_en r_en nop wlt_15 wlb_15 vdd gnd vwrite vread vhold vmrs wordline_driver
 .ENDS wordline_driver_array
 
-.SUBCKT port_address addr_0 addr_1 addr_2 addr_3 wl_en write_1_int write_0_int write_00_int mrs w_en r_en nop wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold vmrs
+.SUBCKT port_address addr_0 addr_1 addr_2 addr_3 wl_en write_1_int write_0_int mrs w_en r_en nop wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold vmrs
 * INPUT : addr_0 
 * INPUT : addr_1 
 * INPUT : addr_2 
@@ -690,7 +686,7 @@ Xwordline_driver15 write_1_int write_0_int write_00_int mrs wl_active15 w_en r_e
 * POWER : vmrs
 Xrow_decoder addr_0 addr_1 addr_2 addr_3 dec_out_0 dec_out_1 dec_out_2 dec_out_3 dec_out_4 dec_out_5 dec_out_6 dec_out_7 dec_out_8 dec_out_9 dec_out_10 dec_out_11 dec_out_12 dec_out_13 dec_out_14 dec_out_15 vdd gnd hierarchical_decoder
 Xwordline_active_indicator_array dec_out_0 dec_out_1 dec_out_2 dec_out_3 dec_out_4 dec_out_5 dec_out_6 dec_out_7 dec_out_8 dec_out_9 dec_out_10 dec_out_11 dec_out_12 dec_out_13 dec_out_14 dec_out_15 wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 wl_en vdd gnd wordline_active_indicator_array
-Xwordline_driver_array write_1_int write_0_int write_00_int mrs w_en r_en nop wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold vmrs wordline_driver_array
+Xwordline_driver_array write_1_int write_0_int mrs w_en r_en nop wl_active0 wl_active1 wl_active2 wl_active3 wl_active4 wl_active5 wl_active6 wl_active7 wl_active8 wl_active9 wl_active10 wl_active11 wl_active12 wl_active13 wl_active14 wl_active15 wlt_0 wlt_1 wlt_2 wlt_3 wlt_4 wlt_5 wlt_6 wlt_7 wlt_8 wlt_9 wlt_10 wlt_11 wlt_12 wlt_13 wlt_14 wlt_15 wlb_0 wlb_1 wlb_2 wlb_3 wlb_4 wlb_5 wlb_6 wlb_7 wlb_8 wlb_9 wlb_10 wlb_11 wlb_12 wlb_13 wlb_14 wlb_15 vdd gnd vwrite vread vhold vmrs wordline_driver_array
 .ENDS port_address
 
 .SUBCKT bitcell_array bl_0_0 bl_0_1 bl_0_2 bl_0_3 bl_0_4 bl_0_5 bl_0_6 bl_0_7 bl_0_8 bl_0_9 bl_0_10 bl_0_11 bl_0_12 bl_0_13 bl_0_14 bl_0_15 wlt_0_0 wlt_0_1 wlt_0_2 wlt_0_3 wlt_0_4 wlt_0_5 wlt_0_6 wlt_0_7 wlt_0_8 wlt_0_9 wlt_0_10 wlt_0_11 wlt_0_12 wlt_0_13 wlt_0_14 wlt_0_15 wlb_0_0 wlb_0_1 wlb_0_2 wlb_0_3 wlb_0_4 wlb_0_5 wlb_0_6 wlb_0_7 wlb_0_8 wlb_0_9 wlb_0_10 wlb_0_11 wlb_0_12 wlb_0_13 wlb_0_14 wlb_0_15
@@ -1080,15 +1076,13 @@ XXMUX15 bl_15 bl_out_0 sel_15 vdd gnd column_transmission_gate
 * POWER : vwrite 
 * POWER : vhold
 * POWER : vmrs
+*** START HERE ***
 Xpinv_buf1 col_active col_active_bar vdd gnd pinv
 Xpinv_buf2 col_active_bar col_active_buf vdd gnd pinv
 Xinv_a nop nop_bar vdd gnd pinv
 
-*Xnand2_a write_0_int col_active_buf drive_vwrite_bar vdd gnd pnand2_2
-
 Xand2_a write_0_int col_active_buf write00or01 vdd gnd pand2
 Xinv_special write00or01 mrs drive_vwrite_bar_bias vdd gnd vmrs pinv_special
-
 Xnand2_b w_en col_active_bar vhold_gate_in vdd gnd pnand2
 Xnand2_c nop_bar vhold_gate_in drive_vhold vdd gnd pnand2
 Xinv_b drive_vhold drive_vhold_bar vdd gnd pinv
@@ -1428,11 +1422,6 @@ Xdin1_inv din0_1 din0_1_bar vdd gnd pinv
 Xdin_bar_and_write din0_1_bar w_en0 write_0_int_a vdd gnd pand2
 Xdin_bar_and_write_buf write_0_int_a write_0_int vdd gnd pdriver_1
 
-* din[1:0] = 2'b00
-Xdin_00 din0_0 din0_1 din_00 vdd gnd pnor2_2
-Xwrite_00_indicator din_00 w_en0 write_00_int_a vdd gnd pand2
-Xwrite_00_indicator_buf write_00_int_a write_00_int vdd gnd pdriver_1
-
 * MRS if din = 2'b01 or din = 2'b10
 Xdin0_inv din0_0 din0_0_bar vdd gnd pinv
 Xmrs_indicator_and1 din0_1 din0_0_bar mrs_and1 vdd gnd pand2
@@ -1442,7 +1431,7 @@ Xmrs_indicator mrs_bar mrs vdd gnd pinv_driver_25
 
 Xbitcell_array bl_0_0 bl_0_1 bl_0_2 bl_0_3 bl_0_4 bl_0_5 bl_0_6 bl_0_7 bl_0_8 bl_0_9 bl_0_10 bl_0_11 bl_0_12 bl_0_13 bl_0_14 bl_0_15 wlt_0_0 wlt_0_1 wlt_0_2 wlt_0_3 wlt_0_4 wlt_0_5 wlt_0_6 wlt_0_7 wlt_0_8 wlt_0_9 wlt_0_10 wlt_0_11 wlt_0_12 wlt_0_13 wlt_0_14 wlt_0_15 wlb_0_0 wlb_0_1 wlb_0_2 wlb_0_3 wlb_0_4 wlb_0_5 wlb_0_6 wlb_0_7 wlb_0_8 wlb_0_9 wlb_0_10 wlb_0_11 wlb_0_12 wlb_0_13 wlb_0_14 wlb_0_15 bitcell_array
 Xcolumn_interface0 write_1_int write_0_int r_en0 w_en0 nop mrs bl_0_0 bl_0_1 bl_0_2 bl_0_3 bl_0_4 bl_0_5 bl_0_6 bl_0_7 bl_0_8 bl_0_9 bl_0_10 bl_0_11 bl_0_12 bl_0_13 bl_0_14 bl_0_15 dout0_1 dout0_0 sel0_0 sel0_1 sel0_2 sel0_3 sel0_4 sel0_5 sel0_6 sel0_7 sel0_8 sel0_9 sel0_10 sel0_11 sel0_12 sel0_13 sel0_14 sel0_15 vdd gnd vwrite vhold vref1 vref2 vref3 vmrs column_interface
-Xport_address0 addr0_4 addr0_5 addr0_6 addr0_7 wl_en0 write_1_int write_0_int write_00_int mrs w_en0 r_en0 nop wlt_0_0 wlt_0_1 wlt_0_2 wlt_0_3 wlt_0_4 wlt_0_5 wlt_0_6 wlt_0_7 wlt_0_8 wlt_0_9 wlt_0_10 wlt_0_11 wlt_0_12 wlt_0_13 wlt_0_14 wlt_0_15 wlb_0_0 wlb_0_1 wlb_0_2 wlb_0_3 wlb_0_4 wlb_0_5 wlb_0_6 wlb_0_7 wlb_0_8 wlb_0_9 wlb_0_10 wlb_0_11 wlb_0_12 wlb_0_13 wlb_0_14 wlb_0_15 vdd gnd vwrite vread vhold vmrs port_address
+Xport_address0 addr0_4 addr0_5 addr0_6 addr0_7 wl_en0 write_1_int write_0_int mrs w_en0 r_en0 nop wlt_0_0 wlt_0_1 wlt_0_2 wlt_0_3 wlt_0_4 wlt_0_5 wlt_0_6 wlt_0_7 wlt_0_8 wlt_0_9 wlt_0_10 wlt_0_11 wlt_0_12 wlt_0_13 wlt_0_14 wlt_0_15 wlb_0_0 wlb_0_1 wlb_0_2 wlb_0_3 wlb_0_4 wlb_0_5 wlb_0_6 wlb_0_7 wlb_0_8 wlb_0_9 wlb_0_10 wlb_0_11 wlb_0_12 wlb_0_13 wlb_0_14 wlb_0_15 vdd gnd vwrite vread vhold vmrs port_address
 Xcol_address_decoder0 addr0_0 addr0_1 addr0_2 addr0_3 sel0_0 sel0_1 sel0_2 sel0_3 sel0_4 sel0_5 sel0_6 sel0_7 sel0_8 sel0_9 sel0_10 sel0_11 sel0_12 sel0_13 sel0_14 sel0_15 vdd gnd hierarchical_predecode4x16_0
 .ENDS bank
 
