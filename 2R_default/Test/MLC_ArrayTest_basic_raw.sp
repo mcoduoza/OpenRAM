@@ -43,7 +43,7 @@ VREB reb0 gnd PWL(0 'V_DD' 70n 0 70.1n 0 200n 0)
 VWEB web0 gnd PWL(0 0 70n 0 70.1n 'V_DD' 200n 'V_DD')
 
 * Clock
-VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 50ns 20ns
+VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 50ns 100ns
 
 * Outputs
 Rout0 dout0_0 gnd 1G
