@@ -1856,8 +1856,8 @@ Xdload_8_3 out n_8_3 vdd gnd pinv_18
 Xclkbuf clk clk_buf vdd gnd pdriver_1
 Xctrl_dffs csb web reb cs_bar cs we_bar we re_bar re clk_buf vdd gnd dff_buf_array
 Xand2_gated_clk_buf clk_buf cs gated_clk_buf vdd gnd pand2
-Xbuf_wl_en gated_clk_buf wl_en vdd gnd pdriver_2
-*Xbuf_wl_en vdd wl_en vdd gnd pdriver_2
+*Xbuf_wl_en gated_clk_buf wl_en vdd gnd pdriver_2
+Xbuf_wl_en vdd wl_en vdd gnd pdriver_2
 Xbuf_r_en re r_en vdd gnd pdriver_1 
 Xbuf_w_en we w_en vdd gnd pdriver_1 
 Xnop re we nop_int vdd gnd pnor2_2

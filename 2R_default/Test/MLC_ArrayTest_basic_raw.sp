@@ -4,7 +4,7 @@
 .param V_WRITE=1.5
 .param V_HOLD=0.75
 .param V_READ=0.5
-.param V_MRS=0.7
+.param V_MRS=1.1
 .param V_REF1=0.083
 .param V_REF2=0.25
 .param V_REF3=0.46
@@ -39,16 +39,16 @@ VMRS vmrs gnd 'V_MRS'
 
 * Control signals: write mode; chip is selected
 VCSB csb0 gnd 0
-VREB reb0 gnd PWL(0 'V_DD' 15n 'V_DD' 15.1n 0 30n 0)
-VWEB web0 gnd PWL(0 0 15n 0 15.1n 'V_DD' 30n 'V_DD')
+VREB reb0 gnd PWL(0 'V_DD' 5n 'V_DD' 5.1n 0 20n 0)
+VWEB web0 gnd PWL(0 0 5n 0 5.1n 'V_DD' 20n 'V_DD')
 
 * Clock
-VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 15ns 30ns
+VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 5ns 10ns
 
 * Outputs
 Rout0 dout0_0 gnd 1G
 Rout1 dout0_1 gnd 1G
 
 * Transient simulation
-.tran 10p 60n
+.tran 10p 20n
 .end
