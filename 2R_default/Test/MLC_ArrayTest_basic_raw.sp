@@ -39,16 +39,16 @@ VMRS vmrs gnd 'V_MRS'
 
 * Control signals: write mode; chip is selected
 VCSB csb0 gnd 0
-VREB reb0 gnd PWL(0 'V_DD' 7.5n 'V_DD' 7.6n 0 30n 0)
-VWEB web0 gnd PWL(0 0 7.5n 0 7.6n 'V_DD' 30n 'V_DD')
+VREB reb0 gnd PWL(0 'V_DD' 15n 'V_DD' 15.1n 0 30n 0)
+VWEB web0 gnd PWL(0 0 15n 0 15.1n 'V_DD' 30n 'V_DD')
 
 * Clock
-VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 7.5ns 15ns
+VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 15ns 30ns
 
 * Outputs
 Rout0 dout0_0 gnd 1G
 Rout1 dout0_1 gnd 1G
 
 * Transient simulation
-.tran 10p 30n
+.tran 10p 60n
 .end
