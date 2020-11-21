@@ -4,7 +4,7 @@
 .param V_WRITE=1.5
 .param V_HOLD=0.75
 .param V_READ=0.5
-.param V_MRS=1.0
+.param V_MRS=1.1
 .param V_REF1=0.083
 .param V_REF2=0.25
 .param V_REF3=0.42
