@@ -39,11 +39,11 @@ VMRS vmrs gnd 'V_MRS'
 
 * Control signals: write mode; chip is selected
 VCSB csb0 gnd 0
-VREB reb0 gnd 'V_DD'
-VWEB web0 gnd 0 PWL(0 0 70n 0 70.1n 'V_DD' 200n 'V_DD')
+VREB reb0 gnd PWL(0 'V_DD' 70n 0 70.1n 0 200n 0)
+VWEB web0 gnd PWL(0 0 70n 0 70.1n 'V_DD' 200n 'V_DD')
 
 * Clock
-VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 50ns 100ns
+VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 50ns 20ns
 
 * Outputs
 Rout0 dout0_0 gnd 1G
