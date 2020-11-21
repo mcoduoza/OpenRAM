@@ -45,6 +45,9 @@ VWEB web0 gnd PWL(0 0 5n 0 5.1n 'V_DD' 20n 'V_DD')
 * Clock
 VCLK clk0 gnd PULSE 0 'V_DD' 10ps 10ps 10ps 5ns 10ns
 
+* Real clock
+VCLK_READ clk_real gnd PULSE 0 'V_DD' 10ps 10ps 10ps 25ns 50ns
+
 * Outputs
 Rout0 dout0_0 gnd 1G
 Rout1 dout0_1 gnd 1G
