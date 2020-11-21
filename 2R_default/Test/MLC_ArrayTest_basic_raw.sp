@@ -50,5 +50,5 @@ Rout0 dout0_0 gnd 1G
 Rout1 dout0_1 gnd 1G
 
 * Transient simulation
-.tran 10p 100n
+.tran 10p 50n
 .end
